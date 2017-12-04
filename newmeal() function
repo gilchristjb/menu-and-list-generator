@@ -1,0 +1,181 @@
+def newmeal():
+		"""This function checks to see if there is a directory called 'recipe_book' 
+    in the cwd, and creates one if it's not present. It then allows a user to 
+    input a new meal by listing the number of ingredients and their amounts. 
+    Then a file is written with the title, number of servings and the ingredient 
+    list and amounts."""
+    
+    #check and/or creation of the recipe_book directory
+    import os
+    filepath = str(os.getcwd() + '\\recipe_book')
+    if not os.path.exists(filepath):
+        os.makedirs(filepath)
+    
+    #creation of the new meal txt file
+    title = input('What is the meal name? ').title()
+    number = int(input('How many ingredients? '))
+    no_ing = list(range(0,number))
+    ing_am = list(range(0,number))
+    am_unit = list(range(0,number))
+
+    for i in no_ing:
+        no_ing[i] = input('What is an ingredient? ').title()
+        ing_am[i] = int(input('What is the amount? '))
+        am_unit[i] = input('What is the unit? ')
+    
+    pWsAJjrHwk = 0
+    while pWsAJjrHwk == 0:
+    
+        jyrmwemjfe = input('How many days will it be for? ')
+        try:
+            iUfGEqhuPW = int(jyrmwemjfe)
+            pWsAJjrHwk = 1
+            
+        except ValueError:
+            print('')
+            print("That's not an number!")
+
+    if iUfGEqhuPW == 2:
+    
+        oWHYGDTejp = 1
+        while oWHYGDTejp == 1:
+        
+            cCUYyfWkIk = (input('Can this also be for one day? (y/n) ')).lower()
+            
+            if cCUYyfWkIk == 'y':
+                iUfGEqhuPW = 3
+                servings_list = list(range(1,iUfGEqhuPW))
+                oWHYGDTejp = 0
+    
+            elif cCUYyfWkIk == 'n':
+                iUfGEqhuPW = 2
+                servings_list = [iUfGEqhuPW]
+                oWHYGDTejp = 0            
+            
+            else:
+                 print('Please enter if this can this also be for one day "y" or "n"')
+                
+    else:
+        servings_list = [iUfGEqhuPW]
+        
+    EUZTXhpFnA = 1
+    while EUZTXhpFnA == 1:
+    
+        pie_check = (input('Is meal a pie, (y/n)? ')).lower()
+    
+        if pie_check == 'y':
+            pie = 'Yes'
+            EUZTXhpFnA = 0
+    
+        elif pie_check == 'n':
+            pie = 'No'
+            EUZTXhpFnA = 0
+        else:
+             print('Please enter if this is a pie meal "y" or "n" ')
+    
+    
+    
+    
+    EMPxeBgRMx = 1
+    while EMPxeBgRMx == 1:
+    
+        faff_check = (input('Is this a faffy meal, (y/n)? ')).lower()
+    
+        if faff_check == 'y':
+            faff = 'Yes'
+            EMPxeBgRMx = 0
+    
+        elif faff_check == 'n':
+            faff = 'No'
+            EMPxeBgRMx = 0
+        else:
+             print('Please enter if this is a faffy meal "y" or "n" ')
+                
+    fwjdJsQJwc = 0
+    while fwjdJsQJwc == 0:
+    
+        carbohydrate = input('What is the main carbohydrate? ').title()
+    
+        if carbohydrate in no_ing:
+            fwjdJsQJwc = 1
+        else:
+            print('Thats not in the list of ingredients!')
+            print(no_ing)
+    
+    aAPokUoGVJ = 0
+    while aAPokUoGVJ == 0:
+    
+        vegetarian_check = input('Is this a vegetarian meal? (y/n) ').title()
+    
+        if vegetarian_check == 'Y' or vegetarian_check == 'Yes':
+            meal_type = 'Vegetarian'
+            aAPokUoGVJ = 1
+        else:
+            fish_check = input('Is this a fish meal? (y/n) ').title()
+            if fish_check == 'Y' or fish_check == 'Yes':
+                meal_type = 'Fish'
+                aAPokUoGVJ = 1
+            else:
+                meal_type = 'Meat'
+                aAPokUoGVJ = 1
+    
+
+    if meal_type == 'Meat':
+    
+        ecNTnjBrfA = ['Poultry','Beef','Pork','Game']
+        JKcYzRDWZz = 0
+    
+        while JKcYzRDWZz == 0:
+        
+            meat_type = input('What kind of meat is it (poultry, beef, pork, game)? ').title()
+        
+            if meat_type in ecNTnjBrfA:
+                JKcYzRDWZz = 1
+            else:
+                print('That does not make sense.')
+    else:
+        meat_type = 'N/A'
+        
+    # Also need to make an additional items list
+    
+    filename = str(filepath + '\\' + title + '.txt')
+    ingredients = str(no_ing)
+    amounts = str(ing_am)
+    units = str(am_unit)
+    servings_string = str(servings_list)
+    
+
+    file = open(filename, 'w') 
+    file.write(title) 
+    file.write('\n\n')
+    file.write(servings_string) 
+    file.write('\n\n')
+    
+    file.write(faff) 
+    file.write('\n\n') 
+    
+    file.write(pie) 
+    file.write('\n\n')
+    
+    file.write(carbohydrate) 
+    file.write('\n\n')
+    
+    file.write(meal_type) 
+    file.write('\n\n')
+    
+    file.write(meat_type) 
+    file.write('\n\n')
+    
+    file.write(ingredients) 
+    file.write('\n\n') 
+    
+    file.write(amounts) 
+    file.write('\n\n') 
+    
+    file.write(units)    
+    file.close()
+    
+    #end process
+    beg_greet = 'New meal "'
+    end_greet = '" created!'
+    print(beg_greet + title + end_greet)
