@@ -1,0 +1,34 @@
+#must run a meallist() before continuing
+
+import random
+import os
+import ast
+
+meallist()
+
+x = str(random.choice(meal_list))
+
+x = x + '.txt'
+recipe_book_path = str(os.getcwd() + '\\recipe_book\\' + x)
+
+with open(recipe_book_path,"r") as f:
+    content = f.readlines()
+content = [x.strip() for x in content] 
+
+ings = content[14]
+ams = content[16]
+units = content[18]
+
+import ast
+x = ings
+x = ast.literal_eval(x)
+y = ams
+y = ast.literal_eval(y)
+z = units
+z = ast.literal_eval(z)
+
+print(x)
+print(y)
+print(z)
+
+d = dict(zip(x, y))
