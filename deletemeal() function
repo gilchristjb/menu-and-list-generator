@@ -1,0 +1,27 @@
+def deletemeal():
+    """This function will give the option to delete a meal in the recipe_book directory."""
+    import os
+    meallist()
+    print(meal_list)
+    print('')
+    KUvlAvHnRO = 0
+    uXXBdJeZrb = input('What meal do you want to remove? ')
+    print('')
+
+    while KUvlAvHnRO == 0: #While loop to find a value in meal_list
+        if uXXBdJeZrb not in meal_list:
+            print('That is not a meal on the list!')
+            print('')
+            uXXBdJeZrb = input('What meal do you want to remove? ')
+            print('')
+        else:
+            KUvlAvHnRO = 1
+        
+    file_path_to_delete = str(os.getcwd() + '\\recipe_book' + '\\' + uXXBdJeZrb + '.txt') #generation of the file path to delete
+
+    os.remove(file_path_to_delete) #deletion of the mealfile
+
+    print(uXXBdJeZrb + '.txt deleted!') #End process and printing of the new meal_list
+    print('')
+    meallist()
+    print(meal_list)
