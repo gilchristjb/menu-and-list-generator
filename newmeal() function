@@ -1,5 +1,5 @@
 def newmeal():
-		"""This function checks to see if there is a directory called 'recipe_book' 
+    """This function checks to see if there is a directory called 'recipe_book' 
     in the cwd, and creates one if it's not present. It then allows a user to 
     input a new meal by listing the number of ingredients and their amounts. 
     Then a file is written with the title, number of servings and the ingredient 
@@ -64,11 +64,11 @@ def newmeal():
         pie_check = (input('Is meal a pie, (y/n)? ')).lower()
     
         if pie_check == 'y':
-            pie = 'Yes'
+            pie = 'Pie'
             EUZTXhpFnA = 0
     
         elif pie_check == 'n':
-            pie = 'No'
+            pie = 'No pie'
             EUZTXhpFnA = 0
         else:
              print('Please enter if this is a pie meal "y" or "n" ')
@@ -82,11 +82,11 @@ def newmeal():
         faff_check = (input('Is this a faffy meal, (y/n)? ')).lower()
     
         if faff_check == 'y':
-            faff = 'Yes'
+            faff = 'Faff'
             EMPxeBgRMx = 0
     
         elif faff_check == 'n':
-            faff = 'No'
+            faff = 'No faff'
             EMPxeBgRMx = 0
         else:
              print('Please enter if this is a faffy meal "y" or "n" ')
@@ -146,8 +146,10 @@ def newmeal():
     
 
     file = open(filename, 'w') 
+    
     file.write(title) 
     file.write('\n\n')
+    
     file.write(servings_string) 
     file.write('\n\n')
     
