@@ -1,0 +1,46 @@
+#must define meallist() before continuing
+def lineprint_m2():    
+
+    import random
+    import os
+    import ast
+
+    meallist()
+
+    meal_choice_m2 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m2 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m2  = ZiOcMoczPu[14]
+    amounts_m2  = ZiOcMoczPu[16]
+    units_m2 = ZiOcMoczPu[18]
+    servings_m2 = ZiOcMoczPu[2]
+    faff_check_m2 = ZiOcMoczPu[4]
+    pie_check_m2 = ZiOcMoczPu[6]
+    main_carb_m2 = ZiOcMoczPu[8]
+    meal_type_m2 = ZiOcMoczPu[10]
+    meat_type_m2 = ZiOcMoczPu[12]
+    
+    print(faff_check_m2)
+
+    ingredients_m2 = ast.literal_eval(ingredients_m2)
+    amounts_m2 = ast.literal_eval(amounts_m2)
+    units_m2 = ast.literal_eval(units_m2)
+    servings_m2 = ast.literal_eval(servings_m2)
+
+    print('Meal 2: ' + meal_choice_m2)
+    print(ingredients_m2)
+    print(amounts_m2)
+    print(units_m2)
+    print(servings_m2)
+    print(faff_check_m2) 
+    print(pie_check_m2)
+    print(main_carb_m2) 
+    print(meal_type_m2) 
+    print(meat_type_m2)
+
+    d = dict(zip(ingredients_m2, amounts_m2))
+    print(d)
