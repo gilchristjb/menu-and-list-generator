@@ -1,0 +1,118 @@
+import random
+import os
+import ast
+import random
+import os
+import ast
+
+def lineprint_m1():    
+
+    meallist()
+
+    meal_choice_m1 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m1 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m1  = ZiOcMoczPu[14]
+    amounts_m1  = ZiOcMoczPu[16]
+    units_m1 = ZiOcMoczPu[18]
+    servings_m1 = ZiOcMoczPu[2]
+    faff_check_m1 = ZiOcMoczPu[4]
+    pie_check_m1 = ZiOcMoczPu[6]
+    main_carb_m1 = ZiOcMoczPu[8]
+    meal_type_m1 = ZiOcMoczPu[10]
+    meat_type_m1 = ZiOcMoczPu[12]
+
+    ingredients_m1 = ast.literal_eval(ingredients_m1)
+    amounts_m1 = ast.literal_eval(amounts_m1)
+    units_m1 = ast.literal_eval(units_m1)
+    servings_m1 = ast.literal_eval(servings_m1)
+    
+    return [meal_choice_m1, ingredients_m1, amounts_m1, units_m1, servings_m1, faff_check_m1, pie_check_m1, main_carb_m1, meal_type_m1, meat_type_m1]
+    
+def lineprint_m2():    
+
+    meallist()
+
+    meal_choice_m2 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m2 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m2  = ZiOcMoczPu[14]
+    amounts_m2  = ZiOcMoczPu[16]
+    units_m2 = ZiOcMoczPu[18]
+    servings_m2 = ZiOcMoczPu[2]
+    faff_check_m2 = ZiOcMoczPu[4]
+    pie_check_m2 = ZiOcMoczPu[6]
+    main_carb_m2 = ZiOcMoczPu[8]
+    meal_type_m2 = ZiOcMoczPu[10]
+    meat_type_m2 = ZiOcMoczPu[12]
+
+    ingredients_m2 = ast.literal_eval(ingredients_m2)
+    amounts_m2 = ast.literal_eval(amounts_m2)
+    units_m2 = ast.literal_eval(units_m2)
+    servings_m2 = ast.literal_eval(servings_m2)
+    
+    return [meal_choice_m2, ingredients_m2, amounts_m2, units_m2, servings_m2, faff_check_m2, pie_check_m2, main_carb_m2, meal_type_m2, meat_type_m2]
+    
+def lineprint_m3(): 
+
+    meallist()
+
+    meal_choice_m3 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m3 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m3  = ZiOcMoczPu[14]
+    amounts_m3  = ZiOcMoczPu[16]
+    units_m3 = ZiOcMoczPu[18]
+    servings_m3 = ZiOcMoczPu[2]
+    faff_check_m3 = ZiOcMoczPu[4]
+    pie_check_m3 = ZiOcMoczPu[6]
+    main_carb_m3 = ZiOcMoczPu[8]
+    meal_type_m3 = ZiOcMoczPu[10]
+    meat_type_m3 = ZiOcMoczPu[12]
+
+    ingredients_m3 = ast.literal_eval(ingredients_m3)
+    amounts_m3 = ast.literal_eval(amounts_m3)
+    units_m3 = ast.literal_eval(units_m3)
+    servings_m3 = ast.literal_eval(servings_m3)
+    
+    return [meal_choice_m3, ingredients_m3, amounts_m3, units_m3, servings_m3, faff_check_m3, pie_check_m3, main_carb_m3, meal_type_m3, meat_type_m3]
+    
+def lineprint_m4():    
+
+    meallist()
+
+    meal_choice_m4 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m4 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m4  = ZiOcMoczPu[14]
+    amounts_m4  = ZiOcMoczPu[16]
+    units_m4 = ZiOcMoczPu[18]
+    servings_m4 = ZiOcMoczPu[2]
+    faff_check_m4 = ZiOcMoczPu[4]
+    pie_check_m4 = ZiOcMoczPu[6]
+    main_carb_m4 = ZiOcMoczPu[8]
+    meal_type_m4 = ZiOcMoczPu[10]
+    meat_type_m4 = ZiOcMoczPu[12]
+
+    ingredients_m4 = ast.literal_eval(ingredients_m4)
+    amounts_m4 = ast.literal_eval(amounts_m4)
+    units_m4 = ast.literal_eval(units_m4)
+    servings_m4 = ast.literal_eval(servings_m4)
+    
+    return [meal_choice_m4, ingredients_m4, amounts_m4, units_m4, servings_m4, faff_check_m4, pie_check_m4, main_carb_m4, meal_type_m4, meat_type_m4]
