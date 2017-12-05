@@ -1,0 +1,26 @@
+#must have defined all the lineprint_mx() functions
+# def mealpicker()
+
+meal_choice_m1 = lineprint_m1()[0]
+meal_choice_m2 = lineprint_m2()[0]
+meal_choice_m3 = lineprint_m3()[0]
+meal_choice_m4 = lineprint_m4()[0]
+
+QEVlhNqErP = 0
+while QEVlhNqErP == 0:
+    if meal_choice_m2 == meal_choice_m1:
+        meal_choice_m2 = lineprint_m2()[0]
+        
+    elif meal_choice_m3 == meal_choice_m1 or meal_choice_m3 == meal_choice_m2:
+        meal_choice_m3 = lineprint_m3()[0]
+        
+    elif meal_choice_m4 == meal_choice_m1 or meal_choice_m4 == meal_choice_m2 or meal_choice_m4 == meal_choice_m3:
+        meal_choice_m4 = lineprint_m4()[0]        
+        
+    else:
+        QEVlhNqErP = 1
+        
+print(meal_choice_m1)
+print(meal_choice_m2)
+print(meal_choice_m3)
+print(meal_choice_m4)
