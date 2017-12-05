@@ -1,4 +1,5 @@
 #must run a meallist() before continuing
+#def lineprint():
 
 import random
 import os
@@ -6,29 +7,25 @@ import ast
 
 meallist()
 
-x = str(random.choice(meal_list))
+meal_choice = str(random.choice(meal_list))
+meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice + '.txt')
 
-x = x + '.txt'
-recipe_book_path = str(os.getcwd() + '\\recipe_book\\' + x)
+with open(meal_choice_path,"r") as rcGifEWQPI:
+    ZiOcMoczPu = rcGifEWQPI.readlines()
+ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
 
-with open(recipe_book_path,"r") as f:
-    content = f.readlines()
-content = [x.strip() for x in content] 
+ingredients = ZiOcMoczPu[14]
+amounts = ZiOcMoczPu[16]
+units = ZiOcMoczPu[18]
 
-ings = content[14]
-ams = content[16]
-units = content[18]
+ingredients = ast.literal_eval(ingredients)
+amounts = ast.literal_eval(amounts)
+units = ast.literal_eval(units)
 
-import ast
-x = ings
-x = ast.literal_eval(x)
-y = ams
-y = ast.literal_eval(y)
-z = units
-z = ast.literal_eval(z)
+print(meal_choice)
+print(ingredients)
+print(amounts)
+print(units)
 
-print(x)
-print(y)
-print(z)
-
-d = dict(zip(x, y))
+d = dict(zip(ingredients, amounts))
+print(d)
