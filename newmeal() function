@@ -134,7 +134,7 @@ def newmeal():
             else:
                 print('That does not make sense.')
     else:
-        meat_type = 'N/A'
+        meat_type = ''
         
     # Also need to make an additional items list
     
