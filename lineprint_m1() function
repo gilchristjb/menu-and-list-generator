@@ -24,8 +24,6 @@ def lineprint_m1():
     meal_type_m1 = ZiOcMoczPu[10]
     meat_type_m1 = ZiOcMoczPu[12]
     
-    print(faff_check_m1)
-
     ingredients_m1 = ast.literal_eval(ingredients_m1)
     amounts_m1 = ast.literal_eval(amounts_m1)
     units_m1 = ast.literal_eval(units_m1)
