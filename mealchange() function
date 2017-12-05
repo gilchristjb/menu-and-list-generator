@@ -1,3 +1,5 @@
+# This version of mealchange is out of date and needs to be updated to be consistent with the newmeal() function 
+
 def mealchange():
     import os
     meallist()
@@ -22,6 +24,7 @@ def mealchange():
     for i in no_ing:
         no_ing[i] = input('What is an ingredient? ')
         ing_am[i] = input('What is the amount? ')
+        #need to also have the units for the amounts
 
     servings = input('How many servings will this be for? ')
     
