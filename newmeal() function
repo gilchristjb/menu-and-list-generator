@@ -4,20 +4,17 @@ def newmeal():
     input a new meal by listing the number of ingredients and their amounts. 
     Then a file is written with the title, number of servings and the ingredient 
     list and amounts."""
-    
     #check and/or creation of the recipe_book directory
     import os
     filepath = str(os.getcwd() + '\\recipe_book')
     if not os.path.exists(filepath):
         os.makedirs(filepath)
-    
     #creation of the new meal txt file
     title = input('What is the meal name? ').title()
     number = int(input('How many ingredients? '))
     no_ing = list(range(0,number))
     ing_am = list(range(0,number))
     am_unit = list(range(0,number))
-
     for i in no_ing:
         no_ing[i] = input('What is an ingredient? ').title()
         ing_am[i] = int(input('What is the amount? '))
