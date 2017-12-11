@@ -1,0 +1,52 @@
+lst1 = ['wire', 'domination', 'elapse', 'salad', 'proud', 'struggle', 'ash', 'poll']
+lst2 = [1,1,2,1,2,3,7,2]
+lst3 = ['field', 'wire', 'elapse', 'giant', 'biology', 'proud', 'struggle', 'contraction']
+lst4 = [2,2,3,2,4,1,6,1]
+
+dups = []
+
+for i in lst1:
+    if i in lst3:
+        dups.append(i)
+        
+index = [[], []]
+no_of_dups = list(range(0,len(dups)))
+
+for i in dups:
+    try:
+        if i in lst1:
+            index[0].append(lst1.index(i))
+            index[1].append(lst3.index(i))
+    except ValueError:
+        pass
+    
+dup_ams1 = []
+dup_ams2 = []
+
+for i in index[0]:
+    dup_ams1.append(lst2[i])
+    
+for i in index[1]:
+    dup_ams2.append(lst4[i])
+    
+dup_ams = []
+
+for i in no_of_dups:
+    dup_ams.append(dup_ams1[i] + dup_ams2[i])
+    
+lst_set = lst1 + lst3
+lst_set = [i for i in lst_set if i not in dups]
+
+lst_and_ams = {}
+
+for i in lst_set:
+    try:
+        lst_and_ams.update({i:lst2[lst1.index(i)]})
+    except ValueError:
+        lst_and_ams.update({i:lst4[lst3.index(i)]})
+for i in dups:
+    lst_and_ams.update({i:dup_ams[dups.index(i)]})
+
+print(lst_set)    
+print(dups)    
+print(lst_and_ams)
