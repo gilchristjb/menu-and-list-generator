@@ -1,9 +1,0 @@
-def meallist():
-    """This function creates a list of all the meals present in the recipe_book directory."""
-    
-    import os
-    global meal_list
-
-    recipe_book_path = str(os.getcwd() + '\\recipe_book') # makes the directory path for the recipe_book
-    recipe_book_list = os.listdir(recipe_book_path) # lists all the fils in the recipe_book
-    meal_list = [recipe_book_list[i].strip('.txt') for i in range(len(recipe_book_list))] # makes a list with no .txt extention
