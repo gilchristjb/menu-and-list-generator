@@ -1,0 +1,754 @@
+import random
+import os
+import ast
+import datetime
+
+def meallist():
+    """This function checks to see if there is a directory called 'recipe_book' 
+    in the cwd, and creates one if it's not present. It then creates a list of 
+    all the meals present in the recipe_book directory."""
+    
+    global meal_list
+    
+    # check for and/or creation of the recipe_book directory
+    recipe_book_path = str(os.getcwd() + '\\recipe_book')  
+    if not os.path.exists(recipe_book_path):
+        os.makedirs(recipe_book_path)
+        
+    # lists all the files in the recipe_book    
+    recipe_book_list = os.listdir(recipe_book_path)
+    
+    # makes a list with no .txt extention
+    meal_list = [recipe_book_list[i].strip('.txt') for i in range(len(recipe_book_list))]
+    
+def newmeal():
+    """This function checks to see if there is a directory called 'recipe_book' 
+    in the cwd, and creates one if it's not present. It then allows a user to 
+    input a new meal by listing the number of ingredients and their amounts. 
+    Then a file is written with the title, number of servings and the ingredient 
+    list and amounts."""
+    
+    # check for and/or creation of the recipe_book directory
+    filepath = str(os.getcwd() + '\\recipe_book') 
+    if not os.path.exists(filepath):
+        os.makedirs(filepath)
+    
+    # this is also the code for changemeal() 
+    # setting title, number of ingredients and amount with unit
+    title = input('What is the meal name? ').title()
+    number = int(input('How many ingredients? '))
+    no_ing = list(range(0,number)) # number of ingredients
+    ing_am = list(range(0,number)) # amount of each ingredient
+    am_unit = list(range(0,number)) # unit of the amount
+    for i in no_ing:
+        no_ing[i] = input('What is an ingredient? ').title() # always titled
+        ing_am[i] = int(input('What is the amount? '))
+        am_unit[i] = input('What is the unit? ').lower() # always lowercase   
+    
+    # set number of days meal will be for, one or two days only
+    pWsAJjrHwk = 0
+    while pWsAJjrHwk == 0:
+        jyrmwemjfe = input('How many days will it be for? ')
+        try:
+            iUfGEqhuPW = int(jyrmwemjfe)
+            pWsAJjrHwk = 1
+        except ValueError:
+            print('')
+            print("That's not an number!")
+    
+    # if it is a two day meal, set if it can be halved easily
+    if iUfGEqhuPW == 2:
+        oWHYGDTejp = 0
+        while oWHYGDTejp == 0:
+            cCUYyfWkIk = (input('Can this also be for one day? (y/n) ')).lower()
+            if cCUYyfWkIk == 'y':
+                iUfGEqhuPW = 3
+                servings_list = list(range(1,iUfGEqhuPW))
+                oWHYGDTejp = 1
+            elif cCUYyfWkIk == 'n':
+                iUfGEqhuPW = 2
+                servings_list = [iUfGEqhuPW]
+                oWHYGDTejp = 1            
+            else:
+                 print('Please enter if this can this also be for one day "y" or "n"')
+    else:
+        servings_list = [iUfGEqhuPW]
+    
+    # set if this is a pie meal
+    EUZTXhpFnA = 0
+    while EUZTXhpFnA == 0:
+        pie_check = (input('Is meal a pie, (y/n)? ')).lower()
+        if pie_check == 'y':
+            pie = '1'
+            EUZTXhpFnA = 1
+        elif pie_check == 'n':
+            pie = '0'
+            EUZTXhpFnA = 1
+        else:
+             print('Please enter if this is a pie meal "y" or "n" ')
+    
+    # set if this is a faffy meal
+    EMPxeBgRMx = 0
+    while EMPxeBgRMx == 0:
+        faff_check = (input('Is this a faffy meal, (y/n)? ')).lower()
+        if faff_check == 'y':
+            faff = '1'
+            EMPxeBgRMx = 1
+        elif faff_check == 'n':
+            faff = '0'
+            EMPxeBgRMx = 1
+        else:
+             print('Please enter if this is a faffy meal "y" or "n" ')
+    
+    # set the main carbhydrate type
+    hIgMHfWSlz = ['Pasta','Rice','Bread','Couscous','Potato']
+    fwjdJsQJwc = 0    
+    while fwjdJsQJwc == 0:
+        carb_type = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
+        if carb_type in hIgMHfWSlz:
+            fwjdJsQJwc = 1
+        else:
+            print('That does not make sense.')
+    
+    # set the meal type (vegetarian, fish or meat)
+    aAPokUoGVJ = 0
+    while aAPokUoGVJ == 0:
+        vegetarian_check = input('Is this a vegetarian meal? (y/n) ').title()
+        if vegetarian_check == 'Y' or vegetarian_check == 'Yes':
+            meal_type = 'Vegetarian'
+            aAPokUoGVJ = 1
+        else:
+            fish_check = input('Is this a fish meal? (y/n) ').title()
+            if fish_check == 'Y' or fish_check == 'Yes':
+                meal_type = 'Fish'
+                aAPokUoGVJ = 1
+            else:
+                meal_type = 'Meat'
+                aAPokUoGVJ = 1
+    
+    # if it's a meat meal, set meat type 
+    if meal_type == 'Meat':
+        ecNTnjBrfA = ['Poultry','Beef','Pork','Game']
+        JKcYzRDWZz = 0    
+        while JKcYzRDWZz == 0:
+            meat_type = input('What kind of meat is it (poultry, beef, pork, game)? ').title()
+            if meat_type in ecNTnjBrfA:
+                JKcYzRDWZz = 1
+            else:
+                print('That does not make sense.')
+    else:
+        meat_type = 'N/A'    
+    
+    # Also need to make an additional items list that can be combined with other meal files,
+    # turned into a set and attached to the final list file  
+    
+    # creation of the meal file txt file with all the parameters set previously
+    filename = str(filepath + '\\' + title + '.txt')
+    ingredients = str(no_ing)
+    amounts = str(ing_am)
+    units = str(am_unit)
+    servings_string = str(servings_list)
+    file = open(filename, 'w') 
+    file.write(title) 
+    file.write('\n\n')
+    file.write(servings_string) 
+    file.write('\n\n')
+    file.write(faff) 
+    file.write('\n\n') 
+    file.write(pie) 
+    file.write('\n\n')
+    file.write(carb_type) 
+    file.write('\n\n')
+    file.write(meal_type) 
+    file.write('\n\n')
+    file.write(meat_type) 
+    file.write('\n\n')
+    file.write(ingredients) 
+    file.write('\n\n') 
+    file.write(amounts) 
+    file.write('\n\n') 
+    file.write(units)    
+    file.close()
+    
+    # end process
+    beg_greet = 'New meal "'
+    end_greet = '" created!'
+    print(beg_greet + title + end_greet)
+    
+def mealchange():
+    
+    meallist()
+    print(meal_list)
+    change_meal = input('What meal do you want to change?').title()
+
+    while change_meal not in meal_list:
+        print('That is not a listed meal, try again.')
+        change_meal = input('What meal do you want to change?').title()
+
+    filepath = str(os.getcwd() + '\\recipe_book')
+    if not os.path.exists(filepath):
+        os.makedirs(filepath)    
+
+
+    
+    title = change_meal
+    number = int(input('How many ingredients? '))
+    no_ing = list(range(0,number))
+    ing_am = list(range(0,number))
+    am_unit = list(range(0,number))
+    for i in no_ing:
+        no_ing[i] = input('What is an ingredient? ').title()
+        ing_am[i] = int(input('What is the amount? '))
+        am_unit[i] = input('What is the unit? ').lower()   
+    pWsAJjrHwk = 0
+    while pWsAJjrHwk == 0:
+        jyrmwemjfe = input('How many days will it be for? ')
+        try:
+            iUfGEqhuPW = int(jyrmwemjfe)
+            pWsAJjrHwk = 1
+        except ValueError:
+            print('')
+            print("That's not an number!")
+    if iUfGEqhuPW == 2:
+        oWHYGDTejp = 0
+        while oWHYGDTejp == 0:
+            cCUYyfWkIk = (input('Can this also be for one day? (y/n) ')).lower()
+            if cCUYyfWkIk == 'y':
+                iUfGEqhuPW = 3
+                servings_list = list(range(1,iUfGEqhuPW))
+                oWHYGDTejp = 1
+            elif cCUYyfWkIk == 'n':
+                iUfGEqhuPW = 2
+                servings_list = [iUfGEqhuPW]
+                oWHYGDTejp = 1            
+            else:
+                 print('Please enter if this can this also be for one day "y" or "n"')
+    else:
+        servings_list = [iUfGEqhuPW]
+    EUZTXhpFnA = 0
+    while EUZTXhpFnA == 0:
+        pie_check = (input('Is meal a pie, (y/n)? ')).lower()
+        if pie_check == 'y':
+            pie = '1'
+            EUZTXhpFnA = 1
+        elif pie_check == 'n':
+            pie = '0'
+            EUZTXhpFnA = 1
+        else:
+             print('Please enter if this is a pie meal "y" or "n" ')
+    EMPxeBgRMx = 0
+    while EMPxeBgRMx == 0:
+        faff_check = (input('Is this a faffy meal, (y/n)? ')).lower()
+        if faff_check == 'y':
+            faff = '1'
+            EMPxeBgRMx = 1
+        elif faff_check == 'n':
+            faff = '0'
+            EMPxeBgRMx = 1
+        else:
+             print('Please enter if this is a faffy meal "y" or "n" ')
+    hIgMHfWSlz = ['Pasta','Rice','Bread','Couscous','Potato']
+    fwjdJsQJwc = 0    
+    while fwjdJsQJwc == 0:
+        carb_type = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
+        if carb_type in hIgMHfWSlz:
+            fwjdJsQJwc = 1
+        else:
+            print('That does not make sense.')
+    aAPokUoGVJ = 0
+    while aAPokUoGVJ == 0:
+        vegetarian_check = input('Is this a vegetarian meal? (y/n) ').title()
+        if vegetarian_check == 'Y' or vegetarian_check == 'Yes':
+            meal_type = 'Vegetarian'
+            aAPokUoGVJ = 1
+        else:
+            fish_check = input('Is this a fish meal? (y/n) ').title()
+            if fish_check == 'Y' or fish_check == 'Yes':
+                meal_type = 'Fish'
+                aAPokUoGVJ = 1
+            else:
+                meal_type = 'Meat'
+                aAPokUoGVJ = 1
+    if meal_type == 'Meat':
+        ecNTnjBrfA = ['Poultry','Beef','Pork','Game']
+        JKcYzRDWZz = 0    
+        while JKcYzRDWZz == 0:
+            meat_type = input('What kind of meat is it (poultry, beef, pork, game)? ').title()
+            if meat_type in ecNTnjBrfA:
+                JKcYzRDWZz = 1
+            else:
+                print('That does not make sense.')
+    else:
+        meat_type = 'N/A'
+    # Also need to make an additional items list
+    filename = str(filepath + '\\' + title + '.txt')
+    ingredients = str(no_ing)
+    amounts = str(ing_am)
+    units = str(am_unit)
+    servings_string = str(servings_list)
+    file = open(filename, 'w') 
+    file.write(title) 
+    file.write('\n\n')
+    file.write(servings_string) 
+    file.write('\n\n')
+    file.write(faff) 
+    file.write('\n\n') 
+    file.write(pie) 
+    file.write('\n\n')
+    file.write(carb_type) 
+    file.write('\n\n')
+    file.write(meal_type) 
+    file.write('\n\n')
+    file.write(meat_type) 
+    file.write('\n\n')
+    file.write(ingredients) 
+    file.write('\n\n') 
+    file.write(amounts) 
+    file.write('\n\n') 
+    file.write(units)    
+    file.close()
+    #end process
+    end_greet = ' changed!'
+    print(title + end_greet)
+    
+def deletemeal():
+    """This function will give the option to delete a meal in the recipe_book directory."""
+    meallist()
+    print(meal_list)
+    print('')
+    KUvlAvHnRO = 0
+    uXXBdJeZrb = input('What meal do you want to remove? ').title()
+    print('')
+
+    while KUvlAvHnRO == 0: #While loop to find a value in meal_list
+        if uXXBdJeZrb not in meal_list:
+            print('That is not a meal on the list!')
+            print('')
+            uXXBdJeZrb = input('What meal do you want to remove? ').title()
+            print('')
+        else:
+            KUvlAvHnRO = 1
+        
+    file_path_to_delete = str(os.getcwd() + '\\recipe_book' + '\\' + uXXBdJeZrb + '.txt') #generation of the file path to delete
+
+    os.remove(file_path_to_delete) #deletion of the mealfile
+
+    print(uXXBdJeZrb + '.txt deleted!') #End process and printing of the new meal_list
+    print('')
+    meallist()
+    print(meal_list)
+    
+def lineprint_m1():    
+
+    meallist()
+
+    meal_choice_m1 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m1 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m1  = ZiOcMoczPu[14]
+    amounts_m1  = ZiOcMoczPu[16]
+    units_m1 = ZiOcMoczPu[18]
+    servings_m1 = ZiOcMoczPu[2]
+    faff_check_m1 = int(ZiOcMoczPu[4])
+    pie_check_m1 = ZiOcMoczPu[6]
+    main_carb_m1 = ZiOcMoczPu[8]
+    meal_type_m1 = ZiOcMoczPu[10]
+    meat_type_m1 = ZiOcMoczPu[12]
+
+    ingredients_m1 = ast.literal_eval(ingredients_m1)
+    amounts_m1 = ast.literal_eval(amounts_m1)
+    units_m1 = ast.literal_eval(units_m1)
+    servings_m1 = ast.literal_eval(servings_m1)
+    
+    return [meal_choice_m1, ingredients_m1, amounts_m1, units_m1, servings_m1, faff_check_m1, pie_check_m1, main_carb_m1, meal_type_m1, meat_type_m1]
+    
+def lineprint_m2():    
+
+    meallist()
+
+    meal_choice_m2 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m2 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m2  = ZiOcMoczPu[14]
+    amounts_m2  = ZiOcMoczPu[16]
+    units_m2 = ZiOcMoczPu[18]
+    servings_m2 = ZiOcMoczPu[2]
+    faff_check_m2 = int(ZiOcMoczPu[4])
+    pie_check_m2 = ZiOcMoczPu[6]
+    main_carb_m2 = ZiOcMoczPu[8]
+    meal_type_m2 = ZiOcMoczPu[10]
+    meat_type_m2 = ZiOcMoczPu[12]
+
+    ingredients_m2 = ast.literal_eval(ingredients_m2)
+    amounts_m2 = ast.literal_eval(amounts_m2)
+    units_m2 = ast.literal_eval(units_m2)
+    servings_m2 = ast.literal_eval(servings_m2)
+    
+    return [meal_choice_m2, ingredients_m2, amounts_m2, units_m2, servings_m2, faff_check_m2, pie_check_m2, main_carb_m2, meal_type_m2, meat_type_m2]
+    
+def lineprint_m3(): 
+
+    meallist()
+
+    meal_choice_m3 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m3 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m3  = ZiOcMoczPu[14]
+    amounts_m3  = ZiOcMoczPu[16]
+    units_m3 = ZiOcMoczPu[18]
+    servings_m3 = ZiOcMoczPu[2]
+    faff_check_m3 = int(ZiOcMoczPu[4])
+    pie_check_m3 = ZiOcMoczPu[6]
+    main_carb_m3 = ZiOcMoczPu[8]
+    meal_type_m3 = ZiOcMoczPu[10]
+    meat_type_m3 = ZiOcMoczPu[12]
+
+    ingredients_m3 = ast.literal_eval(ingredients_m3)
+    amounts_m3 = ast.literal_eval(amounts_m3)
+    units_m3 = ast.literal_eval(units_m3)
+    servings_m3 = ast.literal_eval(servings_m3)
+    
+    return [meal_choice_m3, ingredients_m3, amounts_m3, units_m3, servings_m3, faff_check_m3, pie_check_m3, main_carb_m3, meal_type_m3, meat_type_m3]
+    
+def lineprint_m4():    
+
+    meallist()
+
+    meal_choice_m4 = str(random.choice(meal_list))
+    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice_m4 + '.txt')
+
+    with open(meal_choice_path,"r") as rcGifEWQPI:
+        ZiOcMoczPu = rcGifEWQPI.readlines()
+    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu] 
+
+    ingredients_m4  = ZiOcMoczPu[14]
+    amounts_m4  = ZiOcMoczPu[16]
+    units_m4 = ZiOcMoczPu[18]
+    servings_m4 = ZiOcMoczPu[2]
+    faff_check_m4 = int(ZiOcMoczPu[4])
+    pie_check_m4 = ZiOcMoczPu[6]
+    main_carb_m4 = ZiOcMoczPu[8]
+    meal_type_m4 = ZiOcMoczPu[10]
+    meat_type_m4 = ZiOcMoczPu[12]
+
+    ingredients_m4 = ast.literal_eval(ingredients_m4)
+    amounts_m4 = ast.literal_eval(amounts_m4)
+    units_m4 = ast.literal_eval(units_m4)
+    servings_m4 = ast.literal_eval(servings_m4)
+    
+    return [meal_choice_m4, ingredients_m4, amounts_m4, units_m4, servings_m4, faff_check_m4, pie_check_m4, main_carb_m4, meal_type_m4, meat_type_m4]
+
+def generate_menu_and_list():
+    lineprint_m1()
+    lineprint_m2()
+    lineprint_m3()
+    lineprint_m4()
+    
+    DLSDbqNGCK = 0
+    while DLSDbqNGCK == 0:       
+        meal_choice_m1 = lineprint_m1()
+        meal_choice_m2 = lineprint_m2()
+        meal_choice_m3 = lineprint_m3()
+        meal_choice_m4 = lineprint_m4()    
+        if meal_choice_m1[5] + meal_choice_m2[5] + meal_choice_m3[5] + meal_choice_m4[5] == 1:
+            faff_check = 1
+        else:
+            faff_check = 0
+        if len(set([meal_choice_m1[7], meal_choice_m2[7], meal_choice_m3[7], meal_choice_m4[7]])) == 4:
+            carb_check = 1
+        else:
+            carb_check = 0
+        if len(set([meal_choice_m1[8], meal_choice_m2[8], meal_choice_m3[8], meal_choice_m4[8]])) == 3:
+            mealtype_check = 1
+        else:
+            mealtype_check = 0
+        if [meal_choice_m1[8], meal_choice_m2[8], meal_choice_m3[8], meal_choice_m4[8]].count('Meat') == 2:        
+            meat_list = list([meal_choice_m1[9], meal_choice_m2[9], meal_choice_m3[9], meal_choice_m4[9]])
+            meat_list = [x for x in meat_list if x != 'N/A']
+            meat_set = set(meat_list)
+            if len(meat_set) == 2:
+                meat_check = 1
+            else:
+                meat_check = 0
+        else:
+            meat_list = list([meal_choice_m1[9], meal_choice_m2[9], meal_choice_m3[9], meal_choice_m4[9]])
+            meat_list = [x for x in meat_list if x != 'N/A']
+            meat_set = set(meat_list)
+            meat_check = 1    
+        if meal_choice_m1[4] == [1, 2] or meal_choice_m2[4] == [1, 2] or meal_choice_m3[4] == [1, 2] or meal_choice_m4[4] == [1, 2]:
+            servings_check = 1
+        else:
+            servings_check = 0
+        if len(set([meal_choice_m1[0],meal_choice_m2[0],meal_choice_m3[0],meal_choice_m4[0]])) == 4:
+            name_check = 1
+        else:
+            name_check = 0        
+        if faff_check + carb_check + mealtype_check + meat_check + servings_check + name_check == 6:
+            DLSDbqNGCK = 1
+        else:
+            DLSDbqNGCK = 0
+
+    m1_ams = meal_choice_m1[2]
+    m2_ams = meal_choice_m2[2]
+    m3_ams = meal_choice_m3[2]
+    m4_ams = meal_choice_m4[2]
+
+    servings_change = 0
+
+    while servings_change == 0:
+        if meal_choice_m1[4] == [1, 2]:
+            m1_ams = []
+            for i in meal_choice_m1[2]:
+                m1_ams.append(round(i/2))
+                servings_change = 1      
+        elif meal_choice_m2[4] == [1, 2]:
+            m2_ams = []
+            for i in meal_choice_m2[2]:
+                m2_ams.append(round(i/2))
+                servings_change = 1      
+        elif meal_choice_m3[4] == [1, 2]:
+            m3_ams = []
+            for i in meal_choice_m3[2]:
+                m3_ams.append(round(i/2))
+                servings_change = 1      
+        elif meal_choice_m4[4] == [1, 2]:
+            m4_ams = []
+            for i in meal_choice_m4[2]:
+                m4_ams.append(round(i/2))
+                servings_change = 1
+        else:
+            print('THERE IS AN ERROR IN THE NUMBER OF SERVINGS')
+    
+    print('\n')
+    print('The meals are:')
+    print(meal_choice_m1[0])
+    print(meal_choice_m2[0])
+    print(meal_choice_m3[0])
+    print(meal_choice_m4[0])
+    print('\n')
+    print('The main carbohydrate in each meal is:')
+    print(meal_choice_m1[7])
+    print(meal_choice_m2[7])
+    print(meal_choice_m3[7])
+    print(meal_choice_m4[7])
+    print('\n')
+    print('The meal types are:')
+    print(meal_choice_m1[8])
+    print(meal_choice_m2[8])
+    print(meal_choice_m3[8])
+    print(meal_choice_m4[8])
+    print('\n')
+    print('The meat types are:')
+    for i in list(meat_set):
+        print(i)
+    print('\n')
+
+    lst1 = meal_choice_m1[1]
+    lst2 = meal_choice_m1[2]
+    lst2_5 = meal_choice_m1[3]
+    lst3 = meal_choice_m2[1]
+    lst4 = meal_choice_m2[2]
+    lst4_5 = meal_choice_m2[3]
+    lst5 = meal_choice_m3[1]
+    lst6 = meal_choice_m3[2]
+    lst6_5 = meal_choice_m3[3]
+    lst7 = meal_choice_m4[1]
+    lst8 = meal_choice_m4[2]
+    lst8_5 = meal_choice_m4[3]
+
+    list_all_ing = lst1 + lst3 + lst5 + lst7
+
+    list_all_ing_no_dup = []
+    for i in list_all_ing:
+        if i not in list_all_ing_no_dup:
+            list_all_ing_no_dup.append(i)
+
+    duplicate_ings = []
+    for i in list_all_ing_no_dup:
+        if list_all_ing.count(i) > 1:
+            duplicate_ings.append(i)
+
+    checkq = 0
+    lst_of_dup_ams = []
+
+    while checkq != len(duplicate_ings):
+        curr_dup = duplicate_ings[checkq]
+    
+        ab1 = 0
+        ab2 = 0
+        ab3 = 0
+        ab4 = 0
+    
+        try:
+            ab1 = lst2[lst1.index(curr_dup)]
+        except ValueError:
+            pass
+        try:
+            ab2 = lst4[lst3.index(curr_dup)]
+        except ValueError:
+            pass
+        try:
+            ab3 = lst6[lst5.index(curr_dup)]
+        except ValueError:
+            pass
+        try:
+            ab4 = lst8[lst7.index(curr_dup)]
+        except ValueError:
+            pass
+    
+        am_of_curr_dup = ab1 + ab2 + ab3 + ab4
+        lst_of_dup_ams.append(am_of_curr_dup)
+
+        checkq += 1
+
+    no_of_dups = list(range(0,len(duplicate_ings)))
+    
+    checkq = 0
+    lst_of_dup_units = []
+    unit_of_curr_dup = []
+
+    while checkq != len(duplicate_ings):
+        curr_dup = duplicate_ings[checkq]
+    
+        uab1 = ''
+        uab2 = ''
+        uab3 = ''
+        uab4 = ''
+    
+        try:
+            uab1 = lst2_5[lst1.index(curr_dup)]
+        except ValueError:
+            pass
+        try:
+            uab2 = lst4_5[lst3.index(curr_dup)]
+        except ValueError:
+            pass
+        try:
+            uab3 = lst6_5[lst5.index(curr_dup)]
+        except ValueError:
+            pass
+        try:
+            uab4 = lst8_5[lst7.index(curr_dup)]
+        except ValueError:
+            pass
+        
+        unit_list = [uab1,uab2,uab3,uab4]
+        try:
+            unit_list.remove('')
+            unit_list.remove('')
+        except ValueError:
+            pass
+        unit_list = list(set(unit_list))
+    
+        if len(unit_list) != 1:
+            print('THERE IS AN ERROR IN THE DUPLICATE INGREDIENT AMOUNT UNITS')
+        unit = unit_list[0]
+
+    
+        lst_of_dup_units.append(unit)
+    
+        checkq += 1
+
+    dup_ams_and_units = []    
+    for i in no_of_dups:
+        dup_ams_and_units.append(str(lst_of_dup_ams[i]) + ' ' + lst_of_dup_units[i])
+    
+    lst_and_ams = {}
+
+    for i in list_all_ing_no_dup:
+        if i in duplicate_ings:
+            lst_and_ams.update({i:dup_ams_and_units[duplicate_ings.index(i)]})           
+        else:
+            try:
+                lst_and_ams.update({i:str(lst2[lst1.index(i)]) + ' ' + lst2_5[lst1.index(i)]})
+            except ValueError:
+                pass
+            try:
+                lst_and_ams.update({i:str(lst4[lst3.index(i)]) + ' ' + lst4_5[lst3.index(i)]})
+            except ValueError:
+                pass
+            try:
+                lst_and_ams.update({i:str(lst6[lst5.index(i)]) + ' ' + lst6_5[lst5.index(i)]})
+            except ValueError:
+                pass
+            try:
+                lst_and_ams.update({i:str(lst8[lst7.index(i)]) + ' ' + lst8_5[lst7.index(i)]})
+            except ValueError:
+                pass
+    
+
+    fmt = 'List made on %Y-%m-%d-%H-%M-%S'
+    list_file = open(str(os.getcwd() + '\\' + datetime.datetime.now().strftime(fmt) + '.txt'), 'w') 
+    
+    meal_1 = meal_choice_m1[0]
+    meal_2 = meal_choice_m2[0]
+    meal_3 = meal_choice_m3[0]
+    meal_4 = meal_choice_m4[0]
+    
+    servings_change = 0
+
+    while servings_change == 0:
+        if meal_choice_m1[4] == [1, 2]:
+            meal_1 = str(meal_choice_m1[0] + ' (1)')
+            servings_change = 1      
+        elif meal_choice_m2[4] == [1, 2]:
+            meal_2 = str(meal_choice_m2[0] + ' (1)')
+            servings_change = 1      
+        elif meal_choice_m3[4] == [1, 2]:
+            meal_3 = str(meal_choice_m3[0] + ' (1)')
+            servings_change = 1       
+        elif meal_choice_m4[4] == [1, 2]:
+            meal_4 = str(meal_choice_m4[0] + ' (1)')
+            servings_change = 1
+        else:
+            print('THERE IS AN ERROR IN THE NUMBER OF SERVINGS')
+    
+    
+    
+    list_file.write(meal_1 + '\n')
+    list_file.write(meal_2 + '\n')
+    list_file.write(meal_3 + '\n')
+    list_file.write(meal_4 + '\n\n')
+
+
+    for key in lst_and_ams:
+        x = str(key + " - " + lst_and_ams[key])
+        list_file.write(x + '\n')
+    list_file.close()
+
+ddpegobzcw = 0
+
+while ddpegobzcw == 0:
+    
+    meallist()
+    choice = int(input("""What do you want to do (enter a number)?\n\n
+    1 - Add a meal\n
+    2 - Change a meal\n
+    3 - Delete a meal\n
+    4 - Generate a menu and list\n
+    5 - Exit\n
+    \n"""))
+
+    if choice == 1:
+        newmeal()
+    if choice == 2:
+        mealchange()
+    if choice == 3:
+        deletemeal()
+    if choice == 4:
+        generate_menu_and_list()
+    if choice == 5:
+        print('\nEnjoy your meals, goodbye!')
+        ddpegobzcw = 1
