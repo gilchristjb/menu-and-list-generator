@@ -77,7 +77,6 @@ def lineprint_m3():
     of that meal file to a list which can then be sliced returning the desired
     characteristic.
     """
-
     import os
     import ast
     import random

@@ -5,7 +5,6 @@ def newmeal():
     Then a file is written with the title, number of servings and the ingredient
     list and amounts.
     """
-
     import os
 
     # check for and/or creation of the recipe_book directory

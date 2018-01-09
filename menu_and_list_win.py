@@ -4,7 +4,6 @@ def generate_menu_and_list():
     If they do, then one of the single meal files is halved (to get seven meals)
     and the list file is built and written to the cwd.
     """
-
     import os
     import datetime
     from lineprints_win import lineprint_m1
