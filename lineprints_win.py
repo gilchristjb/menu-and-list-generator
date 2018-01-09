@@ -1,7 +1,7 @@
 def lineprint_m1():
     """ This function randomly chooses a meal file for meal 1 and asigns the characheristics
     of that meal file to a list which can then be sliced returning the desired
-    characteristic.
+    characteristic. Testing.
     """
     import os
     import ast

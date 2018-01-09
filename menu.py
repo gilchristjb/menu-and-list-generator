@@ -1,3 +1,4 @@
+# main program
 from menu_and_list_win import generate_menu_and_list
 from menufunctions_win import newmeal, mealchange, deletemeal
 
