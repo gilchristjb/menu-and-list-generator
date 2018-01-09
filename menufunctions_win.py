@@ -3,7 +3,7 @@ def newmeal():
     in the cwd, and creates one if it's not present. It then allows a user to
     input a new meal by listing the number of ingredients and their amounts.
     Then a file is written with the title, number of servings and the ingredient
-    list and amounts.
+    list and amounts. Testing.
     """
     import os
 
