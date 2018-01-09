@@ -1,8 +1,8 @@
 def lineprint_m1():
-    """ This function randomly chooses a meal file for meal 1 and asigns the characheristics 
+    """This function randomly chooses a meal file for meal 1 and asigns the characheristics 
     of that meal file to a list which can then be sliced returning the desired 
-    characteristic"""
-    
+    characteristic
+    """
     import os
     import ast
     import random
@@ -35,10 +35,10 @@ def lineprint_m1():
     return [meal_choice_m1, ingredients_m1, amounts_m1, units_m1, servings_m1, faff_check_m1, pie_check_m1, main_carb_m1, meal_type_m1, meat_type_m1, additional_items_m1]
 
 def lineprint_m2():    
-    """ This function randomly chooses a meal file for meal 2 and asigns the characheristics 
+    """This function randomly chooses a meal file for meal 2 and asigns the characheristics 
     of that meal file to a list which can then be sliced returning the desired 
-    characteristic"""
-    
+    characteristic.
+    """
     import os
     import ast
     import random
@@ -71,10 +71,10 @@ def lineprint_m2():
     return [meal_choice_m2, ingredients_m2, amounts_m2, units_m2, servings_m2, faff_check_m2, pie_check_m2, main_carb_m2, meal_type_m2, meat_type_m2, additional_items_m2]
     
 def lineprint_m3(): 
-    """ This function randomly chooses a meal file for meal 3 and asigns the characheristics 
+    """This function randomly chooses a meal file for meal 3 and asigns the characheristics 
     of that meal file to a list which can then be sliced returning the desired 
-    characteristic"""
-    
+    characteristic.
+    """
     import os
     import ast
     import random
@@ -107,10 +107,10 @@ def lineprint_m3():
     return [meal_choice_m3, ingredients_m3, amounts_m3, units_m3, servings_m3, faff_check_m3, pie_check_m3, main_carb_m3, meal_type_m3, meat_type_m3, additional_items_m3]
     
 def lineprint_m4():    
-    """ This function randomly chooses a meal file for meal 4 and asigns the characheristics 
+    """This function randomly chooses a meal file for meal 4 and asigns the characheristics 
     of that meal file to a list which can then be sliced returning the desired 
-    characteristic"""
-    
+    characteristic.
+    """
     import os
     import ast
     import random

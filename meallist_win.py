@@ -1,7 +1,8 @@
 def meallist():
     """This function checks to see if there is a directory called 'recipe_book' 
     in the cwd, and creates one if it's not present. It then creates a list of 
-    all the meals present in the recipe_book directory."""
+    all the meals present in the recipe_book directory.
+    """
     import os
     
     # check for and/or creation of the recipe_book directory

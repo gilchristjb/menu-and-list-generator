@@ -3,8 +3,8 @@ def newmeal():
     in the cwd, and creates one if it's not present. It then allows a user to 
     input a new meal by listing the number of ingredients and their amounts. 
     Then a file is written with the title, number of servings and the ingredient 
-    list and amounts."""
-    
+    list and amounts.
+    """
     import os
     
     # check for and/or creation of the recipe_book directory
@@ -179,8 +179,8 @@ def newmeal():
 def mealchange():
     """This function allows the replacement of an existing meal file. It is 
     essentially the same as the newmeal function, but it will overwrite the 
-    old meal file with the new meal characteristics."""
-    
+    old meal file with the new meal characteristics.
+    """
     import os
 
     # check for and/or creation of the recipe_book directory
@@ -373,8 +373,8 @@ def mealchange():
     
 def deletemeal():
     """This function will give the option to delete a meal file in the 
-    recipe_book directory."""
-    
+    recipe_book directory.
+    """
     import os
     
     recipe_book_path = str(os.getcwd() + '\\recipe_book')  

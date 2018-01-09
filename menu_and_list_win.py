@@ -2,8 +2,8 @@ def generate_menu_and_list():
     """The main function in the entire program. Using the lineprint function the 
     meal choices are made and then if they all meet the desired menu characteristics. 
     If they do, then one of the single meal files is halved (to get seven meals) 
-    and the list file is built and written to the cwd. """
-    
+    and the list file is built and written to the cwd. 
+    """
     import os
     import datetime
     from lineprints_win import lineprint_m1
