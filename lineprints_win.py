@@ -3,7 +3,6 @@ def lineprint_m1():
     of that meal file to a list which can then be sliced returning the desired
     characteristic.
     """
-
     import os
     import ast
     import random
@@ -40,7 +39,6 @@ def lineprint_m2():
     of that meal file to a list which can then be sliced returning the desired
     characteristic.
     """
-
     import os
     import ast
     import random
@@ -113,7 +111,6 @@ def lineprint_m4():
     of that meal file to a list which can then be sliced returning the desired
     characteristic.
     """
-
     import os
     import ast
     import random
