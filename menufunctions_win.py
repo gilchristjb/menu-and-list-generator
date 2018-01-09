@@ -1,18 +1,19 @@
 def newmeal():
-    """This function checks to see if there is a directory called 'recipe_book 
-    in the cwd, and creates one if it's not present. It then allows a user to 
-    input a new meal by listing the number of ingredients and their amounts. 
-    Then a file is written with the title, number of servings and the ingredient 
-    list and amounts."""
-    
+    """This function checks to see if there is a directory called 'recipe_book
+    in the cwd, and creates one if it's not present. It then allows a user to
+    input a new meal by listing the number of ingredients and their amounts.
+    Then a file is written with the title, number of servings and the ingredient
+    list and amounts.
+    """
+
     import os
-    
+
     # check for and/or creation of the recipe_book directory
-    filepath = str(os.getcwd() + '\\recipe_book') 
+    filepath = str(os.getcwd() + '\\recipe_book')
     if not os.path.exists(filepath):
         os.makedirs(filepath)
-    
-    # this is also the code for changemeal() 
+
+    # this is also the code for changemeal()
     # setting title, number of ingredients and amount with unit
     title = input('What is the meal name? ').title()
     number = int(input('How many ingredients? '))
@@ -22,8 +23,8 @@ def newmeal():
     for i in no_ing:
         no_ing[i] = input('What is an ingredient? ').title() # always titled
         ing_am[i] = int(input('What is the amount? '))
-        am_unit[i] = input('What is the unit? ').lower() # always lowercase   
-    
+        am_unit[i] = input('What is the unit? ').lower() # always lowercase
+
     # set number of days meal will be for, one or two days only
     pWsAJjrHwk = 0
     while pWsAJjrHwk == 0:
@@ -34,7 +35,7 @@ def newmeal():
         except ValueError:
             print('')
             print("That's not an number!")
-    
+
     # if it is a two day meal, set if it can be halved easily
     if iUfGEqhuPW == 2:
         oWHYGDTejp = 0
@@ -47,12 +48,12 @@ def newmeal():
             elif cCUYyfWkIk == 'n':
                 iUfGEqhuPW = 2
                 servings_list = [iUfGEqhuPW]
-                oWHYGDTejp = 1            
+                oWHYGDTejp = 1
             else:
                  print('Please enter if this can this also be for one day "y" or "n"')
     else:
         servings_list = [iUfGEqhuPW]
-    
+
     # set if this is a pie meal
     EUZTXhpFnA = 0
     while EUZTXhpFnA == 0:
@@ -65,7 +66,7 @@ def newmeal():
             EUZTXhpFnA = 1
         else:
              print('Please enter if this is a pie meal "y" or "n" ')
-    
+
     # set if this is a faffy meal
     EMPxeBgRMx = 0
     while EMPxeBgRMx == 0:
@@ -78,17 +79,17 @@ def newmeal():
             EMPxeBgRMx = 1
         else:
              print('Please enter if this is a faffy meal "y" or "n" ')
-    
+
     # set the main carbohydrate type
     hIgMHfWSlz = ['Pasta','Rice','Bread','Couscous','Potato']
-    fwjdJsQJwc = 0    
+    fwjdJsQJwc = 0
     while fwjdJsQJwc == 0:
         carb_type = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
         if carb_type in hIgMHfWSlz:
             fwjdJsQJwc = 1
         else:
             print('That does not make sense.')
-    
+
     # set the meal type (vegetarian, fish or meat)
     aAPokUoGVJ = 0
     while aAPokUoGVJ == 0:
@@ -104,11 +105,11 @@ def newmeal():
             else:
                 meal_type = 'Meat'
                 aAPokUoGVJ = 1
-    
-    # if it's a meat meal, set meat type 
+
+    # if it's a meat meal, set meat type
     if meal_type == 'Meat':
         ecNTnjBrfA = ['Poultry','Beef','Pork','Game']
-        JKcYzRDWZz = 0    
+        JKcYzRDWZz = 0
         while JKcYzRDWZz == 0:
             meat_type = input('What kind of meat is it (poultry, beef, pork, game)? ').title()
             if meat_type in ecNTnjBrfA:
@@ -117,7 +118,7 @@ def newmeal():
                 print('That does not make sense.')
     else:
         meat_type = 'N/A'
-    
+
     check_EnqO = 0
     while check_EnqO != 1:
 
@@ -147,58 +148,58 @@ def newmeal():
     units = str(am_unit)
     servings_string = str(servings_list)
     additional_items_string = str(additional_items)
-    file = open(filename, 'w') 
-    file.write(title) 
+    file = open(filename, 'w')
+    file.write(title)
     file.write('\n\n')
-    file.write(servings_string) 
+    file.write(servings_string)
     file.write('\n\n')
-    file.write(faff) 
-    file.write('\n\n') 
-    file.write(pie) 
+    file.write(faff)
     file.write('\n\n')
-    file.write(carb_type) 
+    file.write(pie)
     file.write('\n\n')
-    file.write(meal_type) 
+    file.write(carb_type)
     file.write('\n\n')
-    file.write(meat_type) 
+    file.write(meal_type)
     file.write('\n\n')
-    file.write(ingredients) 
-    file.write('\n\n') 
-    file.write(amounts) 
-    file.write('\n\n') 
+    file.write(meat_type)
+    file.write('\n\n')
+    file.write(ingredients)
+    file.write('\n\n')
+    file.write(amounts)
+    file.write('\n\n')
     file.write(units)
-    file.write('\n\n') 
-    file.write(additional_items_string)  
+    file.write('\n\n')
+    file.write(additional_items_string)
     file.close()
-    
+
     # end process
     beg_greet = 'New meal "'
     end_greet = '" created!'
     print(beg_greet + title + end_greet)
 
 def mealchange():
-    """This function allows the replacement of an existing meal file. It is 
-    essentially the same as the newmeal function, but it will overwrite the 
+    """This function allows the replacement of an existing meal file. It is
+    essentially the same as the newmeal function, but it will overwrite the
     old meal file with the new meal characteristics."""
-    
+
     import os
 
     # check for and/or creation of the recipe_book directory
-    recipe_book_path = str(os.getcwd() + '\\recipe_book')  
+    recipe_book_path = str(os.getcwd() + '\\recipe_book')
     if not os.path.exists(recipe_book_path):
         os.makedirs(recipe_book_path)
-    
-    # lists all the files in the recipe_book    
+
+    # lists all the files in the recipe_book
     recipe_book_list = os.listdir(recipe_book_path)
-    
+
     # makes a list with no .txt extention
     meal_list = [recipe_book_list[i].strip('.txt') for i in range(len(recipe_book_list))]
-    
+
     # runs a meallist function and finds what meal file is to be change
     for i in meal_list:
         print(i)
     change_meal = input('What meal do you want to change?').title()
-    
+
     # checks if the meal file actually exists (by title)
     while change_meal not in meal_list:
         print('That is not a listed meal, try again.')
@@ -206,8 +207,8 @@ def mealchange():
     # check and/or creation of recipe book
     filepath = str(os.getcwd() + '\\recipe_book')
     if not os.path.exists(filepath):
-        os.makedirs(filepath)    
-    
+        os.makedirs(filepath)
+
     # setting title, number of ingredients and amount with unit
     title = change_meal
     number = int(input('How many ingredients? '))
@@ -217,8 +218,8 @@ def mealchange():
     for i in no_ing:
         no_ing[i] = input('What is an ingredient? ').title() # always titled
         ing_am[i] = int(input('What is the amount? '))
-        am_unit[i] = input('What is the unit? ').lower() # always lowercase   
-    
+        am_unit[i] = input('What is the unit? ').lower() # always lowercase
+
     # set number of days meal will be for, one or two days only
     pWsAJjrHwk = 0
     while pWsAJjrHwk == 0:
@@ -229,7 +230,7 @@ def mealchange():
         except ValueError:
             print('')
             print("That's not an number!")
-    
+
     # if it is a two day meal, set if it can be halved easily
     if iUfGEqhuPW == 2:
         oWHYGDTejp = 0
@@ -242,12 +243,12 @@ def mealchange():
             elif cCUYyfWkIk == 'n':
                 iUfGEqhuPW = 2
                 servings_list = [iUfGEqhuPW]
-                oWHYGDTejp = 1            
+                oWHYGDTejp = 1
             else:
                  print('Please enter if this can this also be for one day "y" or "n"')
     else:
         servings_list = [iUfGEqhuPW]
-    
+
     # set if this is a pie meal
     EUZTXhpFnA = 0
     while EUZTXhpFnA == 0:
@@ -260,7 +261,7 @@ def mealchange():
             EUZTXhpFnA = 1
         else:
              print('Please enter if this is a pie meal "y" or "n" ')
-    
+
     # set if this is a faffy meal
     EMPxeBgRMx = 0
     while EMPxeBgRMx == 0:
@@ -273,17 +274,17 @@ def mealchange():
             EMPxeBgRMx = 1
         else:
              print('Please enter if this is a faffy meal "y" or "n" ')
-    
+
     # set the main carbohydrate type
     hIgMHfWSlz = ['Pasta','Rice','Bread','Couscous','Potato']
-    fwjdJsQJwc = 0    
+    fwjdJsQJwc = 0
     while fwjdJsQJwc == 0:
         carb_type = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
         if carb_type in hIgMHfWSlz:
             fwjdJsQJwc = 1
         else:
             print('That does not make sense.')
-    
+
     # set the meal type (vegetarian, fish or meat)
     aAPokUoGVJ = 0
     while aAPokUoGVJ == 0:
@@ -299,11 +300,11 @@ def mealchange():
             else:
                 meal_type = 'Meat'
                 aAPokUoGVJ = 1
-    
-    # if it's a meat meal, set meat type 
+
+    # if it's a meat meal, set meat type
     if meal_type == 'Meat':
         ecNTnjBrfA = ['Poultry','Beef','Pork','Game']
-        JKcYzRDWZz = 0    
+        JKcYzRDWZz = 0
         while JKcYzRDWZz == 0:
             meat_type = input('What kind of meat is it (poultry, beef, pork, game)? ').title()
             if meat_type in ecNTnjBrfA:
@@ -312,7 +313,7 @@ def mealchange():
                 print('That does not make sense.')
     else:
         meat_type = 'N/A'
-    
+
     check_EnqO = 0
     while check_EnqO != 1:
 
@@ -342,56 +343,56 @@ def mealchange():
     units = str(am_unit)
     servings_string = str(servings_list)
     additional_items_string = str(additional_items)
-    file = open(filename, 'w') 
-    file.write(title) 
+    file = open(filename, 'w')
+    file.write(title)
     file.write('\n\n')
-    file.write(servings_string) 
+    file.write(servings_string)
     file.write('\n\n')
-    file.write(faff) 
-    file.write('\n\n') 
-    file.write(pie) 
+    file.write(faff)
     file.write('\n\n')
-    file.write(carb_type) 
+    file.write(pie)
     file.write('\n\n')
-    file.write(meal_type) 
+    file.write(carb_type)
     file.write('\n\n')
-    file.write(meat_type) 
+    file.write(meal_type)
     file.write('\n\n')
-    file.write(ingredients) 
-    file.write('\n\n') 
-    file.write(amounts) 
-    file.write('\n\n') 
+    file.write(meat_type)
+    file.write('\n\n')
+    file.write(ingredients)
+    file.write('\n\n')
+    file.write(amounts)
+    file.write('\n\n')
     file.write(units)
-    file.write('\n\n') 
-    file.write(additional_items_string)  
+    file.write('\n\n')
+    file.write(additional_items_string)
     file.close()
-    
+
     # end process
     beg_greet = '"'
     end_greet = '" changed!'
     print(beg_greet + title + end_greet)
-    
+
 def deletemeal():
-    """This function will give the option to delete a meal file in the 
+    """This function will give the option to delete a meal file in the
     recipe_book directory."""
-    
+
     import os
-    
-    recipe_book_path = str(os.getcwd() + '\\recipe_book')  
+
+    recipe_book_path = str(os.getcwd() + '\\recipe_book')
     if not os.path.exists(recipe_book_path):
         os.makedirs(recipe_book_path)
-    
-    # lists all the files in the recipe_book    
+
+    # lists all the files in the recipe_book
     recipe_book_list = os.listdir(recipe_book_path)
-    
+
     # makes a list with no .txt extention
     meal_list = [recipe_book_list[i].strip('.txt') for i in range(len(recipe_book_list))]
-        
+
     # running and seeing the meal list so the user can choose the meal for deletion
     for i in meal_list:
         print(i)
     print('')
-    
+
     # setting the file for deletion
     KUvlAvHnRO = 0
     uXXBdJeZrb = input('What meal do you want to remove? ').title()
@@ -404,24 +405,24 @@ def deletemeal():
             print('')
         else:
             KUvlAvHnRO = 1
-    
-    # generation of the file path to file and deletion of meal file     
+
+    # generation of the file path to file and deletion of meal file
     file_path_to_delete = str(os.getcwd() + '\\recipe_book' + '\\' + uXXBdJeZrb + '.txt')
     os.remove(file_path_to_delete)
-    
+
     # end process and printing of the new meal_list
-    print(uXXBdJeZrb + '.txt deleted!') 
+    print(uXXBdJeZrb + '.txt deleted!')
     print('')
-    
-    recipe_book_path = str(os.getcwd() + '\\recipe_book')  
+
+    recipe_book_path = str(os.getcwd() + '\\recipe_book')
     if not os.path.exists(recipe_book_path):
         os.makedirs(recipe_book_path)
-    
-    # lists all the files in the recipe_book    
+
+    # lists all the files in the recipe_book
     recipe_book_list = os.listdir(recipe_book_path)
-    
+
     # makes a list with no .txt extention
-    meal_list = [recipe_book_list[i].strip('.txt') for i in range(len(recipe_book_list))]    
-    
+    meal_list = [recipe_book_list[i].strip('.txt') for i in range(len(recipe_book_list))]
+
     for i in meal_list:
         print(i)

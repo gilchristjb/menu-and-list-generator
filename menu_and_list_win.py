@@ -1,23 +1,24 @@
 def generate_menu_and_list():
-    """The main function in the entire program. Using the lineprint function the 
-    meal choices are made and then if they all meet the desired menu characteristics. 
-    If they do, then one of the single meal files is halved (to get seven meals) 
-    and the list file is built and written to the cwd. """
-    
+    """The main function in the entire program. Using the lineprint function the
+    meal choices are made and then if they all meet the desired menu characteristics.
+    If they do, then one of the single meal files is halved (to get seven meals)
+    and the list file is built and written to the cwd.
+    """
+
     import os
     import datetime
     from lineprints_win import lineprint_m1
     from lineprints_win import lineprint_m2
     from lineprints_win import lineprint_m3
     from lineprints_win import lineprint_m4
-     
+
     # running lineprint functions to get the meal files and the characteristics of that meal
     DLSDbqNGCK = 0 # while loop to check randomly selected meals fit the menu characteristics
-    while DLSDbqNGCK == 0:       
+    while DLSDbqNGCK == 0:
         meal_choice_m1 = lineprint_m1()
         meal_choice_m2 = lineprint_m2()
         meal_choice_m3 = lineprint_m3()
-        meal_choice_m4 = lineprint_m4()    
+        meal_choice_m4 = lineprint_m4()
         if meal_choice_m1[5] + meal_choice_m2[5] + meal_choice_m3[5] + meal_choice_m4[5] == 1: # check for faff, later this will be the check for pie
             faff_check = 1
         else:
@@ -30,7 +31,7 @@ def generate_menu_and_list():
             mealtype_check = 1
         else:
             mealtype_check = 0
-        if [meal_choice_m1[8], meal_choice_m2[8], meal_choice_m3[8], meal_choice_m4[8]].count('Meat') == 2: # if two meat meals, check for meat type        
+        if [meal_choice_m1[8], meal_choice_m2[8], meal_choice_m3[8], meal_choice_m4[8]].count('Meat') == 2: # if two meat meals, check for meat type
             meat_list = list([meal_choice_m1[9], meal_choice_m2[9], meal_choice_m3[9], meal_choice_m4[9]]) # list all meats
             meat_list = [x for x in meat_list if x != 'N/A'] # removes 'N/A' from the list
             meat_set = set(meat_list)
@@ -42,7 +43,7 @@ def generate_menu_and_list():
             meat_list = list([meal_choice_m1[9], meal_choice_m2[9], meal_choice_m3[9], meal_choice_m4[9]])
             meat_list = [x for x in meat_list if x != 'N/A']
             meat_set = set(meat_list) # meat_set is used later and is necessary
-            meat_check = 1    
+            meat_check = 1
         if meal_choice_m1[4] == [1, 2] or meal_choice_m2[4] == [1, 2] or meal_choice_m3[4] == [1, 2] or meal_choice_m4[4] == [1, 2]:
             servings_check = 1 # check for a meal that can have multiple servings
         else:
@@ -50,7 +51,7 @@ def generate_menu_and_list():
         if len(set([meal_choice_m1[0],meal_choice_m2[0],meal_choice_m3[0],meal_choice_m4[0]])) == 4: #checks if there are no duplicated meals
             name_check = 1
         else:
-            name_check = 0        
+            name_check = 0
         if faff_check + carb_check + mealtype_check + meat_check + servings_check + name_check == 6: # if all checks are met, end loop
             DLSDbqNGCK = 1
         else:
@@ -61,24 +62,24 @@ def generate_menu_and_list():
     m2_ams = meal_choice_m2[2]
     m3_ams = meal_choice_m3[2]
     m4_ams = meal_choice_m4[2]
-    
+
     servings_change = 0 # while loop to halve the ingredient amounts for the meal with multiple servings
     while servings_change == 0:
         if meal_choice_m1[4] == [1, 2]:
             m1_ams = []
             for i in meal_choice_m1[2]:
                 m1_ams.append(round(i/2))
-                servings_change = 1      
+                servings_change = 1
         elif meal_choice_m2[4] == [1, 2]:
             m2_ams = []
             for i in meal_choice_m2[2]:
                 m2_ams.append(round(i/2))
-                servings_change = 1      
+                servings_change = 1
         elif meal_choice_m3[4] == [1, 2]:
             m3_ams = []
             for i in meal_choice_m3[2]:
                 m3_ams.append(round(i/2))
-                servings_change = 1      
+                servings_change = 1
         elif meal_choice_m4[4] == [1, 2]:
             m4_ams = []
             for i in meal_choice_m4[2]:
@@ -86,7 +87,7 @@ def generate_menu_and_list():
                 servings_change = 1
         else:
             print('THERE IS AN ERROR IN THE NUMBER OF SERVINGS') #this shoudn't be needed
-    
+
     #for ease, the meal choices and the important characertistics are printed to decide if another menu should be generated
     print('\n')
     print('The meals are:')
@@ -111,7 +112,7 @@ def generate_menu_and_list():
     for i in list(meat_set):
         print(i)
     print('\n')
-    
+
     # un-necessary change of object lable, but too lazy to change it
     lst1 = meal_choice_m1[1]
     lst2 = meal_choice_m1[2]
@@ -137,19 +138,19 @@ def generate_menu_and_list():
     for i in list_all_ing_no_dup:
         if list_all_ing.count(i) > 1:
             duplicate_ings.append(i)
-    
-    # while loop to find the amounts relating to the duplicated items then summing the relavent 
+
+    # while loop to find the amounts relating to the duplicated items then summing the relavent
     # amounts and putting it into a list with positions corresponding to the duplicated items list
-    checkq = 0 
+    checkq = 0
     lst_of_dup_ams = []
     while checkq != len(duplicate_ings):
         curr_dup = duplicate_ings[checkq]
-    
+
         ab1 = 0
         ab2 = 0
         ab3 = 0
         ab4 = 0
-    
+
         try:
             ab1 = lst2[lst1.index(curr_dup)]
         except ValueError:
@@ -166,25 +167,25 @@ def generate_menu_and_list():
             ab4 = lst8[lst7.index(curr_dup)]
         except ValueError:
             pass
-    
+
         am_of_curr_dup = ab1 + ab2 + ab3 + ab4
         lst_of_dup_ams.append(am_of_curr_dup)
         checkq += 1
 
-        
+
     checkq = 0
     lst_of_dup_units = []
 
-    # while loop to check that the units for duplicate ingredients match and puts the 
-    # units in a list with positions corresponding to the duplicated ingredients 
-    while checkq != len(duplicate_ings): 
+    # while loop to check that the units for duplicate ingredients match and puts the
+    # units in a list with positions corresponding to the duplicated ingredients
+    while checkq != len(duplicate_ings):
         curr_dup = duplicate_ings[checkq]
-    
+
         uab1 = ''
         uab2 = ''
         uab3 = ''
         uab4 = ''
-    
+
         try:
             uab1 = lst2_5[lst1.index(curr_dup)]
         except ValueError:
@@ -201,7 +202,7 @@ def generate_menu_and_list():
             uab4 = lst8_5[lst7.index(curr_dup)]
         except ValueError:
             pass
-        
+
         unit_list = [uab1,uab2,uab3,uab4]
         try:
             unit_list.remove('')
@@ -209,24 +210,24 @@ def generate_menu_and_list():
         except ValueError:
             pass
         unit_list = list(set(unit_list))
-    
+
         if len(unit_list) != 1:
             print('THERE IS AN ERROR IN THE DUPLICATE INGREDIENT AMOUNT UNITS')
-        unit = unit_list[0] # un-necessary    
+        unit = unit_list[0] # un-necessary
         lst_of_dup_units.append(unit)
         checkq += 1
 
     # concatenates the amount and unit for the duplicated ingredients
     no_of_dups = list(range(0,len(duplicate_ings)))
-    dup_ams_and_units = []    
+    dup_ams_and_units = []
     for i in no_of_dups:
         dup_ams_and_units.append(str(lst_of_dup_ams[i]) + ' ' + lst_of_dup_units[i])
-    
-    # generates a dictionary containing all ingredients as keys and the amounts and units as values 
+
+    # generates a dictionary containing all ingredients as keys and the amounts and units as values
     lst_and_ams = {}
     for i in list_all_ing_no_dup:
         if i in duplicate_ings:
-            lst_and_ams.update({i:dup_ams_and_units[duplicate_ings.index(i)]})           
+            lst_and_ams.update({i:dup_ams_and_units[duplicate_ings.index(i)]})
         else:
             try:
                 lst_and_ams.update({i:str(lst2[lst1.index(i)]) + ' ' + lst2_5[lst1.index(i)]})
@@ -244,11 +245,11 @@ def generate_menu_and_list():
                 lst_and_ams.update({i:str(lst8[lst7.index(i)]) + ' ' + lst8_5[lst7.index(i)]})
             except ValueError:
                 pass
-    
+
     # makes the list .txt file
     fmt = 'List made on %Y-%m-%d-%H-%M-%S' # time-stamp format
     list_file = open(str(os.getcwd() + '\\' + datetime.datetime.now().strftime(fmt) + '.txt'), 'w') #filename and timestamp
-    
+
     # while loop to see which meal is the multiple servings one and changes the name for the list file
     meal_1 = meal_choice_m1[0]
     meal_2 = meal_choice_m2[0]
@@ -258,19 +259,19 @@ def generate_menu_and_list():
     while servings_change == 0:
         if meal_choice_m1[4] == [1, 2]:
             meal_1 = str(meal_choice_m1[0] + ' (1)')
-            servings_change = 1      
+            servings_change = 1
         elif meal_choice_m2[4] == [1, 2]:
             meal_2 = str(meal_choice_m2[0] + ' (1)')
-            servings_change = 1      
+            servings_change = 1
         elif meal_choice_m3[4] == [1, 2]:
             meal_3 = str(meal_choice_m3[0] + ' (1)')
-            servings_change = 1       
+            servings_change = 1
         elif meal_choice_m4[4] == [1, 2]:
             meal_4 = str(meal_choice_m4[0] + ' (1)')
             servings_change = 1
         else:
             print('THERE IS AN ERROR IN THE NUMBER OF SERVINGS')
-    
+
     # writes meal names to the listfile
     list_file.write('Meals:\n')
     list_file.write(meal_1 + '\n')
@@ -284,18 +285,18 @@ def generate_menu_and_list():
         x = str(key + " - " + lst_and_ams[key])
         list_file.write(x + '\n')
     list_file.write('\n')
-    
-    # additional items for all the meal choices    
+
+    # additional items for all the meal choices
     additional_items_total = meal_choice_m1[10] + meal_choice_m2[10] + meal_choice_m3[10] + meal_choice_m4[10]
     additional_items_no_dup = []
-    
+
     for i in additional_items_total:
         if i not in additional_items_no_dup:
             additional_items_no_dup.append(i)
-            
+
     additional_items_no_dup = [x for x in additional_items_no_dup if x != 'N/A']
-    
-    list_file.write('Additional items:\n')        
+
+    list_file.write('Additional items:\n')
     for i in additional_items_no_dup:
         list_file.write(i + '\n')
     list_file.close()
