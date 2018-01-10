@@ -1,0 +1,21 @@
+Buccatini Lamatriciana
+
+[1]
+
+0
+
+0
+
+Pasta
+
+Meat
+
+Pork
+
+['Pasta', 'Parmesan Cheese', 'Passata', 'Tinned Tomatoes']
+
+[500, 75, 500, 2]
+
+['g', 'g', 'g', 'tins']
+
+['Salt', 'Pepper']

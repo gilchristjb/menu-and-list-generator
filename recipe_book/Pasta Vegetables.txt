@@ -1,0 +1,21 @@
+Pasta Vegetables
+
+[1, 2]
+
+0
+
+0
+
+Pasta
+
+Vegetarian
+
+N/A
+
+['Pasta', 'Courgettes', 'Tinned Tomatoes', 'Peppers']
+
+[500, 2, 2, 2]
+
+['g', 'courgettes', 'tins', 'peppers']
+
+['Salt', 'Pepper']

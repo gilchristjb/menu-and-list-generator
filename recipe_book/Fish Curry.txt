@@ -1,0 +1,21 @@
+Fish Curry
+
+[2]
+
+0
+
+0
+
+Rice
+
+Fish
+
+N/A
+
+['Fish', 'Rice', 'Madras Paste', 'Tinned Tomatoes']
+
+[450, 500, 300, 2]
+
+['g', 'g', 'g', 'tins']
+
+['Salt', 'Pepper']

@@ -1,0 +1,21 @@
+Gnocchi Veg Bake
+
+[2]
+
+0
+
+0
+
+Potato
+
+Vegetarian
+
+N/A
+
+['Gnocchi', 'Tinned Tomatoes', 'Peppers', 'Chicken']
+
+[500, 2, 2, 500]
+
+['g', 'tins', 'peppers', 'g']
+
+['Salt', 'Pepper']

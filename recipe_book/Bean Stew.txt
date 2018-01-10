@@ -1,0 +1,21 @@
+Bean Stew
+
+[2]
+
+0
+
+0
+
+Bread
+
+Vegetarian
+
+N/A
+
+['Potatoes', 'Spinach', 'Tinned Tomatoes', 'Black Beans', 'Peppers']
+
+[800, 300, 2, 2, 2]
+
+['g', 'g', 'tins', 'tins', 'peppers']
+
+['Salt', 'Pepper']

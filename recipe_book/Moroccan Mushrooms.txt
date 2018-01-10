@@ -1,0 +1,21 @@
+Moroccan Mushrooms
+
+[1, 2]
+
+0
+
+0
+
+Couscous
+
+Vegetarian
+
+N/A
+
+['Mushrooms', 'Couscous', 'Tinned Tomatoes', 'Chicken']
+
+[800, 500, 2, 500]
+
+['g', 'g', 'tins', 'g']
+
+['Salt', 'Pepper']
