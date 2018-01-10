@@ -3,6 +3,7 @@ def generate_menu_and_list():
     meal choices are made and then if they all meet the desired menu characteristics.
     If they do, then one of the single meal files is halved (to get seven meals)
     and the list file is built and written to the cwd. Testing.
+    Testing.
     """
     import os
     import datetime
