@@ -1,0 +1,21 @@
+Crab Pasta
+
+[1, 2]
+
+0
+
+0
+
+Pasta
+
+Fish
+
+N/A
+
+['Crab', 'Pasta']
+
+[160, 400]
+
+['g', 'g']
+
+['salt', 'olive oil', 'pepper']

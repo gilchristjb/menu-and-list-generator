@@ -1,6 +1,6 @@
 def meallist():
-    """This function checks to see if there is a directory called 'recipe_book'
-    in the cwd, and creates one if it's not present. It then creates a list of
+    """Function to check if there is a directory called 'recipe_book'
+    in the cwd, and creates one if it is not present. It then creates and returns a list of
     all the meals present in the recipe_book directory.
     """
     import os
@@ -18,7 +18,7 @@ def meallist():
     return(meal_list)
 
 def newmeal():
-    """This function checks to see if there is a directory called 'recipe_book
+    """Function checks to see if there is a directory called 'recipe_book
     in the cwd, and creates one if it's not present. It then allows a user to
     input a new meal by listing the number of ingredients and their amounts.
     Then a file is written with the title, number of servings and the ingredient
@@ -26,88 +26,83 @@ def newmeal():
     Testing.
     """
     import os
+    from menufunctions_win import meallist
 
-    # check for and/or creation of the recipe_book directory
-    filepath = str(os.getcwd() + '\\recipe_book')
-    if not os.path.exists(filepath):
-        os.makedirs(filepath)
-
-    # this is also the code for changemeal()
-    # setting title, number of ingredients and amount with unit
-    title = input('What is the meal name? ').title()
-    number = int(input('How many ingredients? '))
-    no_ing = list(range(0,number)) # number of ingredients
-    ing_am = list(range(0,number)) # amount of each ingredient
-    am_unit = list(range(0,number)) # unit of the amount
-    for i in no_ing:
-        no_ing[i] = input('What is an ingredient? ').title() # always titled
-        ing_am[i] = int(input('What is the amount? '))
-        am_unit[i] = input('What is the unit? ').lower() # always lowercase
-
-    # set number of days meal will be for, one or two days only
-    pWsAJjrHwk = 0
-    while pWsAJjrHwk == 0:
-        jyrmwemjfe = input('How many days will it be for? ')
-        try:
-            iUfGEqhuPW = int(jyrmwemjfe)
-            pWsAJjrHwk = 1
-        except ValueError:
-            print('')
-            print("That's not an number!")
-
-    # if it is a two day meal, set if it can be halved easily
-    if iUfGEqhuPW == 2:
-        oWHYGDTejp = 0
-        while oWHYGDTejp == 0:
-            cCUYyfWkIk = (input('Can this also be for one day? (y/n) ')).lower()
-            if cCUYyfWkIk == 'y':
-                iUfGEqhuPW = 3
-                servings_list = list(range(1,iUfGEqhuPW))
-                oWHYGDTejp = 1
-            elif cCUYyfWkIk == 'n':
-                iUfGEqhuPW = 2
-                servings_list = [iUfGEqhuPW]
-                oWHYGDTejp = 1
-            else:
-                 print('Please enter if this can this also be for one day "y" or "n"')
-    else:
-        servings_list = [iUfGEqhuPW]
-
-    # set if this is a pie meal
-    EUZTXhpFnA = 0
-    while EUZTXhpFnA == 0:
-        pie_check = (input('Is meal a pie, (y/n)? ')).lower()
-        if pie_check == 'y':
-            pie = '1'
-            EUZTXhpFnA = 1
-        elif pie_check == 'n':
-            pie = '0'
-            EUZTXhpFnA = 1
+    meal_list = meallist()
+    while True:
+        title = input('What is the meal name? ').title()
+        if title in meal_list:
+            print('That is already a meal, please choose another meal name')
+            continue
         else:
-             print('Please enter if this is a pie meal "y" or "n" ')
+            ingredients = []
+            amounts = []
+            units = []
+            while True:
+                current_ing = input('Name an ingredient or enter "end" to exit ').title()
+                if current_ing == 'End':
+                    break
+                else:
+                    ing_am = int(input('How much of this ingredient? '))
+                    ing_unit = input('what is the unit? ').lower()
+                    ingredients.append(current_ing)
+                    amounts.append(ing_am)
+                    units.append(ing_unit)
+        break
 
-    # set if this is a faffy meal
-    EMPxeBgRMx = 0
-    while EMPxeBgRMx == 0:
-        faff_check = (input('Is this a faffy meal, (y/n)? ')).lower()
-        if faff_check == 'y':
-            faff = '1'
-            EMPxeBgRMx = 1
-        elif faff_check == 'n':
-            faff = '0'
-            EMPxeBgRMx = 1
+    #set number of days meal will be for, one or two days only
+    while True:
+        servQuest = input('How many days will it be for (one or two days only)? ')
+        if servQuest == '1':
+            servings = 'One day'
+            break
+        elif servQuest == '2':
+            while True:
+                dayQuest = input('Can this also be for one day? (y/n) ').lower()
+                if dayQuest == 'y' or dayQuest == 'yes':
+                    servings = 'One or two days'
+                    break
+                elif dayQuest == 'n' or dayQuest == 'no':
+                    servings = 'Two days'
+                    break
+                else:
+                    print('That does not make sense')
+            break
+        else:
+            print('That does not make sense')
+
+    #set if this is a pie meal
+    while True:
+        pieQuest = (input('Is meal a pie, (y/n)? ')).lower()
+        if pieQuest == 'y' or pieQuest == 'yes':
+            pie = 'Pie'
+            break
+        elif pieQuest == 'n' or pieQuest == 'no':
+            pie = 'Not pie'
+            break
+        else:
+             print('Please enter if this is a pie meal "y" or "n"')
+
+    #set if this is a faffy meal
+    while True:
+        faffQuest = (input('Is this a faffy meal, (y/n)? ')).lower()
+        if faffQuest == 'y' or faffQuest == 'yes':
+            faff = 'Faffy'
+            break
+        elif faffQuest == 'n' or faffQuest == 'no':
+            faff = 'Not faffy'
+            break
         else:
              print('Please enter if this is a faffy meal "y" or "n" ')
 
-    # set the main carbohydrate type
-    hIgMHfWSlz = ['Pasta','Rice','Bread','Couscous','Potato']
-    fwjdJsQJwc = 0
-    while fwjdJsQJwc == 0:
-        carb_type = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
-        if carb_type in hIgMHfWSlz:
-            fwjdJsQJwc = 1
+    #set the main carbohydrate type
+    carbList = ['Pasta','Rice','Bread','Couscous','Potato']
+    while True:
+        carbQuest = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
+        if carbQuest in carbList:
+            break
         else:
-            print('That does not make sense.')
+            print('That does not make sense')
 
     # set the meal type (vegetarian, fish or meat)
     aAPokUoGVJ = 0
@@ -138,45 +133,31 @@ def newmeal():
     else:
         meat_type = 'N/A'
 
-    check_EnqO = 0
-    while check_EnqO != 1:
-
-        additional_item_check = input('Are there any additional items that are needed in this meal (e.g. herbs and spices, condiments)? ').lower()
-
-        if additional_item_check == 'yes' or additional_item_check == 'y':
-            check_gDgC = 0
-            additional_items = []
-
-            while check_gDgC != 1:
-                current_additional = input('What additional items do you want to add (type "end" to quit)? ').lower()
-                if current_additional == 'end':
-                    check_gDgC = 1
-                else:
-                    additional_items.append(current_additional)
-            check_EnqO = 1
-        elif additional_item_check == 'no' or additional_item_check == 'n':
-            additional_items = ['N/A']
-            check_EnqO = 1
+    #making a list of any potential additional items that might be needed
+    additional_items = []
+    while True:
+        current_additional = input('What additional items might be needed (type "end" to quit)? ').title()
+        if current_additional == 'End':
+            break
         else:
-            print('That does not make sense')
+            additional_items.append(current_additional)
 
     # creation of the meal file txt file with all the parameters set previously
-    filename = str(filepath + '\\' + title + '.txt')
-    ingredients = str(no_ing)
-    amounts = str(ing_am)
-    units = str(am_unit)
-    servings_string = str(servings_list)
+    filename = str(os.getcwd() + '\\recipe_book' + '\\' + title + '.txt')
+    ingredients = str(ingredients)
+    amounts = str(amounts)
+    units = str(units)
     additional_items_string = str(additional_items)
     file = open(filename, 'w')
     file.write(title)
     file.write('\n\n')
-    file.write(servings_string)
+    file.write(servings)
     file.write('\n\n')
     file.write(faff)
     file.write('\n\n')
     file.write(pie)
     file.write('\n\n')
-    file.write(carb_type)
+    file.write(carbQuest)
     file.write('\n\n')
     file.write(meal_type)
     file.write('\n\n')

@@ -1,4 +1,4 @@
-from menufunctions_win import newmeal, mealchange, deletemeal, generate_menu_and_list
+from menufunctions_win import newmeal, mealchange, deletemeal, meallist, generate_menu_and_list
 
 number_of_options_1 = 5
 option_range = list(range(1,number_of_options_1 + 1))
@@ -7,8 +7,8 @@ while ddpegobzcw != 1:
     check_gxSm = 0
     while check_gxSm != 1:
         try:
-            #simple number menu, needs more options within mian listed options, e.g. for 
-            #change meal, needs to have the option to change specific ingredients and 
+            #simple number menu, needs more options within mian listed options, e.g. for
+            #change meal, needs to have the option to change specific ingredients and
             #amounts or running a pie menu
             choice = int(input("""What do you want to do (enter a number)?\n\n
             1 - Add a meal\n
