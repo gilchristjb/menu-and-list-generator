@@ -1,21 +1,22 @@
 Pasta Vegetables
 
-[1, 2]
+One or two days
 
-0
+Not faffy
 
-0
+Not pie
 
 Pasta
 
 Vegetarian
 
-N/A
+No meat
 
-['Pasta', 'Courgettes', 'Tinned Tomatoes', 'Peppers']
+[]
 
-[500, 2, 2, 2]
+[]
 
-['g', 'courgettes', 'tins', 'peppers']
+[]
 
-['Salt', 'Pepper']
+[]
+

@@ -1,21 +1,22 @@
 Fish Curry
 
-[2]
+One or two days
 
-0
+Not faffy
 
-0
+Not pie
 
 Rice
 
 Fish
 
-N/A
+No meat
 
-['Fish', 'Rice', 'Madras Paste', 'Tinned Tomatoes']
+[]
 
-[450, 500, 300, 2]
+[]
 
-['g', 'g', 'g', 'tins']
+[]
 
-['Salt', 'Pepper']
+[]
+

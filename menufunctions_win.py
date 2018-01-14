@@ -4,7 +4,7 @@ def meallist():
     all the meals present in the recipe_book directory.
     """
     import os
-    
+
     recipeFiles = os.listdir(str(os.getcwd() + '\\recipe_book'))
     mealList = [x.split('.')[0] for x in recipeFiles]
 
@@ -79,6 +79,11 @@ def newmeal():
 
     #set if this is a faffy meal
     while True:
+        if pie == 'Pie':
+            faff = 'Faffy'
+            break
+        else:
+            pass
         faffQuest = (input('Is this a faffy meal, (y/n)? ')).lower()
         if faffQuest == 'y' or faffQuest == 'yes':
             faff = 'Faffy'
@@ -217,7 +222,7 @@ def deletemeal():
     from menufunctions_win import meallist
 
     #producing a list of meals in the recipe_book directory
-    mealList = meallist() 
+    mealList = meallist()
     for i in mealList:
         print(i)
     print('')
@@ -236,11 +241,11 @@ def deletemeal():
 
     # end process and printing of the new meal_list
     print(delQuest + '.txt deleted!')
-    mealList = meallist() 
+    mealList = meallist()
     for i in mealList:
         print(i)
 
-def mealSelector():
+def mealselector():
     """ This function randomly chooses a meal file for meal 1 and asigns the characheristics
     of that meal file to a list which can then be sliced returning the desired
     characteristics.
@@ -251,29 +256,44 @@ def mealSelector():
     from menufunctions_win import meallist
 
     #randomly chooses a meal from meallist and finds the file path
-    meal_choice = str(random.choice(meallist()))
-    meal_choice_path = str(os.getcwd() + '\\recipe_book\\' + meal_choice + '.txt')
+    mealChoice = str(random.choice(meallist()))
+    choicePath = str(os.getcwd() + '\\recipe_book\\' + mealChoice + '.txt')
 
-    # reads all the lines from a mealfile and removes quotes
-    with open(meal_choice_path,"r") as temp_TfEa:
-        ZiOcMoczPu = temp_TfEa.readlines()
-    ZiOcMoczPu = [NisnKjEEVb.strip() for NisnKjEEVb in ZiOcMoczPu]
+    #reads all the lines from the mealfile and removes quotes
+    with open(choicePath,"r") as x:
+        allChars = [i.strip() for i in x.readlines()]
 
-    # asigns the appropriate characteristics to reasonable local variables
-    # interprets the lists given in the meal file as actual lists
-    faff_check = int(ZiOcMoczPu[4])
-    pie_check = int(ZiOcMoczPu[6])
-    main_carb = ZiOcMoczPu[8]
-    meal_type = ZiOcMoczPu[10]
-    meat_type = ZiOcMoczPu[12]
-    ingredients = ast.literal_eval(ZiOcMoczPu[14])
-    amounts = ast.literal_eval(ZiOcMoczPu[16])
-    units = ast.literal_eval(ZiOcMoczPu[18])
-    servings = ast.literal_eval(ZiOcMoczPu[2])
-    additional_items = ast.literal_eval(ZiOcMoczPu[20])
+    #asigns the appropriate characteristics to reasonable local variables
+    #interprets the lists given in the meal file as actual lists
+
+    if allChars[2] == 'Two days':
+        servings = [2,2]
+    elif allChars[2] == 'One or two days':
+        servings = [random.choice([1,2]),2]
+    else:
+        servings = [1,1]
+
+    if allChars[4] == 'Faffy':
+        faffCheck = 1
+    else:
+        faffCheck = 0
+
+    if allChars[6] == 'Pie':
+        pieCheck = 1
+    else:
+        pieCheck = 0
+
+    mainCarb = allChars[8]
+    mealType = allChars[10]
+    meatType = allChars[12]
+    ingredients = ast.literal_eval(allChars[14])
+    amounts = ast.literal_eval(allChars[16])
+    units = ast.literal_eval(allChars[18])
+    additionalItems = ast.literal_eval(allChars[20])
 
     # lists the important characteristics of the randomly selected meal file
-    return [meal_choice, ingredients, amounts, units, servings, faff_check, pie_check, main_carb, meal_type, meat_type, additional_items]
+    #           0          1          2         3          4         5         6          7          8       9              10
+    return [mealChoice, servings, faffCheck, pieCheck, mainCarb, mealType, meatType, ingredients, amounts, units, additionalItems]
 
 def generate_menu_and_list():
     """The main function in the entire program. Using the lineprint function the
@@ -284,15 +304,14 @@ def generate_menu_and_list():
     """
     import os
     import datetime
-    from menufunctions_win import mealSelector
+    from menufunctions_win import mealselector
 
     # running lineprint functions to get the meal files and the characteristics of that meal
-    DLSDbqNGCK = 0 # while loop to check randomly selected meals fit the menu characteristics
-    while DLSDbqNGCK == 0:
-        meal_choice_m1 = mealSelector()
-        meal_choice_m2 = mealSelector()
-        meal_choice_m3 = mealSelector()
-        meal_choice_m4 = mealSelector()
+    while True:
+        mealChoice_1 = mealselector()
+        mealChoice_2 = mealselector()
+        mealChoice_3 = mealselector()
+        mealChoice_4 = mealselector()
         if meal_choice_m1[5] + meal_choice_m2[5] + meal_choice_m3[5] + meal_choice_m4[5] == 1: # check for faff, later this will be the check for pie
             faff_check = 1
         else:
@@ -574,3 +593,63 @@ def generate_menu_and_list():
     for i in additional_items_no_dup:
         list_file.write(i + '\n')
     list_file.close()
+
+def generatemenu():
+    """The main function in the entire program. Using the lineprint function the
+    meal choices are made and then if they all meet the desired menu characteristics.
+    If they do, then one of the single meal files is halved (to get seven meals)
+    and the list file is built and written to the cwd. Testing.
+    Testing.
+    """
+    import os
+    from menufunctions_win import mealselector
+
+    while True:
+        mealChoice_1 = mealselector()
+        mealChoice_2 = mealselector()
+        mealChoice_3 = mealselector()
+        mealChoice_4 = mealselector()
+
+        if mealChoice_1[2] + mealChoice_2[2] + mealChoice_3[2] + mealChoice_4[2] == 1: # check for faff, later this will be the check for pie
+            faffCheck = 1
+        else:
+            faffCheck = 0
+        if len(set([mealChoice_1[4], mealChoice_2[4], mealChoice_3[4], mealChoice_4[4]])) == 4: # check for carb types
+            carbCheck = 1
+        else:
+            carbCheck = 0
+        if len(set([mealChoice_1[5], mealChoice_2[5], mealChoice_3[5], mealChoice_4[5]])) == 3: # check for meal type
+            typeCheck = 1
+        else:
+            typeCheck = 0
+        if [mealChoice_1[5], mealChoice_2[5], mealChoice_3[5], mealChoice_4[5]].count('Meat') == 2:
+            meatList = list([mealChoice_1[6], mealChoice_2[6], mealChoice_3[6], mealChoice_4[6]])
+            uniqueMeats = []
+            for i in meatList:
+                if i not in uniqueMeats and i != 'No meat':
+                    uniqueMeats.append(i)
+            if len(uniqueMeats) == 2:
+                meatCheck = 1
+            else:
+                meatCheck = 0
+        elif [mealChoice_1[5], mealChoice_2[5], mealChoice_3[5], mealChoice_4[5]].count('Meat') == 1:
+            meatList = list([mealChoice_1[6], mealChoice_2[6], mealChoice_3[6], mealChoice_4[6]])
+            meatList = [x for x in meatList if x != 'No meat']
+            meatCheck = 1
+        else:
+            meatCheck = 0
+        if mealChoice_1[1][0] + mealChoice_2[1][0] + mealChoice_3[1][0] + mealChoice_4[1][0] == 7:
+            servingCheck = 1
+        else:
+            servingCheck = 0
+        if len(set([mealChoice_1[0],mealChoice_2[0],mealChoice_3[0],mealChoice_4[0]])) == 4:
+            nameCheck = 1
+        else:
+            nameCheck = 0
+        if faffCheck + carbCheck + typeCheck + meatCheck + servingCheck + nameCheck == 6:
+            break
+    print(mealChoice_1)
+    print(mealChoice_2)
+    print(mealChoice_3)
+    print(mealChoice_4)
+    return([mealChoice_1,mealChoice_2,mealChoice_3,mealChoice_4,])
