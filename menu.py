@@ -1,4 +1,4 @@
-from menufunctions_win import newmeal, mealchange, deletemeal, meallist, generate_menu_and_list, mealselector, generatemenu
+from menufunctions_win import newmeal, mealchange, deletemeal, meallist, generate_menu_and_list, mealselector, generatemenu, generatelist
 
 while True:
     try:
@@ -26,5 +26,8 @@ while True:
             print(mealselector())
         if choice == 8:
             generatemenu()
+        if choice == 9:
+            proposedMenu = generatemenu()
+            generatelist()
     except ValueError:
         print('Please enter a number between 1 and 5')

@@ -653,3 +653,234 @@ def generatemenu():
     print(mealChoice_3)
     print(mealChoice_4)
     return([mealChoice_1,mealChoice_2,mealChoice_3,mealChoice_4])
+
+def generatelist():
+    """proposedMenu is a vairable that contains the 4 chosen meals as lists and is outside the function (= to generatemenu()).
+    It also contains the uniqueMeats list which is used in this function during development, but won't be used in the main program.
+    Remember mealChoice_x indexing is:
+
+        0          1          2         3          4         5         6          7          8       9              10
+    mealChoice, servings, faffCheck, pieCheck, mainCarb, mealType, meatType, ingredients, amounts, units, additionalItems
+    """
+
+    import os
+    import datetime
+
+    errorCheck = 0
+    mealChoice_1 = proposedMenu[0]
+    mealChoice_2 = proposedMenu[1]
+    mealChoice_3 = proposedMenu[2]
+    mealChoice_4 = proposedMenu[3]
+
+    mealAms_1 = mealChoice_1[8]
+    mealAms_2 = mealChoice_2[8]
+    mealAms_3 = mealChoice_3[8]
+    mealAms_4 = mealChoice_4[8]
+
+    #halves the ingredient amounts for the multiple servings meal (if present)
+    while True:
+        if mealChoice_1[1][0] == 1 and mealChoice_1[1][1] == 2:
+            mealAms_1 = []
+            for i in mealChoice_1[8]:
+                mealAms_1.append(round(i/2,1))
+            break
+        elif mealChoice_2[1][0] == 1 and mealChoice_2[1][1] == 2:
+            mealAms_2 = []
+            for i in mealChoice_2[8]:
+                mealAms_2.append(round(i/2,1))
+            break
+        elif mealChoice_3[1][0] == 1 and mealChoice_3[1][1] == 2:
+            mealAms_3 = []
+            for i in mealChoice_3[8]:
+                mealAms_3.append(round(i/2,1))
+            break
+        elif mealChoice_4[1][0] == 1 and mealChoice_4[1][1] == 2:
+            mealAms_4 = []
+            for i in mealChoice_4[8]:
+                mealAms_4.append(round(i/2,1))
+            break
+        else:
+            print('No item')
+            break
+
+    allIngs = mealChoice_1[7] + mealChoice_2[7] + mealChoice_3[7] + mealChoice_4[7] #all ingredients
+
+    noDupIngs = [] #all ingredients no duplicated items
+    for i in allIngs:
+        if i not in noDupIngs:
+            noDupIngs.append(i)
+
+    dupIngs = [] #all duplicated items
+    for i in noDupIngs:
+        if allIngs.count(i) > 1:
+            dupIngs.append(i)
+
+    #summing amounts from the various duplicated ingredients and appending to a list with indexes corresponding to the indexes
+    #of dupIngs
+    #note that mealAms_x is used instead of mealChoice_x[8] due to the potentail presence of a multiple serving meal
+    checkQ = 0
+    dupIngsAms = []
+    while checkQ != len(dupIngs):
+        currDup = dupIngs[checkQ]
+
+        amCurrDupMeal_1 = 0
+        amCurrDupMeal_2 = 0
+        amCurrDupMeal_3 = 0
+        amCurrDupMeal_4 = 0
+
+        try:
+            amCurrDupMeal_1 = mealAms_1[mealChoice_1[7].index(currDup)]
+        except ValueError:
+            pass
+        try:
+            amCurrDupMeal_2 = mealAms_2[mealChoice_2[7].index(currDup)]
+        except ValueError:
+            pass
+        try:
+            amCurrDupMeal_3 = mealAms_3[mealChoice_3[7].index(currDup)]
+        except ValueError:
+            pass
+        try:
+            amCurrDupMeal_4 = mealAms_4[mealChoice_4[7].index(currDup)]
+        except ValueError:
+            pass
+
+        currDupAm = amCurrDupMeal_1 + amCurrDupMeal_2 + amCurrDupMeal_3 + amCurrDupMeal_4
+        dupIngsAms.append(currDupAm)
+        checkQ += 1
+
+    #examining the units of the duplicated items across all the meal choices and appending to a list with indexes corresponding
+    #to the indexes of dupIngs
+    #an error will be flagged if the units across duplicated ingredients do not match
+    checkQ = 0
+    dupIngsUnits = []
+    while checkQ != len(dupIngs):
+        currDup = dupIngs[checkQ]
+
+        unCurrDupMeal_1 = ''
+        unCurrDupMeal_2 = ''
+        unCurrDupMeal_3 = ''
+        unCurrDupMeal_4 = ''
+
+        try:
+            unCurrDupMeal_1 = mealChoice_1[9][mealChoice_1[7].index(currDup)]
+        except ValueError:
+            pass
+        try:
+            unCurrDupMeal_2 = mealChoice_2[9][mealChoice_2[7].index(currDup)]
+        except ValueError:
+            pass
+        try:
+            unCurrDupMeal_3 = mealChoice_3[9][mealChoice_3[7].index(currDup)]
+        except ValueError:
+            pass
+        try:
+            unCurrDupMeal_4 = mealChoice_4[9][mealChoice_4[7].index(currDup)]
+        except ValueError:
+            pass
+
+        unCurrDupList = [unCurrDupMeal_1, unCurrDupMeal_2, unCurrDupMeal_3, unCurrDupMeal_4]
+        try:
+            unCurrDupList.remove('')
+            unCurrDupList.remove('')
+        except ValueError:
+            pass
+        unCurrDupList = list(set(unCurrDupList))
+
+        if len(unCurrDupList) != 1:
+            unitError = '***In the meal files selected, check the units are consistent between duplicated ingerdients***'
+
+        dupIngsUnits.append(unCurrDupList[0])
+        checkQ += 1
+
+    #concatenating the amounts and units of only the duplicated items into a list with indexes corresponding to the indexes
+    #of dupIngs
+    dupRange = list(range(0,len(dupIngs)))
+    dupAmsUnits = []
+    for i in dupRange:
+        dupAmsUnits.append(str(dupIngsAms[i]) + ' ' + dupIngsUnits[i])
+
+    #generates a dictionary containing all ingredients as keys and the amounts and units as values from both the duplicated items
+    #and th unique items
+    ingsAmsUnits = {}
+    for i in noDupIngs:
+        if i in dupIngs:
+            ingsAmsUnits.update({i:dupAmsUnits[dupIngs.index(i)]})
+        else:
+            try:
+                ingsAmsUnits.update({i:str(mealAms_1[mealChoice_1[7].index(i)]) + ' ' + mealChoice_1[9][mealChoice_1[7].index(i)]})
+            except ValueError:
+                pass
+            try:
+                ingsAmsUnits.update({i:str(mealAms_2[mealChoice_2[7].index(i)]) + ' ' + mealChoice_2[9][mealChoice_2[7].index(i)]})
+            except ValueError:
+                pass
+            try:
+                ingsAmsUnits.update({i:str(mealAms_3[mealChoice_3[7].index(i)]) + ' ' + mealChoice_3[9][mealChoice_3[7].index(i)]})
+            except ValueError:
+                pass
+            try:
+                ingsAmsUnits.update({i:str(mealAms_4[mealChoice_4[7].index(i)]) + ' ' + mealChoice_4[9][mealChoice_4[7].index(i)]})
+            except ValueError:
+                pass
+
+    #making the list.txt file with timestanp in the format year-month-date-hour-minute-second. Will change this to just the
+    #date after development
+    timeStampFormat = 'List made on %Y-%m-%d-%H-%M-%S'
+    listFile = open(str(os.getcwd() + '\\' + datetime.datetime.now().strftime(timeStampFormat) + '.txt'), 'w')
+
+    while True:
+        if mealChoice_1[1][0] == 1:
+            mealChoice_1[0] = str(mealChoice_1[0] + ' (1)')
+            break
+        elif mealChoice_2[1][0] == 1:
+            mealChoice_2[0] = str(mealChoice_2[0] + ' (1)')
+            break
+        elif mealChoice_3[1][0] == 1:
+            mealChoice_3[0] = str(mealChoice_3[0] + ' (1)')
+            break
+        elif mealChoice_4[1][0] == 1:
+            mealChoice_4[0] = str(mealChoice_4[0] + ' (1)')
+            break
+        else:
+            servError = '***In the meal files selected, check one of the selected meals is a single or multiple meal***'
+            break
+
+    #write errors if any
+    try:
+        listFile.write(unitError + '\n')
+    except NameError:
+        pass
+    try:
+        listFile.write(servError + '\n')
+    except NameError:
+        pass
+
+    # writes meal names to the listfile
+    listFile.write('Meals:\n')
+    listFile.write(mealChoice_1[0] + '\n')
+    listFile.write(mealChoice_2[0] + '\n')
+    listFile.write(mealChoice_3[0] + '\n')
+    listFile.write(mealChoice_4[0] + '\n\n')
+
+    #writes the ingredients and amounts + units to the list file
+    listFile.write('Ingredients:\n')
+    for key in ingsAmsUnits:
+        x = str(key + " - " + ingsAmsUnits[key])
+        listFile.write(x + '\n')
+    listFile.write('\n')
+
+    # additional items for all the meal choices
+    addItemsTotal = mealChoice_1[10] + mealChoice_2[10] + mealChoice_3[10] + mealChoice_4[10]
+    addItems = []
+
+    for i in addItemsTotal:
+        if i not in addItems:
+            addItems.append(i)
+
+    #addItems = [x for x in additional_items_no_dup if x != 'N/A']
+
+    listFile.write('Additional items:\n')
+    for i in addItems:
+        listFile.write(i + '\n')
+    listFile.close()
