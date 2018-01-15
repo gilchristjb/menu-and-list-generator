@@ -1,4 +1,4 @@
-Chicken Stirfry
+Testing
 
 One or two days
 
@@ -8,9 +8,9 @@ Not pie
 
 Rice
 
-Meat
+Vegetarian
 
-Poultry
+No meat
 
 ['D', 'E', 'F', 'G']
 

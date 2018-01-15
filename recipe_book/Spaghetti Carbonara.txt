@@ -1,16 +1,16 @@
-Chicken Stirfry
+Spaghetti Carbonara
 
-One or two days
+One day
 
 Not faffy
 
 Not pie
 
-Rice
+Pasta
 
 Meat
 
-Poultry
+Pork
 
 ['D', 'E', 'F', 'G']
 

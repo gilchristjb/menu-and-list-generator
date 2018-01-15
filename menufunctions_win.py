@@ -652,4 +652,4 @@ def generatemenu():
     print(mealChoice_2)
     print(mealChoice_3)
     print(mealChoice_4)
-    return([mealChoice_1,mealChoice_2,mealChoice_3,mealChoice_4,])
+    return([mealChoice_1,mealChoice_2,mealChoice_3,mealChoice_4])
