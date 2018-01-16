@@ -307,10 +307,15 @@ def generatemenu():
         mealChoice_3 = mealselector()
         mealChoice_4 = mealselector()
 
-        if mealChoice_1[2] + mealChoice_2[2] + mealChoice_3[2] + mealChoice_4[2] == 1: # check for faff, later this will be the check for pie
+        if mealChoice_1[2] + mealChoice_2[2] + mealChoice_3[2] + mealChoice_4[2] == 1: # check for faff
             faffCheck = 1
         else:
             faffCheck = 0
+
+        if mealChoice_1[3] + mealChoice_2[3] + mealChoice_3[3] + mealChoice_4[3] == 0: # check for pie
+            pieCheck = 1
+        else:
+            pieCheck = 0
         if len(set([mealChoice_1[4], mealChoice_2[4], mealChoice_3[4], mealChoice_4[4]])) == 4: # check for carb types
             carbCheck = 1
         else:
@@ -343,7 +348,7 @@ def generatemenu():
             nameCheck = 1
         else:
             nameCheck = 0
-        if faffCheck + carbCheck + typeCheck + meatCheck + servingCheck + nameCheck == 6:
+        if faffCheck + carbCheck + typeCheck + meatCheck + servingCheck + nameCheck + pieCheck == 7:
             break
     return([mealChoice_1,mealChoice_2,mealChoice_3,mealChoice_4])
 
@@ -398,6 +403,68 @@ def generatepie():
         if pieCheck + carbCheck + typeCheck + meatCheck + servingCheck + nameCheck == 6:
             break
     return([mealChoice_1,mealChoice_2,mealChoice_3,mealChoice_4])
+
+def generatenew():
+    """Using the mealselector function the meal choices are made and the characteristics are evaluated to return a menu which .
+    """
+    import os
+    import random
+    from menufunctions_win import mealselector
+
+    while True:
+        mealChoice_1 = mealselector()
+        mealChoice_2 = mealselector()
+        mealChoice_3 = mealselector()
+        mealChoice_4 = mealselector()
+
+        if mealChoice_1[2] + mealChoice_2[2] + mealChoice_3[2] + mealChoice_4[2] == 1: # check for faff
+            faffCheck = 1
+        else:
+            faffCheck = 0
+
+        if mealChoice_1[3] + mealChoice_2[3] + mealChoice_3[3] + mealChoice_4[3] == 0: # check for pie
+            pieCheck = 1
+        else:
+            pieCheck = 0
+        if len(set([mealChoice_1[4], mealChoice_2[4], mealChoice_3[4], mealChoice_4[4]])) == 4: # check for carb types
+            carbCheck = 1
+        else:
+            carbCheck = 0
+        if len(set([mealChoice_1[5], mealChoice_2[5], mealChoice_3[5], mealChoice_4[5]])) == 3: # check for meal type
+            typeCheck = 1
+        else:
+            typeCheck = 0
+        if [mealChoice_1[5], mealChoice_2[5], mealChoice_3[5], mealChoice_4[5]].count('Meat') == 2:
+            meatList = list([mealChoice_1[6], mealChoice_2[6], mealChoice_3[6], mealChoice_4[6]])
+            uniqueMeats = []
+            for i in meatList:
+                if i not in uniqueMeats and i != 'No meat':
+                    uniqueMeats.append(i)
+            if len(uniqueMeats) == 2:
+                meatCheck = 1
+            else:
+                meatCheck = 0
+        elif [mealChoice_1[5], mealChoice_2[5], mealChoice_3[5], mealChoice_4[5]].count('Meat') == 1:
+            meatList = list([mealChoice_1[6], mealChoice_2[6], mealChoice_3[6], mealChoice_4[6]])
+            meatList = [x for x in meatList if x != 'No meat']
+            meatCheck = 1
+        else:
+            meatCheck = 0
+        if mealChoice_1[1][0] + mealChoice_2[1][0] + mealChoice_3[1][0] + mealChoice_4[1][0] == 7:
+            servingCheck = 1
+        else:
+            servingCheck = 0
+        if len(set([mealChoice_1[0],mealChoice_2[0],mealChoice_3[0],mealChoice_4[0]])) == 4:
+            nameCheck = 1
+        else:
+            nameCheck = 0
+        if faffCheck + carbCheck + typeCheck + meatCheck + servingCheck + nameCheck + pieCheck == 7:
+            break
+
+    newCheck = [mealChoice_1,mealChoice_2,mealChoice_3,mealChoice_4]
+    mealChange = random.choice(newCheck)
+    newCheck[newCheck.index(mealChange)] = ['New Meal', mealChange[1], mealChange[2], 0, mealChange[4], mealChange[5], mealChange[6], [], [], [], []]
+    return([newCheck[0],newCheck[1],newCheck[2],newCheck[3]])
 
 def generatelist(confirmedMenu):
     """confimredMenu is generated before running this function and  that contains the 4 chosen meals as lists and is outside the function (= to generatemenu()).
