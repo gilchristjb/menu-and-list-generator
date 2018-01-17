@@ -85,17 +85,19 @@ while True:
                                 regChoice = int(input("""Looks tasty?\n\n
             1 - Yeah!\n
             2 - Nah, re-roll!\n
+            3 - Go back\n
             \n\n"""))
                                 if regChoice == 1:
                                     confirmedMenu = proposedMenu
                                     generatelist(confirmedMenu)
+                                    #print list here as well
                                     menuChoice = 4
                                     optChoice = 5
                                     break
                                 if regChoice == 2:
                                     continue
                                 if regChoice == 3:
-                                    pass
+                                    break
                             except ValueError:
                                 print('Please enter a number between 1 and 2')
                     if menuChoice == 2:
@@ -167,20 +169,22 @@ while True:
                                     print(' - Faffy\n')
                                 else:
                                     print(' - Not faffy\n')
-                                regChoice = int(input("""Looks tasty?\n\n
+                                pieChoice = int(input("""Looks tasty?\n\n
             1 - Yeah!\n
             2 - Nah, re-roll!\n
+            3 - Go back\n
             \n\n"""))
                                 if pieChoice == 1:
                                     confirmedMenu = proposedMenu
                                     generatelist(confirmedMenu)
+                                    #print list here as well
                                     menuChoice = 4
                                     optChoice = 5
                                     break
                                 if pieChoice == 2:
                                     continue
                                 if pieChoice == 3:
-                                    pass
+                                    break
                             except ValueError:
                                 print('Please enter a number between 1 and 2')
                     if menuChoice == 3:
@@ -252,18 +256,22 @@ while True:
                                     print(' - Faffy')
                                 else:
                                     print(' - Not faffy\n')
-                                regChoice = int(input("""Looks tasty?\n\n
+                                newChoice = int(input("""Looks tasty?\n\n
             1 - Yeah!\n
             2 - Nah, re-roll!\n
+            3 - Go back\n
             \n\n"""))
-                                if regChoice == 1:
+                                if newChoice == 1:
                                     confirmedMenu = proposedMenu
                                     generatelist(confirmedMenu)
+                                    #print list here as well
                                     menuChoice = 4
                                     optChoice = 5
                                     break
-                                if regChoice == 2:
+                                if newChoice == 2:
                                     continue
+                                if newChoice == 3:
+                                    break
                             except ValueError:
                                 print('Please enter a number between 1 and 2')
                     if menuChoice == 4:
