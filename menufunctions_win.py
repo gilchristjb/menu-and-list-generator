@@ -235,15 +235,33 @@ def deletemeal():
         else:
             break
 
-    # generation of the file path to file and deletion of meal file
-    delPath = str(os.getcwd() + '\\recipe_book' + '\\' + delQuest + '.txt')
-    os.remove(delPath)
+    #generation of the file path to file and deletion of meal file
+    while True:
+        print('Are you sure you want to delete "' + delQuest + '" (y/n)?')
+        delCheck = input('\n').lower()
+        if delCheck == 'yes' or delCheck == 'y':
+            delPath = str(os.getcwd() + '\\recipe_book' + '\\' + delQuest + '.txt')
+            os.remove(delPath)
 
-    # end process and printing of the new meal_list
-    print(delQuest + '.txt deleted!')
-    mealList = meallist()
-    for i in mealList:
-        print(i)
+            # end process
+            print(delQuest + '.txt deleted!\n')
+            mealList = meallist()
+            for i in mealList:
+                print(i)
+            break
+        elif delCheck == 'no' or delCheck == 'n':
+            break
+        else:
+            print('That does not make sense.')
+
+    #delPath = str(os.getcwd() + '\\recipe_book' + '\\' + delQuest + '.txt')
+    #os.remove(delPath)
+
+    # end process
+    #print(delQuest + '.txt deleted!')
+    #mealList = meallist()
+    #for i in mealList:
+    #    print(i)
 
 def mealselector():
     """ This function randomly chooses a meal file for meal 1 and asigns the characheristics
@@ -677,8 +695,10 @@ def generatelist(confirmedMenu):
 
     #writes the ingredients and amounts + units to the list file
     listFile.write('Ingredients:\n')
+    listList =  []
     for key in ingsAmsUnits:
         x = str(key + " - " + ingsAmsUnits[key])
+        listList.append(x)
         listFile.write(x + '\n')
     listFile.write('\n')
 
@@ -692,3 +712,5 @@ def generatelist(confirmedMenu):
     for i in addItems:
         listFile.write(i + '\n')
     listFile.close()
+
+    return(listList)

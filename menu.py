@@ -86,13 +86,16 @@ while True:
             1 - Yeah!\n
             2 - Nah, re-roll!\n
             3 - Go back\n
-            \n\n"""))
+            \n"""))
                                 if regChoice == 1:
                                     confirmedMenu = proposedMenu
-                                    generatelist(confirmedMenu)
-                                    #print list here as well
-                                    menuChoice = 4
-                                    optChoice = 5
+                                    listList = generatelist(confirmedMenu)
+                                    print('\nIngredients\n')
+                                    for i in listList:
+                                        print(i)
+                                    print('')
+                                    #menuChoice = 4
+                                    #optChoice = 5
                                     break
                                 if regChoice == 2:
                                     continue
@@ -173,13 +176,16 @@ while True:
             1 - Yeah!\n
             2 - Nah, re-roll!\n
             3 - Go back\n
-            \n\n"""))
+            \n"""))
                                 if pieChoice == 1:
                                     confirmedMenu = proposedMenu
-                                    generatelist(confirmedMenu)
-                                    #print list here as well
-                                    menuChoice = 4
-                                    optChoice = 5
+                                    listList = generatelist(confirmedMenu)
+                                    print('\nIngredients\n')
+                                    for i in listList:
+                                        print(i)
+                                    print('')
+                                    #menuChoice = 4
+                                    #optChoice = 5
                                     break
                                 if pieChoice == 2:
                                     continue
@@ -205,9 +211,9 @@ while True:
                                 else:
                                     print(' - ' + str(proposedMenu[0][5]))
                                 if proposedMenu[0][2] == 1:
-                                    print(' - Faffy')
+                                    print(' - Faffy\n')
                                 else:
-                                    print(' - Not faffy')
+                                    print(' - Not faffy\n')
                                 print(proposedMenu[1][0])
 
                                 if proposedMenu[1][1][0] == 2:
@@ -221,9 +227,9 @@ while True:
                                 else:
                                     print(' - ' + str(proposedMenu[1][5]))
                                 if proposedMenu[1][2] == 1:
-                                    print(' - Faffy')
+                                    print(' - Faffy\n')
                                 else:
-                                    print(' - Not faffy')
+                                    print(' - Not faffy\n')
                                 print(proposedMenu[2][0])
 
                                 if proposedMenu[2][1][0] == 2:
@@ -237,9 +243,9 @@ while True:
                                 else:
                                     print(' - ' + str(proposedMenu[2][5]))
                                 if proposedMenu[2][2] == 1:
-                                    print(' - Faffy')
+                                    print(' - Faffy\n')
                                 else:
-                                    print(' - Not faffy')
+                                    print(' - Not faffy\n')
                                 print(proposedMenu[3][0])
 
                                 if proposedMenu[3][1][0] == 2:
@@ -253,20 +259,23 @@ while True:
                                 else:
                                     print(' - ' + str(proposedMenu[3][5]))
                                 if proposedMenu[3][2] == 1:
-                                    print(' - Faffy')
+                                    print(' - Faffy\n')
                                 else:
                                     print(' - Not faffy\n')
                                 newChoice = int(input("""Looks tasty?\n\n
             1 - Yeah!\n
             2 - Nah, re-roll!\n
             3 - Go back\n
-            \n\n"""))
+            \n"""))
                                 if newChoice == 1:
                                     confirmedMenu = proposedMenu
-                                    generatelist(confirmedMenu)
-                                    #print list here as well
-                                    menuChoice = 4
-                                    optChoice = 5
+                                    listList = generatelist(confirmedMenu)
+                                    print('\nIngredients\n')
+                                    for i in listList:
+                                        print(i)
+                                    print('')
+                                    #menuChoice = 4
+                                    #optChoice = 5
                                     break
                                 if newChoice == 2:
                                     continue
@@ -282,7 +291,7 @@ while True:
             print('\nEnjoy your meals, goodbye!')
             break
         if optChoice == 6:
-            print(meallist())
+            mealchange()
         if optChoice == 7:
             print(mealselector())
         if optChoice == 8:
