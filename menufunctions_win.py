@@ -208,6 +208,7 @@ def mealchange():
     while True:
         charChange = int(input('What characteristic do you want to change (enter a number)?\n'))
         if charChange in choiceRange_1:
+            print('testing')
             break
         else:
             print('Please select a valid option')
