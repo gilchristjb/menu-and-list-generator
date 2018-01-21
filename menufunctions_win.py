@@ -173,13 +173,15 @@ def mealchange():
     old meal file with the new meal characteristics."""
 
     import os
-    from menufunctions_win import meallist
+    import ast
 
+    #runs meallist() to print all the available meals to change
     mealList = meallist()
     for i in mealList:
         print(i)
     print('')
 
+    #choosing what meal is to be chnaged
     while True:
         changeMeal = input('What meal do you want to change?\n').title()
         if changeMeal not in mealList:
@@ -187,33 +189,269 @@ def mealchange():
         else:
             break
 
+    #generating the filepath to the .txt document
+    #opening as read and extracting the meal characteristics into a list (mealChars) except for
+    #ingredients, amounts, units and additional items which have their own variables
     changeFile = str(os.getcwd() + '\\recipe_book\\' + changeMeal + '.txt')
 
-    with open(changeFile,"r") as tempChangFile:
-        mealChars = tempChangFile.readlines()
+    with open(changeFile,"r") as tempChangeFile:
 
-    choiceRange_1 = list(range(1,11))
-    print('\nChanging ' + changeMeal + '.txt\n')
-    print('    1 - Servings: ' + mealChars[2])
-    print('    2 - Is faffy: ' + mealChars[4])
-    print('    3 - Is pie: ' + mealChars[6])
-    print('    4 - Main carbohydrate: ' + mealChars[8])
-    print('    5 - Meal type: ' + mealChars[10])
-    print('    6 - Meat type: ' + mealChars[12])
-    print('    7 - Ingrediets: ' + mealChars[14])
-    print('    8 - Amounts: ' + mealChars[16])
-    print('    9 - Units: ' + mealChars[18])
-    print('    10 - Additional items: ' + mealChars[20] + '\n')
+        mealChars = tempChangeFile.readlines()
+        
+        ingList = ast.literal_eval(mealChars[14])
+        amList = ast.literal_eval(mealChars[16])
+        unitList = ast.literal_eval(mealChars[18])
+        addIngs = ast.literal_eval(mealChars[20])
+    tempChangeFile.close()
+
+    #creating a range of possible requests for the option of what to choose
+    servResp = ['servings', 'serving', 'serv', 'serves', 'servs']
+    pieResp = ['pie', 'not pie']
+    faffResp = ['faff', 'faffy', 'fafy', 'faf']
+    carbResp = ['main carbohydrate', 'main carb', 'carb', 'carbs', 'maincarbohydrate', 'maincarb']
+    mealResp = ['meal type', 'meal', 'type', 'mealtype']
+    meatResp = ['meat', 'meat type', 'meattype']
+    ingResp = ['ingredients','ings', 'ing']
+    amResp = ['amounts', 'ams', 'amount']
+    unitResp = ['units', 'unit', 'uns']
+    addResp = ['additional items','additional', 'additionalitems','items', 'add', 'additionals', 'add items', 'additems']
 
     while True:
-        charChange = int(input('What characteristic do you want to change (enter a number)?\n'))
-        if charChange in choiceRange_1:
-            print('testing')
+
+        #options to choose from, the characteristics have \n at the end, and so always go on a separate line
+        print('\nChanging "' + changeMeal + '.txt"\n')
+        print('Servings? ' + mealChars[2])
+        print('Pie? ' + mealChars[6])
+        print('Faff? ' + mealChars[4])
+        print('Main carbohydrate: ' + mealChars[8])
+        print('Meal type: ' + mealChars[10])
+        print('Meat type: ' + mealChars[12])
+        print('Ingredients, amounts and units:')
+        #ingredients, amounts and units are concatenated together
+        for i in ingList:
+            print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
+        print('\nAdditional Items:')
+        print(', '.join(addIngs))
+
+        changeChoice = input('\nType what you want to change or do.\n').lower()
+        print('')
+
+        #changing servings
+        if changeChoice in servResp:
+            while True:
+                servChoice = input('How many days will this be for? ').lower()
+                if servChoice == '1' or servChoice == 'one':
+                    mealChars[2] = 'One day'
+                    break
+                if servChoice == 'end':
+                    break
+                if servChoice == '2' or servChoice == 'two':
+                    while True:
+                        twoServChoice = input('Can this also be for one day (y/n)? ').lower()
+                        if twoServChoice == 'y' or twoServChoice == 'yes':
+                            mealChars[2] = 'One or two days'
+                            break
+                        if twoServChoice == 'n' or twoServChoice == 'no':
+                            mealChars[2] = 'Two days'
+                            break
+                        if twoServChoice == 'end':
+                            break
+                        else:
+                            print('That does not make sense.')
+                    break
+                else:
+                    print('That does not make sense.')
+
+        #changing pie status (also changes faff status if pie)
+        if changeChoice in pieResp:
+            while True:
+                pieChoice = input('Is this meal a pie (y/n)? ').lower()
+                if pieChoice == 'y' or pieChoice == 'yes':
+                    mealChars[4] = 'Faffy'
+                    mealChars[6] = 'Pie'
+                    break
+                if pieChoice == 'n' or pieChoice == 'no':
+                    mealChars[6] = 'Not pie'
+                    break
+                if pieChoice == 'end':
+                    break
+                else:
+                    print('That dose not make sense.')
+
+        #changing faff status, not possible to if pie
+        if changeChoice in faffResp:
+            while True:
+                if mealChars[6] == 'Pie':
+                    print('All pies are faffy, change to "Not pie" first.')
+                    break
+                else:
+                    while True:
+                        faffChoice = (input('Is this a faffy meal (y/n)? ')).lower()
+                        if faffChoice == 'y' or faffChoice == 'yes':
+                            mealChars[4] = 'Faffy\n'
+                            break
+                        if faffChoice == 'n' or faffChoice == 'no':
+                            mealChars[4] = 'Not faffy\n'
+                            break
+                        if faffChoice == 'end':
+                            break
+                        else:
+                             print('Please enter if this is a faffy meal "y" or "n" ')
+                    break
+
+        #changing the main carbohydrate
+        if changeChoice in carbResp:
+            carbList = ['Pasta','Rice','Bread','Couscous','Potato']
+            while True:
+                carbChoice = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
+                if carbChoice in carbList:
+                    mealChars[8] = carbChoice
+                    break
+                else:
+                    print('That does not make sense.')
+
+        #changine meal type (also change meat type if meat meal)
+        if changeChoice in mealResp:
+            while True:
+                mealChoice = input('What mealtype is this (vegetarian, fish, meat)? ').lower()
+                if mealChoice == 'vegetarian' or mealChoice == 'veg':
+                    mealChars[10] = 'Vegetarian'
+                    break
+                if mealChoice == 'fish':
+                    mealChars[10] = 'Fish'
+                    break
+                if mealChoice == 'meat':
+                    mealChars[10] = 'Meat'
+                    meatList = ['Poultry','Beef','Pork','Game','Lamb']
+                    while True:
+                        meatChoice = input('What kind of meat is it (poultry, beef, pork, game, lamb)? ').title()
+                        if meatChoice in meatList:
+                            mealChars[12] = meatChoice
+                            break
+                        if meatChoice == 'End':
+                            break
+                        else:
+                            print('That does not make sense.')
+                    break
+                if mealChoice == 'end':
+                    break
+                else:
+                    print('That does not make sense.')
+
+        #change meat type is it's a meat meal
+        if changeChoice in meatResp:
+            if mealChars[10] == 'Meat':
+                meatList = ['Poultry','Beef','Pork','Game','Lamb']
+                while True:
+                    meatChoice = input('What kind of meat is it (poultry, beef, pork, game, lamb)? ').title()
+                    if meatChoice in meatList:
+                        mealChars[12] = meatChoice
+                        break
+                    else:
+                        print('That does not make sense.')
+            else:
+                print('Change meal type to "Meat" first.')
+
+        #changing ingredients, amounts and units
+        if changeChoice in ingResp or changeChoice in amResp or changeChoice in unitResp:
+            while True:
+                changeOrAdd = input("""Do you want to add an ingredient or make changes to the ingredients, amounts and units?
+Enter "add" or "change" or type "end" anytime to go back.\n""").lower()
+                print('')
+                if changeOrAdd == 'change':
+                    while True:
+                        print('Ingredients: ' + (', '.join(ingList)))
+                        print('Amounts: ' + (', '.join([str(i) for i in amList])))
+                        print('Units: ' + (', '.join(unitList)))
+                        ingChangeChoice = input("""\nWhat do you want to change (ingrediets, amounts or units)?\n""").lower()
+                        print('')
+
+                        if ingChangeChoice in ingResp:
+                            while True:
+                                print('Ingredients: ' + (', '.join(ingList)))
+                                ingChoice = input('Which ingredient do you want to change? \n').title()
+                                print('')
+                                if ingChoice in ingList:
+                                    changeIndex = ingList.index(ingChoice)
+                                    ingList[changeIndex] = input('What do you want to replace it with?\n').title()
+                                    print('')
+                                    amList[changeIndex] = int(input('What is the amount?\n'))
+                                    print('')
+                                    unitList[changeIndex] = input('In what unit?\n').lower()
+                                    print('')
+                                    break
+                                elif ingChoice == 'End':
+                                    break
+                                else:
+                                    print('That does not make sense.1\n')
+
+                        elif ingChangeChoice in amResp:
+                            while True:
+                                print('Ingredients: ' + (', '.join(ingList)))
+                                amChoice = input('What ingredient do you want to change the amount of?\n').title()
+                                print('')
+                                if amChoice in ingList:
+                                    try:
+                                        changeIndex = ingList.index(amChoice)
+                                        amList[changeIndex] = int(input('What is the new amount?\n'))
+                                        print('')
+                                        break
+                                    except ValueError:
+                                        print('\nOUCH! Only enter numbers please!\n')
+                                        break
+                                if amChoice == 'End':
+                                    break
+                                else:
+                                    print('That does not make sense.2\n')
+
+                        elif ingChangeChoice in unitResp:
+                            while True:
+                                print('Ingredients: ' + (', '.join(ingList)))
+                                unitChoice = input('What ingredient do you want to change the unit of?\n').title()
+                                print('')
+                                if unitChoice in ingList:
+                                    changeIndex = ingList.index(unitChoice)
+                                    unitList[changeIndex] = input('What is the new unit?\n').lower()
+                                    print('')
+                                    break
+                                if unitChoice == 'End':
+                                    break
+                                else:
+                                    print('That does not make sense.3\n')
+
+                        elif ingChangeChoice == 'end':
+                            break
+                        else:
+                            print('That does not make sense.4\n')
+
+                elif changeOrAdd == 'add':
+                    print(changeOrAdd)
+                elif changeOrAdd == 'end':
+                    break
+                else:
+                #if changeOrAdd != 'change' or changeOrAdd != 'add' or changeOrAdd != 'end':
+                    print('That does not make sense.5')
+
+
+
+        #changing additional items
+        if changeChoice in addResp:
+            print(ingList)
+            print(amList)
+            print(unitList)
+
+        #finilaize change and write to meal file
+        if changeChoice == 'Finalize change':
+            print(changeChoice)
+
+        #end option
+        if changeChoice == 'end':
             break
-        else:
-            print('Please select a valid option')
-    print('')
-    print('This is still being developed')
+
+        #default error response
+        if changeChoice not in servResp + pieResp + faffResp + carbResp + mealResp + meatResp + ingResp + addResp:
+            print('That does not make sense.')
+
 
 def deletemeal():
     """This function will give the option to delete a meal file in the
