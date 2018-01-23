@@ -168,9 +168,9 @@ def newmeal():
     print('New meal "' + title + '" created!')
 
 def mealchange():
-    """This function allows the replacement of an existing meal file. It is
-    essentially the same as the newmeal function, but it will overwrite the
-    old meal file with the new meal characteristics."""
+    """This function changes characteristics of a meal file.
+    Last edit 2018-01-23
+    """
 
     import os
     import ast
@@ -196,8 +196,11 @@ def mealchange():
 
     with open(changeFile,"r") as tempChangeFile:
 
-        mealChars = tempChangeFile.readlines()
-        
+        mealChars = []
+        withN = tempChangeFile.readlines()
+        for i in withN:
+            mealChars.append(i.rstrip('\n'))
+
         ingList = ast.literal_eval(mealChars[14])
         amList = ast.literal_eval(mealChars[16])
         unitList = ast.literal_eval(mealChars[18])
@@ -218,15 +221,15 @@ def mealchange():
 
     while True:
 
-        #options to choose from, the characteristics have \n at the end, and so always go on a separate line
-        print('\nChanging "' + changeMeal + '.txt"\n')
+        #options to choose from
+        print('\nChanging "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
         print('Servings? ' + mealChars[2])
         print('Pie? ' + mealChars[6])
         print('Faff? ' + mealChars[4])
         print('Main carbohydrate: ' + mealChars[8])
         print('Meal type: ' + mealChars[10])
         print('Meat type: ' + mealChars[12])
-        print('Ingredients, amounts and units:')
+        print('\nIngredients, amounts and units:')
         #ingredients, amounts and units are concatenated together
         for i in ingList:
             print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
@@ -263,7 +266,7 @@ def mealchange():
                     print('That does not make sense.')
 
         #changing pie status (also changes faff status if pie)
-        if changeChoice in pieResp:
+        elif changeChoice in pieResp:
             while True:
                 pieChoice = input('Is this meal a pie (y/n)? ').lower()
                 if pieChoice == 'y' or pieChoice == 'yes':
@@ -279,7 +282,7 @@ def mealchange():
                     print('That dose not make sense.')
 
         #changing faff status, not possible to if pie
-        if changeChoice in faffResp:
+        elif changeChoice in faffResp:
             while True:
                 if mealChars[6] == 'Pie':
                     print('All pies are faffy, change to "Not pie" first.')
@@ -288,10 +291,10 @@ def mealchange():
                     while True:
                         faffChoice = (input('Is this a faffy meal (y/n)? ')).lower()
                         if faffChoice == 'y' or faffChoice == 'yes':
-                            mealChars[4] = 'Faffy\n'
+                            mealChars[4] = 'Faffy'
                             break
                         if faffChoice == 'n' or faffChoice == 'no':
-                            mealChars[4] = 'Not faffy\n'
+                            mealChars[4] = 'Not faffy'
                             break
                         if faffChoice == 'end':
                             break
@@ -300,7 +303,7 @@ def mealchange():
                     break
 
         #changing the main carbohydrate
-        if changeChoice in carbResp:
+        elif changeChoice in carbResp:
             carbList = ['Pasta','Rice','Bread','Couscous','Potato']
             while True:
                 carbChoice = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
@@ -311,7 +314,7 @@ def mealchange():
                     print('That does not make sense.')
 
         #changine meal type (also change meat type if meat meal)
-        if changeChoice in mealResp:
+        elif changeChoice in mealResp:
             while True:
                 mealChoice = input('What mealtype is this (vegetarian, fish, meat)? ').lower()
                 if mealChoice == 'vegetarian' or mealChoice == 'veg':
@@ -339,7 +342,7 @@ def mealchange():
                     print('That does not make sense.')
 
         #change meat type is it's a meat meal
-        if changeChoice in meatResp:
+        elif changeChoice in meatResp:
             if mealChars[10] == 'Meat':
                 meatList = ['Poultry','Beef','Pork','Game','Lamb']
                 while True:
@@ -353,10 +356,10 @@ def mealchange():
                 print('Change meal type to "Meat" first.')
 
         #changing ingredients, amounts and units
-        if changeChoice in ingResp or changeChoice in amResp or changeChoice in unitResp:
+        elif changeChoice in ingResp or changeChoice in amResp or changeChoice in unitResp:
             while True:
                 changeOrAdd = input("""Do you want to add an ingredient or make changes to the ingredients, amounts and units?
-Enter "add" or "change" or type "end" anytime to go back.\n""").lower()
+Enter "add" or "change".\n""").lower()
                 print('')
                 if changeOrAdd == 'change':
                     while True:
@@ -425,33 +428,100 @@ Enter "add" or "change" or type "end" anytime to go back.\n""").lower()
                             print('That does not make sense.4\n')
 
                 elif changeOrAdd == 'add':
-                    print(changeOrAdd)
+
+                    while True:
+                        addIngChoice = input('What ingredient do you want to add?\n').title()
+                        if addIngChoice == 'End':
+                            break
+                        else:
+                            while True:
+                                try:
+                                    addAmChoice = int(input('What is the amount?\n'))
+                                    break
+                                except ValueError:
+                                    print('Please only enter numbers!')
+
+                            addUnitChoice = input('In what unit?\n').lower()
+                            print('')
+
+                            ingList.append(addIngChoice)
+                            amList.append(addAmChoice)
+                            unitList.append(addUnitChoice)
+
                 elif changeOrAdd == 'end':
                     break
                 else:
-                #if changeOrAdd != 'change' or changeOrAdd != 'add' or changeOrAdd != 'end':
                     print('That does not make sense.5')
 
-
-
         #changing additional items
-        if changeChoice in addResp:
-            print(ingList)
-            print(amList)
-            print(unitList)
+        elif changeChoice in addResp:
+            while True:
+                addOrChange = input("""Do you want to add, change or delete an additional item?
+Type "add", "change" or "delete".\n""").lower()
+                print('')
+                if addOrChange == 'change':
+                    while True:
+                        print('Additional items list:', ', '.join(addIngs), '\n')
+                        changeItemChoice = input('What additional item do you want to change?\n').title()
+                        if changeItemChoice in addIngs:
+                            newItemChoice = input('What do you want to change it to?\n').title()
+                            print('')
+                            addIngs[addIngs.index(changeItemChoice)] = newItemChoice
+                        elif chamgeItemChoice == 'End':
+                            break
+                        elif chamgeItemChoice not in addIngs:
+                            print('\nThat is not an additional item.\n')
 
+                elif addOrChange == 'add':
+                    print('Additional items list:', ', '.join(addIngs), '\n')
+                    while True:
+                        addItemChoice = input('What additional item do you want to add?\n').title()
+                        if addItemChoice == 'End':
+                            break
+                        else:
+                            addIngs.append(addItemChoice)
+                            print('New additional items list:', ', '.join(addIngs), '\n')
+
+                elif addOrChange == 'delete' or addOrChange == 'del':
+                    while True:
+                        print('Additional items list:', ', '.join(addIngs), '\n')
+                        deleteItemChoice = input('What Item do you want to delete?\n').title()
+                        if deleteItemChoice in addIngs:
+                            addIngs.pop(addIngs.index(deleteItemChoice))
+                            print(deleteItemChoice, 'deleted!\n')
+                        elif deleteItemChoice == 'End':
+                            break
+                        elif deleteItemChoice not in addIngs:
+                            print('\nThat is not an additional item.\n')
+
+                elif addOrChange == 'end':
+                    break
+                else:
+                    print('That does not make sense.')
+                    
         #finilaize change and write to meal file
-        if changeChoice == 'Finalize change':
-            print(changeChoice)
+        elif changeChoice == 'finalize':
+            with open(changeFile,'w') as tempChangeFile:
+                tempChangeFile.write(changeMeal + '\n\n')
+                tempChangeFile.write(mealChars[2] + '\n\n')
+                tempChangeFile.write(mealChars[4] + '\n\n')
+                tempChangeFile.write(mealChars[6] + '\n\n')
+                tempChangeFile.write(mealChars[8] + '\n\n')
+                tempChangeFile.write(mealChars[10] + '\n\n')
+                tempChangeFile.write(mealChars[12] + '\n\n')
+                tempChangeFile.write(str(ingList) + '\n\n')
+                tempChangeFile.write(str(amList) + '\n\n')
+                tempChangeFile.write(str(unitList) + '\n\n')
+                tempChangeFile.write(str(addIngs))
+            tempChangeFile.close()
 
-        #end option
-        if changeChoice == 'end':
+        #go back option
+        elif changeChoice == 'end':
             break
 
         #default error response
-        if changeChoice not in servResp + pieResp + faffResp + carbResp + mealResp + meatResp + ingResp + addResp:
+        elif changeChoice not in servResp + pieResp + faffResp + carbResp + mealResp + meatResp + ingResp + addResp or changeChoice != 'finalize':
             print('That does not make sense.')
-
 
 def deletemeal():
     """This function will give the option to delete a meal file in the

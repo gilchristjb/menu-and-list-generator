@@ -18,5 +18,4 @@ Poultry
 
 ['a', 'b', 'c', 'd']
 
-['Z', 'Y', 'X', 'W']
-
+['Z', 'Y', 'X', 'W', 'Salt', 'Pepper', 'Basil']

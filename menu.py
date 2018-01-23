@@ -12,6 +12,7 @@ while True:
         if optChoice == 1:
             newmeal()
         if optChoice == 2:
+            print('')
             mealchange()
         if optChoice == 3:
             deletemeal()
