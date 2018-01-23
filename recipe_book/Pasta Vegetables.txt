@@ -12,11 +12,11 @@ Vegetarian
 
 No meat
 
-['D', 'E', 'F', 'G']
+['Courgettes', 'Peppers', 'Mushrooms', 'Tinned Tomatoes', 'Vegetable Stock', 'Onions', 'Pasta']
 
-[1, 2, 3, 4]
+[2, 2, 300, 2, 1, 1, 400]
 
-['a', 'b', 'c', 'd']
+['courgettes', 'peppers', 'g', 'tins', 'stock cube', 'onions', 'g']
 
-['Z', 'Y', 'X', 'W']
+['Salt', 'Pepper', 'Basil', 'Oregano', 'Oil']
 

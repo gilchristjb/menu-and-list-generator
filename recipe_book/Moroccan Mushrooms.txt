@@ -12,11 +12,11 @@ Vegetarian
 
 No meat
 
-['J', 'K', 'L', 'M']
+['Mushrooms', 'Tinned Tomatoes', 'Chickpeas', 'Onions', 'Honey', 'Couscous']
 
-[1, 2, 3, 4]
+[600, 2, 1, 1, 1, 400]
 
-['a', 'b', 'c', 'd']
+['g', 'tins', 'tins', 'onions', 'tsp', 'g']
 
-['Z', 'Y', 'X', 'W']
+['Cinnamon', 'Cumin', 'Salt', 'Pepper', 'Oil']
 

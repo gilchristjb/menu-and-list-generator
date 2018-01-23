@@ -1,0 +1,22 @@
+Prawn Stirfry
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Pasta
+
+Fish
+
+No meat
+
+['Prawns', 'Stirfry Vegetables', 'Noodles', 'Stirfry Sauce', 'Peppers']
+
+[2, 1, 400, 2, 1]
+
+['packets', 'packet', 'g', 'packets', 'pepper']
+
+['Soy Sauce']
+

@@ -1,0 +1,22 @@
+Best Bolognese
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Pasta
+
+Meat
+
+Beef
+
+['Beef', 'Bacon', 'Onions', 'Carrots', 'Garlic', 'Tinned Tomatoes', 'Beef Stock', 'Red Wine', 'Cherry Tomatoes', 'Parmesan', 'Pasta', 'Tomato Pure']
+
+[500, 4, 2, 2, 4, 2, 1, 125, 6, 75, 400, 2]
+
+['g', 'rashers', 'onions', 'carrots', 'cloves', 'tins', 'stock cube', 'ml', 'tomatoes', 'g', 'g', 'tbsp']
+
+['Salt', 'Pepper', 'Oil', 'Basil', 'Oregano']
+

@@ -1,6 +1,6 @@
 Bean Stew
 
-Two days
+One or two days
 
 Not faffy
 
@@ -12,11 +12,11 @@ Vegetarian
 
 No meat
 
-['A', 'B', 'C', 'D']
+['Tinned Tomatoes', 'Black Beans', 'Courgettes', 'Mushrooms', 'Little Potatoes', 'Onions', 'Spinach', 'Fajita Mix']
 
-[1, 2, 3, 4]
+[3, 2, 1, 300, 250, 2, 1, 1]
 
-['a', 'b', 'c', 'd']
+['tins', 'tins', 'courgettes', 'g', 'g', 'onions', 'packet', 'sachet']
 
-['Z', 'Y', 'X', 'W']
+['Salt', 'Pepper', 'Chili Flakes']
 

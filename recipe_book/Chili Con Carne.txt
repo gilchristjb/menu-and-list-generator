@@ -12,11 +12,11 @@ Meat
 
 Beef
 
-['G', 'H', 'I', 'J']
+['Beef', 'Onions', 'Tinned Tomatoes', 'Beef Stock', 'Red Kidney Beans', 'Rice']
 
-[1, 2, 3, 4]
+[500, 2, 2, 1, 1, 400]
 
-['a', 'b', 'c', 'd']
+['g', 'onions', 'tins', 'stock cube', 'tins', 'g']
 
-['Z', 'Y', 'X', 'W']
+['Salt', 'Pepper', 'Chili Powder', 'Oil']
 
