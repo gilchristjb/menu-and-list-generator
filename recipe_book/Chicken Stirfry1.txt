@@ -1,0 +1,21 @@
+Chicken Stirfry
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Rice
+
+Meat
+
+Poultry
+
+['D', 'E', 'F', 'G']
+
+[1, 2, 3, 4]
+
+['a', 'b', 'c', 'd']
+
+['Z', 'Y', 'X', 'W', 'Salt', 'Pepper', 'Basil']
