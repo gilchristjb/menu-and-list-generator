@@ -358,8 +358,8 @@ def mealchange():
         #changing ingredients, amounts and units
         elif changeChoice in ingResp or changeChoice in amResp or changeChoice in unitResp:
             while True:
-                changeOrAdd = input("""Do you want to add an ingredient or make changes to the ingredients, amounts and units?
-Enter "add" or "change".\n""").lower()
+                changeOrAdd = input("""Do you want to add or delete an ingredient or make changes to the ingredients, amounts and units?
+Enter "add", "delete" or "change".\n""").lower()
                 print('')
                 if changeOrAdd == 'change':
                     while True:
@@ -448,6 +448,25 @@ Enter "add" or "change".\n""").lower()
                             amList.append(addAmChoice)
                             unitList.append(addUnitChoice)
 
+                elif changeOrAdd == 'delete':
+                    while True:
+                        print('Ingredients: ' + (', '.join(ingList)))
+                        print('Amounts: ' + (', '.join([str(i) for i in amList])))
+                        print('Units: ' + (', '.join(unitList)))
+                        delIngChoice = input("""\nWhat ingredient do you want to delete?\n""").title()
+                        print('')
+
+                        if delIngChoice in ingList:
+                            print('Deleting:', delIngChoice + ',', amList[ingList.index(delIngChoice)], unitList[ingList.index(delIngChoice)] + '\n')
+                            del amList[ingList.index(delIngChoice)]
+                            del unitList[ingList.index(delIngChoice)]
+                            del ingList[ingList.index(delIngChoice)]
+
+                        elif delIngChoice == 'End':
+                            break
+                        else:
+                            print('That is not an ingredient\n')
+
                 elif changeOrAdd == 'end':
                     break
                 else:
@@ -498,7 +517,7 @@ Type "add", "change" or "delete".\n""").lower()
                     break
                 else:
                     print('That does not make sense.')
-                    
+
         #finilaize change and write to meal file
         elif changeChoice == 'finalize':
             with open(changeFile,'w') as tempChangeFile:
@@ -514,6 +533,8 @@ Type "add", "change" or "delete".\n""").lower()
                 tempChangeFile.write(str(unitList) + '\n\n')
                 tempChangeFile.write(str(addIngs))
             tempChangeFile.close()
+            print('Mealfile finalized.\n')
+            break
 
         #go back option
         elif changeChoice == 'end':

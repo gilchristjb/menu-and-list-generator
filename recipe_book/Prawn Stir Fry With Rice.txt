@@ -1,4 +1,4 @@
-Prawn Stirfry
+Prawn Stir Fry With Rice
 
 One or two days
 
@@ -6,13 +6,13 @@ Not faffy
 
 Not pie
 
-Pasta
+Rice
 
 Fish
 
 No meat
 
-['Prawns', 'Stirfry Vegetables', 'Noodles', 'Stirfry Sauce', 'Peppers']
+['Prawns', 'Stir Fry Vegetables', 'Rice', 'Stir Fry Sauce', 'Peppers']
 
 [2, 1, 400, 2, 1]
 

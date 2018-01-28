@@ -1,4 +1,4 @@
-Chicken Stir Fry
+Chicken Stir Fry With Rice
 
 One or two days
 
@@ -6,13 +6,13 @@ Not faffy
 
 Not pie
 
-Pasta
+Rice
 
 Meat
 
 Poultry
 
-['Chicken', 'Stir Fry Vegetables', 'Peppers', 'Noodles', 'Stir Fry Sauce']
+['Chicken', 'Stir Fry Vegetables', 'Peppers', 'Rice', 'Stir Fry Sauce']
 
 [400, 1, 1, 400, 1]
 

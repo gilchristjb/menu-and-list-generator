@@ -19,4 +19,3 @@ No meat
 ['tins', 'tins', 'courgettes', 'g', 'g', 'onions', 'packet', 'sachet']
 
 ['Salt', 'Pepper', 'Chili Flakes']
-
