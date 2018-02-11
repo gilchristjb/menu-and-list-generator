@@ -19,6 +19,7 @@ def newmeal():
     Testing.
     """
     import os
+    import time
     from menufunctions_win import meallist
 
     #setting the title and ingredients, amounts and unit lists
@@ -164,8 +165,19 @@ def newmeal():
     file.write(units + '\n\n')
     file.write(additionalItems + '\n\n')
     file.close()
-
-    print('New meal "' + title + '" created!')
+    os.system('cls')
+    print('New meal "' + title + '" created!\n')
+    print(servings)
+    print(faff)
+    print(pie)
+    print(carbQuest)
+    print(mealType)
+    print(meatQuest)
+    print(ingredients)
+    print(amounts)
+    print(units)
+    print(additionalItems)
+    input('\nPress enter to continue\n')
 
 def mealchange():
     """This function changes characteristics of a meal file.
@@ -174,18 +186,22 @@ def mealchange():
 
     import os
     import ast
+    import time
 
     #runs meallist() to print all the available meals to change
-    mealList = meallist()
-    for i in mealList:
-        print(i)
-    print('')
+
 
     #choosing what meal is to be chnaged
     while True:
+        os.system('cls')
+        mealList = meallist()
+        for i in mealList:
+            print(i)
+        print('')
         changeMeal = input('What meal do you want to change?\n').title()
         if changeMeal not in mealList:
-            print('That is not a listed meal.')
+            print('\nThat is not a listed meal.')
+            time.sleep(3)
         else:
             break
 
@@ -222,7 +238,8 @@ def mealchange():
     while True:
 
         #options to choose from
-        print('\nChanging "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
+        os.system('cls')
+        print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
         print('Servings? ' + mealChars[2])
         print('Pie? ' + mealChars[6])
         print('Faff? ' + mealChars[4])
@@ -354,28 +371,40 @@ def mealchange():
                         print('That does not make sense.')
             else:
                 print('Change meal type to "Meat" first.')
+                time.sleep(3)
 
         #changing ingredients, amounts and units
         elif changeChoice in ingResp or changeChoice in amResp or changeChoice in unitResp:
             while True:
-                changeOrAdd = input("""Do you want to add or delete an ingredient or make changes to the ingredients, amounts and units?
+                os.system('cls')
+                print('Ingredients, amounts and units:')
+                #ingredients, amounts and units are concatenated together
+                for i in ingList:
+                    print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
+                changeOrAdd = input("""\nDo you want to add or delete an ingredient or make changes to the ingredients, amounts and units?
 Enter "add", "delete" or "change".\n""").lower()
                 print('')
                 if changeOrAdd == 'change':
                     while True:
-                        print('Ingredients: ' + (', '.join(ingList)))
-                        print('Amounts: ' + (', '.join([str(i) for i in amList])))
-                        print('Units: ' + (', '.join(unitList)))
-                        ingChangeChoice = input("""\nWhat do you want to change (ingrediets, amounts or units)?\n""").lower()
+                        os.system('cls')
+                        print('Ingredients, amounts and units:')
+                        for i in ingList:
+                            print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
+
+                        ingChangeChoice = input("""\nWhat do you want to change? Ingrediets, amounts or units?\n""").lower()
                         print('')
 
                         if ingChangeChoice in ingResp:
                             while True:
-                                print('Ingredients: ' + (', '.join(ingList)))
-                                ingChoice = input('Which ingredient do you want to change? \n').title()
+                                os.system('cls')
+                                print('Ingredients, amounts and units:')
+                                for i in ingList:
+                                    print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
+                                ingChoice = input('\nWhich ingredient do you want to change?\n').title()
                                 print('')
                                 if ingChoice in ingList:
                                     changeIndex = ingList.index(ingChoice)
+                                    os.system('cls')
                                     ingList[changeIndex] = input('What do you want to replace it with?\n').title()
                                     print('')
                                     amList[changeIndex] = int(input('What is the amount?\n'))
@@ -390,13 +419,15 @@ Enter "add", "delete" or "change".\n""").lower()
 
                         elif ingChangeChoice in amResp:
                             while True:
-                                print('Ingredients: ' + (', '.join(ingList)))
-                                amChoice = input('What ingredient do you want to change the amount of?\n').title()
-                                print('')
+                                os.system('cls')
+                                print('Ingredients, amounts and units:')
+                                for i in ingList:
+                                    print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
+                                amChoice = input('\nWhat ingredient do you want to change the amount of?\n').title()
                                 if amChoice in ingList:
                                     try:
                                         changeIndex = ingList.index(amChoice)
-                                        amList[changeIndex] = int(input('What is the new amount?\n'))
+                                        amList[changeIndex] = int(input('\nWhat is the new amount?\n'))
                                         print('')
                                         break
                                     except ValueError:
@@ -409,12 +440,14 @@ Enter "add", "delete" or "change".\n""").lower()
 
                         elif ingChangeChoice in unitResp:
                             while True:
-                                print('Ingredients: ' + (', '.join(ingList)))
-                                unitChoice = input('What ingredient do you want to change the unit of?\n').title()
-                                print('')
+                                os.system('cls')
+                                print('Ingredients, amounts and units:')
+                                for i in ingList:
+                                    print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
+                                unitChoice = input('\nWhat ingredient do you want to change the unit of?\n').title()
                                 if unitChoice in ingList:
                                     changeIndex = ingList.index(unitChoice)
-                                    unitList[changeIndex] = input('What is the new unit?\n').lower()
+                                    unitList[changeIndex] = input('\nWhat is the new unit?\n').lower()
                                     print('')
                                     break
                                 if unitChoice == 'End':
@@ -430,6 +463,7 @@ Enter "add", "delete" or "change".\n""").lower()
                 elif changeOrAdd == 'add':
 
                     while True:
+                        os.system('cls')
                         addIngChoice = input('What ingredient do you want to add?\n').title()
                         if addIngChoice == 'End':
                             break
@@ -450,9 +484,10 @@ Enter "add", "delete" or "change".\n""").lower()
 
                 elif changeOrAdd == 'delete':
                     while True:
-                        print('Ingredients: ' + (', '.join(ingList)))
-                        print('Amounts: ' + (', '.join([str(i) for i in amList])))
-                        print('Units: ' + (', '.join(unitList)))
+                        os.system('cls')
+                        print('Ingredients, amounts and units:')
+                        for i in ingList:
+                            print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
                         delIngChoice = input("""\nWhat ingredient do you want to delete?\n""").title()
                         print('')
 
@@ -475,7 +510,10 @@ Enter "add", "delete" or "change".\n""").lower()
         #changing additional items
         elif changeChoice in addResp:
             while True:
-                addOrChange = input("""Do you want to add, change or delete an additional item?
+                os.system('cls')
+                print('\nAdditional Items:')
+                print(', '.join(addIngs))
+                addOrChange = input("""\nDo you want to add, change or delete an additional item?
 Type "add", "change" or "delete".\n""").lower()
                 print('')
                 if addOrChange == 'change':
@@ -534,6 +572,7 @@ Type "add", "change" or "delete".\n""").lower()
                 tempChangeFile.write(str(addIngs))
             tempChangeFile.close()
             print('Mealfile finalized.\n')
+            time.sleep(3)
             break
 
         #go back option

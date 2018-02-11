@@ -1,0 +1,47 @@
+***In the meal files selected, check the units are consistent between duplicated ingerdients***
+Meals:
+Speedy Sausage Stew
+Fish Curry
+Moroccan Mushrooms
+Chicken Stir Fry With Noodles (1)
+
+Ingredients:
+Sausages - 12 sausages
+Puy Lentils - 3 packets
+Chicken Stock - 1 stock cube
+Kale - 1 packet
+Onions - 5 onions
+Little Breads - 4 breads
+White Fish - 500 g
+Rice - 400 g
+Ginger Root - 30 g
+Garlic - 3 cloves
+Tinned Tomatoes - 3 tins
+Red Chilies - 3 chilis
+Peppers - 1.5 peppers
+Garam Masala - 1 tsp
+Cumin - 2 tsp
+Ground Coriander - 1 tsp
+Ground Turmeric - 1 tsp
+Chili Powder - 2 tsp
+Curry Leaves - 2 leaves
+Mushrooms - 600 g
+Chickpeas - 1 tins
+Honey - 1 tsp
+Couscous - 400 g
+Chicken - 200.0 g
+Stir Fry Vegetables - 0.5 pack
+Noodles - 200.0 g
+Stir Fry Sauce - 0.5 sachet
+
+Additional items:
+Salt
+Pepper
+Oil
+Mango Chutney
+Lime Pickle
+Brinjal Pickle
+Naans
+Cinnamon
+Cumin
+Soy Sauce
