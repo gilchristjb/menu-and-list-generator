@@ -259,7 +259,7 @@ def mealchange():
         #changing servings
         if changeChoice in servResp:
             while True:
-                servChoice = input('How many days will this be for? ').lower()
+                servChoice = input('How many days will this be for?\n').lower()
                 if servChoice == '1' or servChoice == 'one':
                     mealChars[2] = 'One day'
                     break
@@ -267,7 +267,7 @@ def mealchange():
                     break
                 if servChoice == '2' or servChoice == 'two':
                     while True:
-                        twoServChoice = input('Can this also be for one day (y/n)? ').lower()
+                        twoServChoice = input('Can this also be for one day (y/n)?\n').lower()
                         if twoServChoice == 'y' or twoServChoice == 'yes':
                             mealChars[2] = 'One or two days'
                             break
@@ -285,7 +285,7 @@ def mealchange():
         #changing pie status (also changes faff status if pie)
         elif changeChoice in pieResp:
             while True:
-                pieChoice = input('Is this meal a pie (y/n)? ').lower()
+                pieChoice = input('Is this meal a pie (y/n)?\n').lower()
                 if pieChoice == 'y' or pieChoice == 'yes':
                     mealChars[4] = 'Faffy'
                     mealChars[6] = 'Pie'
@@ -303,6 +303,7 @@ def mealchange():
             while True:
                 if mealChars[6] == 'Pie':
                     print('All pies are faffy, change to "Not pie" first.')
+                    time.sleep(3)
                     break
                 else:
                     while True:
@@ -323,7 +324,7 @@ def mealchange():
         elif changeChoice in carbResp:
             carbList = ['Pasta','Rice','Bread','Couscous','Potato']
             while True:
-                carbChoice = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
+                carbChoice = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)?\n').title()
                 if carbChoice in carbList:
                     mealChars[8] = carbChoice
                     break
@@ -333,18 +334,20 @@ def mealchange():
         #changine meal type (also change meat type if meat meal)
         elif changeChoice in mealResp:
             while True:
-                mealChoice = input('What mealtype is this (vegetarian, fish, meat)? ').lower()
+                mealChoice = input('What mealtype is this (vegetarian, fish, meat)?\n').lower()
                 if mealChoice == 'vegetarian' or mealChoice == 'veg':
                     mealChars[10] = 'Vegetarian'
+                    mealChars[12] = 'No meat'
                     break
                 if mealChoice == 'fish':
                     mealChars[10] = 'Fish'
+                    mealChars[12] = 'No meat'
                     break
                 if mealChoice == 'meat':
                     mealChars[10] = 'Meat'
                     meatList = ['Poultry','Beef','Pork','Game','Lamb']
                     while True:
-                        meatChoice = input('What kind of meat is it (poultry, beef, pork, game, lamb)? ').title()
+                        meatChoice = input('What kind of meat is it (poultry, beef, pork, game, lamb)?\n').title()
                         if meatChoice in meatList:
                             mealChars[12] = meatChoice
                             break
@@ -363,7 +366,7 @@ def mealchange():
             if mealChars[10] == 'Meat':
                 meatList = ['Poultry','Beef','Pork','Game','Lamb']
                 while True:
-                    meatChoice = input('What kind of meat is it (poultry, beef, pork, game, lamb)? ').title()
+                    meatChoice = input('What kind of meat is it (poultry, beef, pork, game, lamb)?\n').title()
                     if meatChoice in meatList:
                         mealChars[12] = meatChoice
                         break
@@ -511,41 +514,50 @@ Enter "add", "delete" or "change".\n""").lower()
         elif changeChoice in addResp:
             while True:
                 os.system('cls')
-                print('\nAdditional Items:')
-                print(', '.join(addIngs))
+                print('Additional Items:')
+                for i in addIngs:
+                    print(i)
                 addOrChange = input("""\nDo you want to add, change or delete an additional item?
 Type "add", "change" or "delete".\n""").lower()
-                print('')
                 if addOrChange == 'change':
                     while True:
-                        print('Additional items list:', ', '.join(addIngs), '\n')
-                        changeItemChoice = input('What additional item do you want to change?\n').title()
+                        os.system('cls')
+                        print('Additional Items:')
+                        for i in addIngs:
+                            print(i)
+                        changeItemChoice = input('\nWhat additional item do you want to change?\n').title()
                         if changeItemChoice in addIngs:
-                            newItemChoice = input('What do you want to change it to?\n').title()
-                            print('')
+                            newItemChoice = input('\nWhat do you want to change it to?\n').title()
                             addIngs[addIngs.index(changeItemChoice)] = newItemChoice
-                        elif chamgeItemChoice == 'End':
+                        elif changeItemChoice == 'End':
                             break
-                        elif chamgeItemChoice not in addIngs:
+                        else:
                             print('\nThat is not an additional item.\n')
+                            time.sleep(3)
 
                 elif addOrChange == 'add':
-                    print('Additional items list:', ', '.join(addIngs), '\n')
                     while True:
-                        addItemChoice = input('What additional item do you want to add?\n').title()
+                        os.system('cls')
+                        print('Additional Items:')
+                        for i in addIngs:
+                            print(i)
+                        addItemChoice = input('\nWhat additional item do you want to add?\n').title()
                         if addItemChoice == 'End':
                             break
                         else:
                             addIngs.append(addItemChoice)
-                            print('New additional items list:', ', '.join(addIngs), '\n')
 
                 elif addOrChange == 'delete' or addOrChange == 'del':
                     while True:
-                        print('Additional items list:', ', '.join(addIngs), '\n')
-                        deleteItemChoice = input('What Item do you want to delete?\n').title()
+                        os.system('cls')
+                        print('Additional Items:')
+                        for i in addIngs:
+                            print(i)
+                        deleteItemChoice = input('\nWhat Item do you want to delete?\n').title()
                         if deleteItemChoice in addIngs:
                             addIngs.pop(addIngs.index(deleteItemChoice))
-                            print(deleteItemChoice, 'deleted!\n')
+                            print('\n' + deleteItemChoice + ' deleted!\n')
+                            time.sleep(3)
                         elif deleteItemChoice == 'End':
                             break
                         elif deleteItemChoice not in addIngs:
@@ -588,49 +600,39 @@ def deletemeal():
     recipe_book directory."""
 
     import os
+    import time
     from menufunctions_win import meallist
-
-    #producing a list of meals in the recipe_book directory
-    mealList = meallist()
-    for i in mealList:
-        print(i)
-    print('')
 
     #choosing the file for deletion
     while True:
-        delQuest = input('What meal do you want to remove? ').title()
-        if delQuest not in mealList:
+        os.system('cls')
+        mealList = meallist()
+        for i in mealList:
+            print(i)
+        delQuest = input("""\nWhat meal do you want to remove?
+Type "End" to go back.\n""").title()
+        if delQuest == 'End':
+            break
+        elif delQuest not in mealList:
             print('That is not a meal on the list!')
+            time.sleep(3)
         else:
-            break
-
-    #generation of the file path to file and deletion of meal file
-    while True:
-        print('Are you sure you want to delete "' + delQuest + '" (y/n)?')
-        delCheck = input('\n').lower()
-        if delCheck == 'yes' or delCheck == 'y':
-            delPath = str(os.getcwd() + '\\recipe_book' + '\\' + delQuest + '.txt')
-            os.remove(delPath)
-
-            # end process
-            print(delQuest + '.txt deleted!\n')
-            mealList = meallist()
-            for i in mealList:
-                print(i)
-            break
-        elif delCheck == 'no' or delCheck == 'n':
-            break
-        else:
-            print('That does not make sense.')
-
-    #delPath = str(os.getcwd() + '\\recipe_book' + '\\' + delQuest + '.txt')
-    #os.remove(delPath)
-
-    # end process
-    #print(delQuest + '.txt deleted!')
-    #mealList = meallist()
-    #for i in mealList:
-    #    print(i)
+            #deletion check
+            while True:
+                print('\nAre you sure you want to delete "' + delQuest + '" (y/n)?')
+                delCheck = input('\n').lower()
+                if delCheck == 'yes' or delCheck == 'y':
+                    delPath = str(os.getcwd() + '\\recipe_book' + '\\' + delQuest + '.txt')
+                    os.remove(delPath)
+                    #end process
+                    print(delQuest + '.txt deleted!\n')
+                    time.sleep(3)
+                    break
+                elif delCheck == 'no' or delCheck == 'n':
+                    break
+                else:
+                    print('\nThat does not make sense.')
+                    time.sleep(3)
 
 def mealselector():
     """ This function randomly chooses a meal file for meal 1 and asigns the characheristics

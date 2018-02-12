@@ -12,11 +12,10 @@ Vegetarian
 
 No meat
 
-[]
+['Flour', 'Cheese']
 
-[]
+[1, 200]
 
-[]
+['kg', 'g']
 
-[]
-
+['Flour', 'Salt', 'Pepper']
