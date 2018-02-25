@@ -24,22 +24,32 @@ def newmeal():
 
     #setting the title and ingredients, amounts and unit lists
     mealList = meallist()
+
     while True:
+        os.system('cls')
         title = input('What is the meal name? ').title()
         if title in mealList:
             print('That is already a meal, please choose another meal name')
+            time.sleep(3)
             continue
-        else:
+        if title not in mealList:
             ingredients = []
             amounts = []
             units = []
             while True:
-                current_ing = input('Name an ingredient or enter "end" to exit ').title()
+                os.system('cls')
+                if len(ingredients) != 0:
+                    for i in ingredients:
+                        print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
+                    print("")
+                else:
+                    pass
+                current_ing = input('Name an ingredient or enter "end" to exit\n').title()
                 if current_ing == 'End':
                     break
                 else:
-                    ing_am = int(input('How much of this ingredient? '))
-                    ing_unit = input('what is the unit? ').lower()
+                    ing_am = int(input('How much of this ingredient?\n'))
+                    ing_unit = input('what is the unit?\n').lower()
                     ingredients.append(current_ing)
                     amounts.append(ing_am)
                     units.append(ing_unit)
@@ -47,13 +57,21 @@ def newmeal():
 
     #set number of days meal will be for, one or two days only
     while True:
-        servQuest = input('How many days will it be for (one or two days only)? ')
+        os.system('cls')
+        for i in ingredients:
+            print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
+        servQuest = input('\nHow many days will it be for (one or two days only)?\n')
         if servQuest == '1':
             servings = 'One day'
             break
         elif servQuest == '2':
             while True:
-                dayQuest = input('Can this also be for one day? (y/n) ').lower()
+                os.system('cls')
+                for i in ingredients:
+                    print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
+                print('\nHow many days will it be for (one or two days only)?')
+                print(servQuest)
+                dayQuest = input('\nCan this also be for one day? (y/n)\n').lower()
                 if dayQuest == 'y' or dayQuest == 'yes':
                     servings = 'One or two days'
                     break
@@ -62,12 +80,18 @@ def newmeal():
                     break
                 else:
                     print('That does not make sense')
+                    time.sleep(3)
             break
         else:
             print('That does not make sense')
+            time.sleep(3)
 
     #set if this is a pie meal
     while True:
+        os.system('cls')
+        for i in ingredients:
+            print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
+        print(servings)
         pieQuest = (input('Is meal a pie, (y/n)? ')).lower()
         if pieQuest == 'y' or pieQuest == 'yes':
             pie = 'Pie'
