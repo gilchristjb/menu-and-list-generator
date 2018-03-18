@@ -20,7 +20,7 @@ def clearCLI():
     if platform.system() == 'Linux':
         os.system('clear')
     elif platform.system() == 'Windows':
-        clearCLI()
+        os.system('cls')
     else:
         print('Cannot determine OS, so cannot run clearCLI function')
 
