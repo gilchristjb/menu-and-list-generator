@@ -1,14 +1,28 @@
 def meallist():
     """Function to check if there is a directory called 'recipe_book'
-    in the cwd, and creates one if it is not present. It then creates and returns a list of
-    all the meals present in the recipe_book directory.
+    in the cwd, and creates one if it is not present. It then creates and
+    returns a list of all the meals present in the recipe_book directory.
     """
     import os
 
-    recipeFiles = os.listdir(str(os.getcwd() + '\\recipe_book'))
+    recipeFiles = os.listdir(os.path.join(os.getcwd(), 'recipe_book'))
     mealList = [x.split('.')[0] for x in recipeFiles]
 
     return(mealList)
+
+def clearCLI():
+    """Clears the CLI when either on Linux or Windows. Prints that it can't
+    identify the OS or reports an error if not.
+    """
+    import platform
+    import os
+
+    if platform.system() == 'Linux':
+        os.system('clear')
+    elif platform.system() == 'Windows':
+        clearCLI()
+    else:
+        print('Cannot determine OS, so cannot run clearCLI function')
 
 def newmeal():
     """Function checks to see if there is a directory called 'recipe_book
@@ -20,13 +34,13 @@ def newmeal():
     """
     import os
     import time
-    from menufunctions_win import meallist
+    from menufunctions_win import meallist, clearCLI
 
     #setting the title and ingredients, amounts and unit lists
     mealList = meallist()
 
     while True:
-        os.system('cls')
+        clearCLI()
         title = input('What is the meal name? ').title()
         if title in mealList:
             print('That is already a meal, please choose another meal name')
@@ -37,7 +51,7 @@ def newmeal():
             amounts = []
             units = []
             while True:
-                os.system('cls')
+                clearCLI()
                 if len(ingredients) != 0:
                     for i in ingredients:
                         print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
@@ -57,16 +71,16 @@ def newmeal():
 
     #set number of days meal will be for, one or two days only
     while True:
-        os.system('cls')
+        clearCLI()
         for i in ingredients:
             print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
-        servQuest = input('\nHow many days will it be for (one or two days only)?\n')
-        if servQuest == '1':
+        servQuest = input('\nHow many days will it be for (one or two days only)?\n').lower()
+        if servQuest == '1' or servQuest == 'one':
             servings = 'One day'
             break
-        elif servQuest == '2':
+        elif servQuest == '2' or servQuest == 'two':
             while True:
-                os.system('cls')
+                clearCLI()
                 for i in ingredients:
                     print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
                 print('\nHow many days will it be for (one or two days only)?')
@@ -88,10 +102,10 @@ def newmeal():
 
     #set if this is a pie meal
     while True:
-        os.system('cls')
+        clearCLI()
         for i in ingredients:
             print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
-        print(servings)
+        print('\n' + servings + '\n')
         pieQuest = (input('Is meal a pie, (y/n)? ')).lower()
         if pieQuest == 'y' or pieQuest == 'yes':
             pie = 'Pie'
@@ -104,11 +118,15 @@ def newmeal():
 
     #set if this is a faffy meal
     while True:
+        clearCLI()
         if pie == 'Pie':
             faff = 'Faffy'
             break
         else:
             pass
+        for i in ingredients:
+            print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
+        print('\n' + servings + '\n' + pie + '\n')
         faffQuest = (input('Is this a faffy meal, (y/n)? ')).lower()
         if faffQuest == 'y' or faffQuest == 'yes':
             faff = 'Faffy'
@@ -122,6 +140,10 @@ def newmeal():
     #set the main carbohydrate type
     carbList = ['Pasta','Rice','Bread','Couscous','Potato']
     while True:
+        clearCLI()
+        for i in ingredients:
+            print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
+        print('\n' + servings + '\n' + pie + '\n' + faff + '\n')
         carbQuest = input('What is the main carbohydrate (pasta, rice, bread, couscous, potato)? ').title()
         if carbQuest in carbList:
             break
@@ -130,6 +152,10 @@ def newmeal():
 
     #set the meal type (vegetarian, fish or meat)
     while True:
+        clearCLI()
+        for i in ingredients:
+            print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
+        print('\n' + servings + '\n' + pie + '\n' + faff + '\n' + carbQuest + '\n')
         typeQuest = input('Is this meal vegetarian? (y/n) ').lower()
         if typeQuest == 'y' or typeQuest == 'yes':
             mealType = 'Vegetarian'
@@ -164,19 +190,24 @@ def newmeal():
     #making a list of any potential additional items that might be needed
     additionalItems = []
     while True:
-        current_additional = input('What additional items might be needed (type "end" to quit)? ').title()
+        clearCLI()
+        for i in ingredients:
+            print(i, amounts[ingredients.index(i)], units[ingredients.index(i)])
+        print('\n' + servings + '\n' + pie + '\n' + faff + '\n' + carbQuest + '\n' + mealType + '\n' + meatQuest + '\n' + ', '.join(additionalItems))
+        #print(', '.join(additionalItems))
+        current_additional = input('\nWhat additional items might be needed (type "end" to quit)? ').title()
         if current_additional == 'End':
             break
         else:
             additionalItems.append(current_additional)
 
     #creation of the meal file txt file with all the parameters set previously
-    filename = str(os.getcwd() + '\\recipe_book' + '\\' + title + '.txt')
+    filePath = os.path.join(os.getcwd(), 'recipe_book', str(title + '.txt'))
     ingredients = str(ingredients)
     amounts = str(amounts)
     units = str(units)
     additionalItems = str(additionalItems)
-    file = open(filename, 'w')
+    file = open(filePath, 'w')
     file.write(title + '\n\n')
     file.write(servings + '\n\n')
     file.write(faff + '\n\n')
@@ -189,7 +220,7 @@ def newmeal():
     file.write(units + '\n\n')
     file.write(additionalItems + '\n\n')
     file.close()
-    os.system('cls')
+    clearCLI()
     print('New meal "' + title + '" created!\n')
     print(servings)
     print(faff)
@@ -212,12 +243,9 @@ def mealchange():
     import ast
     import time
 
-    #runs meallist() to print all the available meals to change
-
-
     #choosing what meal is to be chnaged
     while True:
-        os.system('cls')
+        clearCLI()
         mealList = meallist()
         for i in mealList:
             print(i)
@@ -232,7 +260,7 @@ def mealchange():
     #generating the filepath to the .txt document
     #opening as read and extracting the meal characteristics into a list (mealChars) except for
     #ingredients, amounts, units and additional items which have their own variables
-    changeFile = str(os.getcwd() + '\\recipe_book\\' + changeMeal + '.txt')
+    changeFile = os.path.join(os.getcwd(), 'recipe_book', str(changeMeal + '.txt'))
 
     with open(changeFile,"r") as tempChangeFile:
 
@@ -262,7 +290,7 @@ def mealchange():
     while True:
 
         #options to choose from
-        os.system('cls')
+        clearCLI()
         print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
         print('Servings? ' + mealChars[2])
         print('Pie? ' + mealChars[6])
@@ -283,7 +311,7 @@ def mealchange():
         #changing servings
         if changeChoice in servResp:
             while True:
-                os.system('cls')
+                clearCLI()
                 print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                 print('Servings? ' + mealChars[2])
                 print('Pie? ' + mealChars[6])
@@ -306,7 +334,7 @@ def mealchange():
                     break
                 if servChoice == '2' or servChoice == 'two':
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                         print('Servings? ' + mealChars[2])
                         print('Pie? ' + mealChars[6])
@@ -345,7 +373,7 @@ def mealchange():
         #changing pie status (also changes faff status if pie)
         elif changeChoice in pieResp:
             while True:
-                os.system('cls')
+                clearCLI()
                 print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                 print('Servings? ' + mealChars[2])
                 print('Pie? ' + mealChars[6])
@@ -377,7 +405,7 @@ def mealchange():
         #changing faff status, not possible to if pie
         elif changeChoice in faffResp:
             while True:
-                os.system('cls')
+                clearCLI()
                 print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                 print('Servings? ' + mealChars[2])
                 print('Pie? ' + mealChars[6])
@@ -398,7 +426,7 @@ def mealchange():
                     break
                 else:
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                         print('Servings? ' + mealChars[2])
                         print('Pie? ' + mealChars[6])
@@ -431,7 +459,7 @@ def mealchange():
         elif changeChoice in carbResp:
             carbList = ['Pasta','Rice','Bread','Couscous','Potato']
             while True:
-                os.system('cls')
+                clearCLI()
                 print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                 print('Servings? ' + mealChars[2])
                 print('Pie? ' + mealChars[6])
@@ -457,7 +485,7 @@ def mealchange():
         #changine meal type (also change meat type if meat meal)
         elif changeChoice in mealResp:
             while True:
-                os.system('cls')
+                clearCLI()
                 print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                 print('Servings? ' + mealChars[2])
                 print('Pie? ' + mealChars[6])
@@ -485,7 +513,7 @@ def mealchange():
                     mealChars[10] = 'Meat'
                     meatList = ['Poultry','Beef','Pork','Game','Lamb']
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                         print('Servings? ' + mealChars[2])
                         print('Pie? ' + mealChars[6])
@@ -523,7 +551,7 @@ def mealchange():
             if mealChars[10] == 'Meat':
                 meatList = ['Poultry','Beef','Pork','Game','Lamb']
                 while True:
-                    os.system('cls')
+                    clearCLI()
                     print('Changing "' + changeMeal + '.txt"\nType "end" anytime to go back\nType "finalize" to commit the changes to the meal file\n')
                     print('Servings? ' + mealChars[2])
                     print('Pie? ' + mealChars[6])
@@ -554,7 +582,7 @@ def mealchange():
         #changing ingredients, amounts and units
         elif changeChoice in ingResp or changeChoice in amResp or changeChoice in unitResp:
             while True:
-                os.system('cls')
+                clearCLI()
                 print('Ingredients, amounts and units:')
                 #ingredients, amounts and units are concatenated together
                 for i in ingList:
@@ -564,7 +592,7 @@ Enter "add", "delete" or "change".\n""").lower()
                 print('')
                 if changeOrAdd == 'change':
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         print('Ingredients, amounts and units:')
                         for i in ingList:
                             print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
@@ -572,14 +600,14 @@ Enter "add", "delete" or "change".\n""").lower()
                         ingChangeChoice = input("""\nWhat do you want to change? The ingrediets, amounts or units?\n""").lower()
                         if ingChangeChoice in ingResp:
                             while True:
-                                os.system('cls')
+                                clearCLI()
                                 print('Ingredients, amounts and units:')
                                 for i in ingList:
                                     print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
                                 ingChoice = input('\nWhich ingredient do you want to change?\n').title()
                                 if ingChoice in ingList:
                                     changeIndex = ingList.index(ingChoice)
-                                    os.system('cls')
+                                    clearCLI()
                                     ingList[changeIndex] = input('What do you want to replace it with?\n').title()
                                     amList[changeIndex] = int(input('What is the amount?\n'))
                                     unitList[changeIndex] = input('In what unit?\n').lower()
@@ -592,7 +620,7 @@ Enter "add", "delete" or "change".\n""").lower()
 
                         elif ingChangeChoice in amResp:
                             while True:
-                                os.system('cls')
+                                clearCLI()
                                 print('Ingredients, amounts and units:')
                                 for i in ingList:
                                     print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
@@ -614,7 +642,7 @@ Enter "add", "delete" or "change".\n""").lower()
 
                         elif ingChangeChoice in unitResp:
                             while True:
-                                os.system('cls')
+                                clearCLI()
                                 print('Ingredients, amounts and units:')
                                 for i in ingList:
                                     print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
@@ -638,7 +666,7 @@ Enter "add", "delete" or "change".\n""").lower()
                 elif changeOrAdd == 'add':
 
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         addIngChoice = input('What ingredient do you want to add?\n').title()
                         if addIngChoice == 'End':
                             break
@@ -659,7 +687,7 @@ Enter "add", "delete" or "change".\n""").lower()
 
                 elif changeOrAdd == 'delete' or changeOrAdd == 'del':
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         print('Ingredients, amounts and units:')
                         for i in ingList:
                             print(i, amList[ingList.index(i)], unitList[ingList.index(i)])
@@ -687,7 +715,7 @@ Enter "add", "delete" or "change".\n""").lower()
         #changing additional items
         elif changeChoice in addResp:
             while True:
-                os.system('cls')
+                clearCLI()
                 print('Additional Items:')
                 for i in addIngs:
                     print(i)
@@ -695,7 +723,7 @@ Enter "add", "delete" or "change".\n""").lower()
 Type "add", "change" or "delete".\n""").lower()
                 if addOrChange == 'change':
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         print('Additional Items:')
                         for i in addIngs:
                             print(i)
@@ -711,7 +739,7 @@ Type "add", "change" or "delete".\n""").lower()
 
                 elif addOrChange == 'add':
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         print('Additional Items:')
                         for i in addIngs:
                             print(i)
@@ -723,7 +751,7 @@ Type "add", "change" or "delete".\n""").lower()
 
                 elif addOrChange == 'delete' or addOrChange == 'del':
                     while True:
-                        os.system('cls')
+                        clearCLI()
                         print('Additional Items:')
                         for i in addIngs:
                             print(i)
@@ -776,11 +804,11 @@ def deletemeal():
 
     import os
     import time
-    from menufunctions_win import meallist
+    from menufunctions_win import meallist, clearCLI
 
     #choosing the file for deletion
     while True:
-        os.system('cls')
+        clearCLI()
         mealList = meallist()
         for i in mealList:
             print(i)
@@ -797,7 +825,7 @@ Type "End" to go back.\n""").title()
                 print('\nAre you sure you want to delete "' + delQuest + '" (y/n)?')
                 delCheck = input('\n').lower()
                 if delCheck == 'yes' or delCheck == 'y':
-                    delPath = str(os.getcwd() + '\\recipe_book' + '\\' + delQuest + '.txt')
+                    delPath = os.path.join(os.getcwd(), 'recipe_book', str(delQuest + '.txt'))
                     os.remove(delPath)
                     #end process
                     print(delQuest + '.txt deleted!\n')
@@ -817,11 +845,11 @@ def mealselector():
     import os
     import ast
     import random
-    from menufunctions_win import meallist
+    from menufunctions_win import meallist, clearCLI
 
     #randomly chooses a meal from meallist and finds the file path
     mealChoice = str(random.choice(meallist()))
-    choicePath = str(os.getcwd() + '\\recipe_book\\' + mealChoice + '.txt')
+    choicePath = os.path.join(os.getcwd(), 'recipe_book', str(mealChoice + '.txt'))
 
     #reads all the lines from the mealfile and removes quotes
     with open(choicePath,"r") as x:
@@ -863,7 +891,7 @@ def generatemenu():
     """Using the mealselector function the meal choices are made and the characteristics are evaluated to return a menu which .
     """
     import os
-    from menufunctions_win import mealselector
+    from menufunctions_win import mealselector, clearCLI
 
     while True:
         mealChoice_1 = mealselector()
@@ -920,7 +948,7 @@ def generatepie():
     """Using the mealselector function the meal choices are made and the characteristics are evaluated to return a menu which .
     """
     import os
-    from menufunctions_win import mealselector
+    from menufunctions_win import mealselector, clearCLI
 
     while True:
         mealChoice_1 = mealselector()
@@ -973,7 +1001,7 @@ def generatenew():
     """
     import os
     import random
-    from menufunctions_win import mealselector
+    from menufunctions_win import mealselector, clearCLI
 
     while True:
         mealChoice_1 = mealselector()
@@ -1202,8 +1230,10 @@ def generatelist(confirmedMenu):
 
     #making the list.txt file with timestanp in the format year-month-date-hour-minute-second. Will change this to just the
     #date after development
-    timeStampFormat = 'List made on %Y-%m-%d-%H-%M-%S'
-    listFile = open(str(os.getcwd() + '\\' + datetime.datetime.now().strftime(timeStampFormat) + '.txt'), 'w')
+
+    timeStampFormat = 'List made on %Y-%m-%d-%H-%M-%S.txt'
+    listFileName = datetime.datetime.now().strftime(timeStampFormat)
+    listFile = open(os.path.join(os.getcwd(), listFileName), 'w')
 
     while True:
         if mealChoice_1[1][0] == 1:

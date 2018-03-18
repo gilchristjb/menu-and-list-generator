@@ -1,10 +1,10 @@
-from menufunctions_win import newmeal, mealchange, deletemeal, meallist, mealselector, generatemenu, generatepie, generatelist, generatenew
+from menufunctions_win import newmeal, mealchange, deletemeal, meallist, clearCLI, mealselector, generatemenu, generatepie, generatelist, generatenew
 import os
 import time
 
 while True:
     try:
-        os.system('cls')
+        clearCLI()
         optChoice = int(input("""What do you want to do (enter a number)?\n\n
             1 - Add a meal\n
             2 - Change a meal\n
@@ -13,19 +13,19 @@ while True:
             5 - Exit\n
             \n"""))
         if optChoice == 1:
-            os.system('cls')
+            clearCLI()
             newmeal()
         if optChoice == 2:
-            os.system('cls')
+            clearCLI()
             mealchange()
         if optChoice == 3:
-            os.system('cls')
+            clearCLI()
             deletemeal()
-            os.system('cls')
+            clearCLI()
         if optChoice == 4:
             while True:
                 try:
-                    os.system('cls')
+                    clearCLI()
                     menuChoice = int(input("""What do you want to do (enter a number)?\n\n
             1 - Generate a regular menu\n
             2 - Generate a pie menu\n
@@ -35,7 +35,7 @@ while True:
                     if menuChoice == 1:
                         while True:
                             try:
-                                os.system('cls')
+                                clearCLI()
                                 proposedMenu = generatemenu()
                                 print(proposedMenu[0][0])
                                 if proposedMenu[0][1][0] == 2:
@@ -97,7 +97,7 @@ while True:
                                 if regChoice == 1:
                                     confirmedMenu = proposedMenu
                                     listList = generatelist(confirmedMenu)
-                                    os.system('cls')
+                                    clearCLI()
                                     print('Ingredients\n')
                                     for i in listList:
                                         print(i)
@@ -113,7 +113,7 @@ while True:
                     if menuChoice == 2:
                         while True:
                             try:
-                                os.system('cls')
+                                clearCLI()
                                 proposedMenu = generatepie()
                                 print(proposedMenu[0][0])
 
@@ -186,7 +186,7 @@ while True:
                                 if pieChoice == 1:
                                     confirmedMenu = proposedMenu
                                     listList = generatelist(confirmedMenu)
-                                    os.system('cls')
+                                    clearCLI()
                                     print('Ingredients\n')
                                     for i in listList:
                                         print(i)
@@ -202,7 +202,7 @@ while True:
                     if menuChoice == 3:
                         while True:
                             try:
-                                os.system('cls')
+                                clearCLI()
                                 proposedMenu = generatenew()
                                 print(proposedMenu[0][0])
 
@@ -275,7 +275,7 @@ while True:
                                 if newChoice == 1:
                                     confirmedMenu = proposedMenu
                                     listList = generatelist(confirmedMenu)
-                                    os.system('cls')
+                                    clearCLI()
                                     print('Ingredients\n')
                                     for i in listList:
                                         print(i)
@@ -293,13 +293,14 @@ while True:
                 except ValueError:
                     print('Please enter a number between 1 and 4')
         if optChoice == 5:
-            os.system('cls')
+            clearCLI()
             print('Enjoy your meals, goodbye!')
             time.sleep(1)
-            os.system('cls')
+            clearCLI()
             break
         if optChoice == 6:
-            mealchange()
+            print(meallist())
+            time.sleep(3)
         if optChoice == 7:
             print(mealselector())
         if optChoice == 8:
