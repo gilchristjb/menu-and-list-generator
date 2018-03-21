@@ -12,7 +12,7 @@ Vegetarian
 
 No meat
 
-['Courgettes', 'Peppers', 'Mushrooms', 'Tinned Tomatoes', 'Vegetable Stock', 'Onions', 'Pasta']
+['Courgettes', 'Pepper', 'Mushrooms', 'Tinned Tomatoes', 'Vegetable Stock', 'Onions', 'Pasta']
 
 [2, 2, 300, 2, 1, 1, 400]
 

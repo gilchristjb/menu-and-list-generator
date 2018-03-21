@@ -12,7 +12,7 @@ Fish
 
 No meat
 
-['Prawns', 'Stir Fry Vegetables', 'Noodles', 'Stir Fry Sauce', 'Peppers']
+['Prawns', 'Stir Fry Vegetables', 'Noodles', 'Stir Fry Sauce', 'Pepper']
 
 [2, 1, 400, 2, 1]
 

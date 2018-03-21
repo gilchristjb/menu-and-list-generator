@@ -12,11 +12,11 @@ Fish
 
 No meat
 
-['Prawns', 'Stir Fry Vegetables', 'Rice', 'Stir Fry Sauce', 'Peppers']
+['Prawns', 'Stir Fry Vegetables', 'Rice', 'Stir Fry Sauce', 'Pepper']
 
 [2, 1, 400, 2, 1]
 
-['packets', 'packet', 'g', 'packets', 'pepper']
+['packets', 'packet', 'g', 'packets', 'peppers']
 
 ['Soy Sauce']
 

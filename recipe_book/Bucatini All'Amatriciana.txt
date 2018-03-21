@@ -1,0 +1,22 @@
+Bucatini All'Amatriciana
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Pasta
+
+Meat
+
+Pork
+
+['Pasta', 'Pasata', 'Bacon', 'Chilis', 'Pecorino']
+
+[400, 2, 1, 4, 150]
+
+['g', 'cartons', 'packet', 'chilis', 'g']
+
+['Salt', 'Pepper', 'Tomatoe Puree', 'Olive Oil']
+

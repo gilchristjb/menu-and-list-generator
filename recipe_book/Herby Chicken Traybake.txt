@@ -1,0 +1,21 @@
+Herby Chicken Traybake
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Potato
+
+Meat
+
+Poultry
+
+['Potatoes', 'Chicken Legs', 'Garlic', 'Rosemary', 'Lemon']
+
+[800, 4, 12, 4, 2]
+
+['g', 'legs', 'cloves', 'sprigs', 'lemons']
+
+['Salt', 'Pepper', 'Olive Oil']
