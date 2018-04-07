@@ -1,0 +1,21 @@
+Pork Stir Fry With Rice
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Rice
+
+Meat
+
+Pork
+
+['Pork', 'Stir Fry Vegetables', 'Peppers', 'Rice', 'Stir Fry Sauce']
+
+[400, 1, 1, 400, 1]
+
+['g', 'pack', 'peppers', 'g', 'sachet']
+
+['Soy Sauce']

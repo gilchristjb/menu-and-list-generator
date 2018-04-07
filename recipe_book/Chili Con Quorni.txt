@@ -1,0 +1,22 @@
+Chili Con Quorni
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Rice
+
+Vegetarian
+
+No meat
+
+['Quorn Mince', 'Red Kidney Beans', 'Tinned Tomatoes', 'Pepper', 'Onion', 'Rice', 'Chili Powder']
+
+[300, 1, 2, 1, 1, 400, 1]
+
+['g', 'tin', 'tins', 'peppers', 'onions', 'g', 'tablespoon']
+
+['Salt', 'Pepper', 'Chili Flakes', 'Stock']
+

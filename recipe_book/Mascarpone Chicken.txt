@@ -1,0 +1,22 @@
+Mascarpone Chicken
+
+Two days
+
+Not faffy
+
+Not pie
+
+Pasta
+
+Meat
+
+Poultry
+
+['Chicken Thigh Fillets', 'Mascarpone', 'Onion', 'Pepper', 'Mushrooms', 'Tinned Cherry Tomatoes', 'Pasta', 'Chicken Stock']
+
+[600, 250, 2, 1, 150, 2, 400, 1]
+
+['g', 'g', 'onions', 'pepper', 'g', 'tins', 'g', 'cubes']
+
+['Salt', 'Pepper', 'Basil', 'Oregano']
+

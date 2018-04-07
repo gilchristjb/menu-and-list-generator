@@ -1,0 +1,21 @@
+Pork Stir Fry With Noodles
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Pasta
+
+Meat
+
+Pork
+
+['Pork', 'Stir Fry Vegetables', 'Peppers', 'Noodles', 'Stir Fry Sauce']
+
+[400, 1, 1, 400, 1]
+
+['g', 'pack', 'peppers', 'g', 'sachet']
+
+['Soy Sauce']

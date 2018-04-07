@@ -37,7 +37,7 @@ while True:
                             try:
                                 clearCLI()
                                 proposedMenu = generatemenu()
-                                print(proposedMenu[0][0])
+                                print(proposedMenu[0][0]) #better to have a function to print the meal characteristics rather than 50 lines of print statements
                                 if proposedMenu[0][1][0] == 2:
                                     print(' - ' + str(proposedMenu[0][1][0]) + ' days')
                                 else:

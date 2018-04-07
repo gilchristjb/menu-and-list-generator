@@ -62,7 +62,7 @@ def newmeal():
                 if current_ing == 'End':
                     break
                 else:
-                    ing_am = int(input('How much of this ingredient?\n'))
+                    ing_am = int(input('How much of this ingredient?\n')) #this shloud be a float
                     ing_unit = input('what is the unit?\n').lower()
                     ingredients.append(current_ing)
                     amounts.append(ing_am)

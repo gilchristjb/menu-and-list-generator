@@ -1,0 +1,21 @@
+Steak And Ale Pie (Hairy Bikers)
+
+Two days
+
+Faffy
+
+Pie
+
+Potato
+
+Meat
+
+Beef
+
+['Stewing Steak', 'Flour', 'Butter', 'Onion', 'Galic', 'Button Mushrooms', 'Fresh Thyme', 'Ale', 'Beef Stock', 'Puff Pastry', 'Egg', 'Potatoes', 'Carrots']
+
+[900, 25, 100, 2, 2, 150, 2, 400, 500, 1, 1, 1, 1200]
+
+['g', 'g', 'g', 'onions', 'cloves', 'g', 'sprigs', 'ml', 'ml', 'pack', 'egg', 'kg', 'g']
+
+['Salt', 'Pepper', 'Thyme', 'Flour', 'Olive Oil']

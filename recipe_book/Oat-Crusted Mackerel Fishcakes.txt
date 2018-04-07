@@ -1,0 +1,21 @@
+Oat-Crusted Mackerel Fishcakes
+
+Two days
+
+Faffy
+
+Not pie
+
+Rice
+
+Fish
+
+No meat
+
+['Potato', 'Creamed Horseradish', 'Lemon', 'Smoked Makerel Fillets', 'Egg', 'Breadcrumbs', 'Oats', 'Creme Fraiche', 'Rice', 'Brean Beans']
+
+[100, 4, 2, 230, 1, 70, 40, 1, 400, 220]
+
+['g', 'tablespoons', 'lemons', 'g', 'eggs', 'g', 'g', 'tub', 'g', 'g']
+
+['Vegetable Oil', 'Pepper', 'Lettuce']
