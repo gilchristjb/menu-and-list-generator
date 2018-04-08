@@ -1290,3 +1290,67 @@ def generatelist(confirmedMenu):
     listFile.close()
 
     return(listList)
+
+def menuprint(proposedMenu):
+    """Given a suitable menu list of meal characteristics (proposedMenu), this will print the important ones in an easy to read format.
+    """
+    #meal 1
+    print(proposedMenu[0][0])
+    if proposedMenu[0][1][0] == 2:
+        print(' - ' + str(proposedMenu[0][1][0]) + ' days')
+    else:
+        print(' - ' + str(proposedMenu[0][1][0]) + ' day')
+    print(' - ' + str(proposedMenu[0][4]))
+    if proposedMenu[0][5] == 'Meat':
+        print(' - ' + str(proposedMenu[0][5]) + ' (' + str(proposedMenu[0][6]) + ')')
+    else:
+        print(' - ' + str(proposedMenu[0][5]))
+    if proposedMenu[0][2] == 1:
+        print(' - Faffy\n')
+    else:
+        print(' - Not faffy\n')
+
+    #meal 2
+    print(proposedMenu[1][0])
+    if proposedMenu[1][1][0] == 2:
+        print(' - ' + str(proposedMenu[1][1][0]) + ' days')
+    else:
+        print(' - ' + str(proposedMenu[1][1][0]) + ' day')
+    if proposedMenu[1][5] == 'Meat':
+        print(' - ' + str(proposedMenu[1][5]) + ' (' + str(proposedMenu[1][6]) + ')')
+    else:
+        print(' - ' + str(proposedMenu[1][5]))
+    if proposedMenu[1][2] == 1:
+        print(' - Faffy\n')
+    else:
+        print(' - Not faffy\n')
+
+    #meal 3
+    print(proposedMenu[2][0])
+    if proposedMenu[2][1][0] == 2:
+        print(' - ' + str(proposedMenu[2][1][0]) + ' days')
+    else:
+        print(' - ' + str(proposedMenu[2][1][0]) + ' day')
+    if proposedMenu[2][5] == 'Meat':
+        print(' - ' + str(proposedMenu[2][5]) + ' (' + str(proposedMenu[2][6]) + ')')
+    else:
+        print(' - ' + str(proposedMenu[2][5]))
+    if proposedMenu[2][2] == 1:
+        print(' - Faffy\n')
+    else:
+        print(' - Not faffy\n')
+
+    #meal 4
+    print(proposedMenu[3][0])
+    if proposedMenu[3][1][0] == 2:
+        print(' - ' + str(proposedMenu[3][1][0]) + ' days')
+    else:
+        print(' - ' + str(proposedMenu[3][1][0]) + ' day')
+    if proposedMenu[3][5] == 'Meat':
+        print(' - ' + str(proposedMenu[3][5]) + ' (' + str(proposedMenu[3][6]) + ')')
+    else:
+        print(' - ' + str(proposedMenu[3][5]))
+    if proposedMenu[3][2] == 1:
+        print(' - Faffy\n')
+    else:
+        print(' - Not faffy\n')

@@ -1,4 +1,4 @@
-from menufunctions_win import newmeal, mealchange, deletemeal, meallist, clearCLI, mealselector, generatemenu, generatepie, generatelist, generatenew
+from menufunctions_win import newmeal, mealchange, deletemeal, meallist, clearCLI, mealselector, generatemenu, generatepie, generatelist, generatenew, menuprint
 import os
 import time
 
@@ -37,59 +37,7 @@ while True:
                             try:
                                 clearCLI()
                                 proposedMenu = generatemenu()
-                                print(proposedMenu[0][0]) #better to have a function to print the meal characteristics rather than 50 lines of print statements
-                                if proposedMenu[0][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[0][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[0][1][0]) + ' day')
-                                print(' - ' + str(proposedMenu[0][4]))
-                                if proposedMenu[0][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[0][5]) + ' (' + str(proposedMenu[0][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[0][5]))
-                                if proposedMenu[0][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[1][0])
-                                if proposedMenu[1][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[1][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[1][1][0]) + ' day')
-                                if proposedMenu[1][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[1][5]) + ' (' + str(proposedMenu[1][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[1][5]))
-                                if proposedMenu[1][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[2][0])
-                                if proposedMenu[2][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[2][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[2][1][0]) + ' day')
-                                if proposedMenu[2][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[2][5]) + ' (' + str(proposedMenu[2][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[2][5]))
-                                if proposedMenu[2][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[3][0])
-                                if proposedMenu[3][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[3][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[3][1][0]) + ' day')
-                                if proposedMenu[3][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[3][5]) + ' (' + str(proposedMenu[3][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[3][5]))
-                                if proposedMenu[3][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
+                                menuprint(proposedMenu)
                                 regChoice = int(input("""Looks tasty?\n\n
             1 - Yeah!\n
             2 - Nah, re-roll!\n
@@ -115,70 +63,7 @@ while True:
                             try:
                                 clearCLI()
                                 proposedMenu = generatepie()
-                                print(proposedMenu[0][0])
-
-                                if proposedMenu[0][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[0][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[0][1][0]) + ' day')
-
-                                print(' - ' + str(proposedMenu[0][4]))
-                                if proposedMenu[0][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[0][5]) + ' (' + str(proposedMenu[0][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[0][5]))
-                                if proposedMenu[0][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[1][0])
-
-                                if proposedMenu[1][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[1][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[1][1][0]) + ' day')
-
-                                print(' - ' + str(proposedMenu[1][4]))
-                                if proposedMenu[1][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[1][5]) + ' (' + str(proposedMenu[1][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[1][5]))
-                                if proposedMenu[1][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[2][0])
-
-                                if proposedMenu[2][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[2][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[2][1][0]) + ' day')
-
-                                print(' - ' + str(proposedMenu[2][4]))
-                                if proposedMenu[2][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[2][5]) + ' (' + str(proposedMenu[2][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[2][5]))
-                                if proposedMenu[2][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[3][0])
-
-                                if proposedMenu[3][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[3][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[3][1][0]) + ' day')
-
-                                print(' - ' + str(proposedMenu[3][4]))
-                                if proposedMenu[3][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[3][5]) + ' (' + str(proposedMenu[3][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[3][5]))
-                                if proposedMenu[3][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
+                                menuprint(proposedMenu)
                                 pieChoice = int(input("""Looks tasty?\n\n
             1 - Yeah!\n
             2 - Nah, re-roll!\n
@@ -204,70 +89,7 @@ while True:
                             try:
                                 clearCLI()
                                 proposedMenu = generatenew()
-                                print(proposedMenu[0][0])
-
-                                if proposedMenu[0][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[0][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[0][1][0]) + ' day')
-
-                                print(' - ' + str(proposedMenu[0][4]))
-                                if proposedMenu[0][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[0][5]) + ' (' + str(proposedMenu[0][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[0][5]))
-                                if proposedMenu[0][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[1][0])
-
-                                if proposedMenu[1][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[1][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[1][1][0]) + ' day')
-
-                                print(' - ' + str(proposedMenu[1][4]))
-                                if proposedMenu[1][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[1][5]) + ' (' + str(proposedMenu[1][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[1][5]))
-                                if proposedMenu[1][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[2][0])
-
-                                if proposedMenu[2][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[2][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[2][1][0]) + ' day')
-
-                                print(' - ' + str(proposedMenu[2][4]))
-                                if proposedMenu[2][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[2][5]) + ' (' + str(proposedMenu[2][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[2][5]))
-                                if proposedMenu[2][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
-                                print(proposedMenu[3][0])
-
-                                if proposedMenu[3][1][0] == 2:
-                                    print(' - ' + str(proposedMenu[3][1][0]) + ' days')
-                                else:
-                                    print(' - ' + str(proposedMenu[3][1][0]) + ' day')
-
-                                print(' - ' + str(proposedMenu[3][4]))
-                                if proposedMenu[3][5] == 'Meat':
-                                    print(' - ' + str(proposedMenu[3][5]) + ' (' + str(proposedMenu[3][6]) + ')')
-                                else:
-                                    print(' - ' + str(proposedMenu[3][5]))
-                                if proposedMenu[3][2] == 1:
-                                    print(' - Faffy\n')
-                                else:
-                                    print(' - Not faffy\n')
+                                menuprint(proposedMenu)
                                 newChoice = int(input("""Looks tasty?\n\n
             1 - Yeah!\n
             2 - Nah, re-roll!\n
@@ -303,10 +125,11 @@ while True:
             time.sleep(3)
         if optChoice == 7:
             print(mealselector())
+            time.sleep(3)
         if optChoice == 8:
-            generatemenu()
+            time.sleep(3)
         if optChoice == 9:
-            confirmedMenu = generatemenu()
-            generatelist(confirmedMenu)
+            menuprint(generatemenu())
+            time.sleep(3)
     except ValueError:
         print('Please enter a number between 1 and 5')

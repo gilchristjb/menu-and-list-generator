@@ -20,3 +20,4 @@ Pork
 
 ['Salt', 'Pepper', 'Oil']
 
+http://www.goodhousekeeping.co.uk/food/recipes/speedy-sausage-stew

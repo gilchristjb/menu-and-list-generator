@@ -19,3 +19,5 @@ Beef
 ['g', 'g', 'g', 'onions', 'cloves', 'g', 'sprigs', 'ml', 'ml', 'pack', 'egg', 'kg', 'g']
 
 ['Salt', 'Pepper', 'Thyme', 'Flour', 'Olive Oil']
+
+http://www.goodtoknow.co.uk/recipes/hairy-bikers-steak-and-ale-pie
