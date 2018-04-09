@@ -18,4 +18,4 @@ Pork
 
 ['g', 'cartons', 'packet', 'chillies', 'g']
 
-['Salt', 'Pepper', 'Tomatoe Puree', 'Olive Oil']
+['Salt', 'Pepper', 'Tomato Puree', 'Olive Oil']
