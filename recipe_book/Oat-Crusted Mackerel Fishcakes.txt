@@ -14,10 +14,8 @@ No meat
 
 ['Potato', 'Creamed Horseradish', 'Lemon', 'Smoked Makerel Fillets', 'Egg', 'Breadcrumbs', 'Oats', 'Creme Fraiche', 'Rice', 'Brean Beans']
 
-[100, 4, 2, 230, 1, 70, 40, 1, 400, 220]
+[100, 4, 2, 230, 1, 2, 40, 1, 400, 220]
 
-['g', 'tablespoons', 'lemons', 'g', 'eggs', 'g', 'g', 'tub', 'g', 'g']
+['g', 'tablespoons', 'lemons', 'g', 'eggs', 'slices', 'g', 'tub', 'g', 'g']
 
 ['Vegetable Oil', 'Pepper', 'Lettuce']
-
-http://www.deliciousmagazine.co.uk/recipes/oat-crusted-mackerel-and-horseradish-fishcakes-with-herby-creme-fraiche/
