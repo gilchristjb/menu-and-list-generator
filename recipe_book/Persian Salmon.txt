@@ -1,0 +1,21 @@
+Persian Salmon
+
+Two days
+
+Not faffy
+
+Not pie
+
+Rice
+
+Fish
+
+No meat
+
+['Salmon', 'Onion', 'Galrlic', 'Crushed Walnuts', 'Candied Peel', 'Pomegranate Syrup', 'Lime Juice', 'Pomegranate Seeds', 'Rice']
+
+[600, 1, 4, 150, 25, 2, 1, 1, 400]
+
+['g', 'onions', 'cloves', 'g', 'g', 'tablespoons', 'lime', 'pomegranate', 'g']
+
+['Salt', 'Pepper', 'Advieh']
