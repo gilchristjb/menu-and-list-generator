@@ -1,0 +1,22 @@
+Chicken Cashew
+
+Two days
+
+Not faffy
+
+Not pie
+
+Rice
+
+Meat
+
+Poultry
+
+['Chicken Thighs', 'Onion', 'Garlic', 'Crushed Cashew Nuts', 'Tinned Tomatoes', 'Turmeric', 'Advieh', 'Ginger', 'Cumin', 'Cardamon', 'Rice']
+
+[600, 1, 4, 200, 2, 1, 1, 1, 1, 5, 400]
+
+['g', 'onions', 'cloves', 'g', 'tins', 'teaspoon', 'teaspoon', 'teaspoon', 'teaspoon', 'seeds', 'g']
+
+['Salt', 'Pepper', 'Olive Oil']
+
