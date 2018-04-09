@@ -12,11 +12,10 @@ Meat
 
 Pork
 
-['Pasta', 'Pasata', 'Bacon', 'Chilis', 'Pecorino']
+['Pasta', 'Passata', 'Bacon', 'Red Chilli', 'Pecorino']
 
 [400, 2, 1, 4, 150]
 
-['g', 'cartons', 'packet', 'chilis', 'g']
+['g', 'cartons', 'packet', 'chillies', 'g']
 
 ['Salt', 'Pepper', 'Tomatoe Puree', 'Olive Oil']
-

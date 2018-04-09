@@ -12,10 +12,10 @@ Fish
 
 No meat
 
-['Salmon', 'Onion', 'Galrlic', 'Crushed Walnuts', 'Candied Peel', 'Pomegranate Syrup', 'Lime Juice', 'Pomegranate Seeds', 'Rice']
+['Salmon', 'Onion', 'Garlic', 'Crushed Walnuts', 'Candied Peel', 'Pomegranate Syrup', 'Lime', 'Pomegranate', 'Rice']
 
 [600, 1, 4, 150, 25, 2, 1, 1, 400]
 
-['g', 'onions', 'cloves', 'g', 'g', 'tablespoons', 'lime', 'pomegranate', 'g']
+['g', 'onions', 'cloves', 'g', 'g', 'tbsp', 'limes', 'pomagranates', 'g']
 
 ['Salt', 'Pepper', 'Advieh']

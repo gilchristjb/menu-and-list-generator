@@ -12,11 +12,10 @@ Meat
 
 Poultry
 
-['Chicken Thighs', 'Tinned Tomatoes', 'Onions', 'Sugar', 'Refried Beans', 'Avacados', 'Nice Tomatoes', 'Jalapeno Peppers', 'Tortillas', 'Lettece', 'Garlic', 'Chipotle Paste']
+['Chicken Thighs', 'Tinned Tomatoes', 'Onion', 'Sugar', 'Refried Beans', 'Avacado', 'Nice Tomatoes', 'Jalapeno Peppers', 'Tortillas', 'Lettuce', 'Garlic', 'Chipotle Paste', 'Cheese']
 
-[1, 2, 4, 1, 1, 2, 6, 1, 2, 1, 3, 3]
+[600, 2, 4, 1, 1, 2, 6, 1, 2, 1, 3, 3, 100]
 
-['packets', 'tins', 'onions', 'tsp', 'tins', 'avacados', 'tomatoes', 'jar', '8-packs', 'lettece', 'cloves', 'tsp']
+['g', 'tins', 'onions', 'tsp', 'tins', 'avacados', 'tomatoes', 'jar', '8-packs', 'lettuces', 'cloves', 'tsp', 'g']
 
-['Cheese', 'Salt', 'Pepper', 'Oil']
-
+['Salt', 'Pepper', 'Oil']
