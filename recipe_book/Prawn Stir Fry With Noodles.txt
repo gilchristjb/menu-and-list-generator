@@ -14,9 +14,8 @@ No meat
 
 ['Prawns', 'Stir Fry Vegetables', 'Noodles', 'Stir Fry Sauce', 'Pepper']
 
-[2, 1, 400, 2, 1]
+[300, 1, 400, 2, 1]
 
-['packets', 'packet', 'g', 'packets', 'pepper']
+['g', 'packet', 'g', 'packets', 'peppers']
 
 ['Soy Sauce']
-

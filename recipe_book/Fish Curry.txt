@@ -12,13 +12,10 @@ Fish
 
 No meat
 
-['White Fish', 'Rice', 'Onions', 'Ginger Root', 'Garlic', 'Tinned Tomatoes', 'Red Chilies', 'Peppers', 'Garam Masala', 'Cumin', 'Ground Coriander', 'Ground Turmeric', 'Chili Powder', 'Curry Leaves']
+['White Fish', 'Rice', 'Onion', 'Ginger Root', 'Garlic', 'Tinned Tomatoes', 'Red Chilli', 'Pepper', 'Garam Masala', 'Cumin', 'Ground Coriander', 'Ground Turmeric', 'Chili Powder', 'Curry Leaves']
 
 [500, 400, 2, 30, 3, 1, 3, 1, 1, 2, 1, 1, 2, 2]
 
-['g', 'g', 'onions', 'g', 'cloves', 'tin', 'chilis', 'pepper', 'tsp', 'tsp', 'tsp', 'tsp', 'tsp', 'leaves']
+['g', 'g', 'onions', 'g', 'cloves', 'tins', 'chillies', 'peppers', 'tsp', 'tsp', 'tsp', 'tsp', 'tsp', 'leaves']
 
 ['Mango Chutney', 'Lime Pickle', 'Brinjal Pickle', 'Naans']
-
-http://www.currytastic.com/best-chicken-madras-recipe-ever/
-

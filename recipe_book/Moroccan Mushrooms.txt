@@ -12,11 +12,10 @@ Vegetarian
 
 No meat
 
-['Mushrooms', 'Tinned Tomatoes', 'Chickpeas', 'Onions', 'Honey', 'Couscous']
+['Mushrooms', 'Tinned Tomatoes', 'Chickpeas', 'Onion', 'Honey', 'Couscous', 'Cinnamon', 'Cumin', 'Dried Apricots', 'Fresh Parsley']
 
-[600, 2, 1, 1, 1, 400]
+[600, 2, 1, 2, 1, 400, 2, 2, 40, 1]
 
-['g', 'tins', 'tins', 'onions', 'tsp', 'g']
+['g', 'tins', 'tins', 'onions', 'tsp', 'g', 'tsp', 'tsp', 'g', 'bunch']
 
-['Cinnamon', 'Cumin', 'Salt', 'Pepper', 'Oil']
-
+['Salt', 'Pepper', 'Oil']

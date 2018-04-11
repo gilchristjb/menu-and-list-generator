@@ -12,12 +12,10 @@ Meat
 
 Pork
 
-['Sausages', 'Puy Lentils', 'Chicken Stock', 'Kale', 'Onions', 'Little Breads']
+['Sausage', 'Puy Lentils', 'Chicken Stock', 'Kale', 'Onion', 'Little Breads', 'Balsamic Vinegar']
 
-[12, 3, 1, 1, 2, 4]
+[12, 3, 1, 225, 2, 4, 3]
 
-['sausages', 'packets', 'stock cube', 'packet', 'onions', 'breads']
+['sausages', 'packets', 'cube', 'g', 'onions', 'breads', 'tbsp']
 
 ['Salt', 'Pepper', 'Oil']
-
-http://www.goodhousekeeping.co.uk/food/recipes/speedy-sausage-stew
