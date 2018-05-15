@@ -1,0 +1,22 @@
+Fish And Cider Pie
+
+Two days
+
+Faffy
+
+Pie
+
+Potato
+
+Fish
+
+No meat
+
+['Butter', 'Plain Flour', 'Double Cream', 'Dry Cider', 'Prawns', 'Haddock Fillets', 'Smoked Haddock Fillets', 'Frozen Peas', 'Spring Onions', 'Flat Leaf Parsley', 'Puff Pastry', 'Egg', 'Potatoes', 'Carrot', 'Broccoli']
+
+[50.0, 50.0, 300.0, 200.0, 250.0, 450.0, 125.0, 50.0, 1.0, 1.0, 500.0, 2.0, 400.0, 500.0, 1.0]
+
+['g', 'g', 'ml', 'ml', 'g', 'g', 'g', 'g', 'bunches', 'bunches', 'g', 'eggs', 'g', 'g', 'spears']
+
+['Olive Oil', 'Salt', 'Pepper', 'Gravey', 'Garlic', 'Thyme']
+
