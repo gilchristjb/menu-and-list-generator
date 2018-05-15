@@ -1321,6 +1321,7 @@ def menuprint(proposedMenu):
         print(' - ' + str(proposedMenu[1][1][0]) + ' days')
     else:
         print(' - ' + str(proposedMenu[1][1][0]) + ' day')
+    print(' - ' + str(proposedMenu[1][4]))
     if proposedMenu[1][5] == 'Meat':
         print(' - ' + str(proposedMenu[1][5]) + ' (' + str(proposedMenu[1][6]) + ')')
     else:
@@ -1336,6 +1337,7 @@ def menuprint(proposedMenu):
         print(' - ' + str(proposedMenu[2][1][0]) + ' days')
     else:
         print(' - ' + str(proposedMenu[2][1][0]) + ' day')
+    print(' - ' + str(proposedMenu[2][4]))
     if proposedMenu[2][5] == 'Meat':
         print(' - ' + str(proposedMenu[2][5]) + ' (' + str(proposedMenu[2][6]) + ')')
     else:
@@ -1351,6 +1353,7 @@ def menuprint(proposedMenu):
         print(' - ' + str(proposedMenu[3][1][0]) + ' days')
     else:
         print(' - ' + str(proposedMenu[3][1][0]) + ' day')
+    print(' - ' + str(proposedMenu[3][4]))
     if proposedMenu[3][5] == 'Meat':
         print(' - ' + str(proposedMenu[3][5]) + ' (' + str(proposedMenu[3][6]) + ')')
     else:
