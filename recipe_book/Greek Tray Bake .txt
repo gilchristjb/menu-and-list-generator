@@ -1,0 +1,22 @@
+Greek Tray Bake 
+
+Two days
+
+Faffy
+
+Not pie
+
+Potato
+
+Meat
+
+Lamb
+
+['Breadcrumbs', 'Lamb Mince', 'Egg', 'Onion', 'Mint', 'Potato', 'Courgette', 'Cherry Tomato', 'Feta Cheese', 'Houmous', 'Pitta Bread']
+
+[2.0, 250.0, 1.0, 2.0, 1.0, 2.0, 2.0, 12.0, 50.0, 1.0, 6.0]
+
+['slices', 'g', 'egg', 'onions', 'bunch', 'potatoes', 'courgettes', 'tomatoes', 'g', 'tub', 'breads']
+
+['Oil', 'Salt', 'Pepper']
+

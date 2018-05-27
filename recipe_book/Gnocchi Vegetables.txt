@@ -1,0 +1,22 @@
+Gnocchi Vegetables
+
+Two days
+
+Not faffy
+
+Not pie
+
+Potato
+
+Vegetarian
+
+No meat
+
+['Gnocchi', 'Pepper', 'Chopped Tomato', 'Onion', 'Mushrooms', 'Mozzerella']
+
+[500.0, 1.0, 2.0, 1.0, 300.0, 1.0]
+
+['g', 'pepper', 'tins', 'onions', 'g', 'ball']
+
+['Oil', 'Basil', 'Oregano', 'Salt', 'Pepper']
+
