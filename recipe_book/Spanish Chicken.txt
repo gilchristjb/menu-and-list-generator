@@ -1,0 +1,22 @@
+Spanish Chicken
+
+Two days
+
+Not faffy
+
+Not pie
+
+Potato
+
+Meat
+
+Poultry
+
+['Onion', 'Garlic', 'Chopped Tomatoes', 'Chickpeas', 'Carrot', 'Potato', 'Chicken Thigh', 'Chorizo']
+
+[3.0, 3.0, 2.0, 1.0, 2.0, 1.0, 1.0, 1.0]
+
+['onions', 'cloves', 'tins', 'tin', 'carrots', 'potatoes', 'pack', 'sausage']
+
+['Breads', 'Oil', 'Chilli Flakes', 'Paprika', 'Salt', 'Pepper', 'Water']
+

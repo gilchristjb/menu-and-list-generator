@@ -1,0 +1,22 @@
+Red Thai Curry
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Rice
+
+Fish
+
+No meat
+
+['Thai Red Curry Paste', 'Coconut Milk', 'Pepper', 'Rice', 'Prawn', 'Ginger', 'Water Chesnuts', 'Onion']
+
+[2.0, 1.0, 1.0, 400.0, 2.0, 3.0, 11.0, 1.0]
+
+['tbsp', 'tin', 'pepper', 'g', 'packs', 'cm', 'tin', 'onion']
+
+['Oil']
+

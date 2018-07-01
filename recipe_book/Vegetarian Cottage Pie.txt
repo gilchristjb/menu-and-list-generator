@@ -1,0 +1,22 @@
+Vegetarian Cottage Pie
+
+Two days
+
+Not faffy
+
+Not pie
+
+Potato
+
+Vegetarian
+
+No meat
+
+['Sweet Potato', 'Onion', 'Carrot', 'Thyme', 'Red Wine', 'Chopped Tomato', 'Vegetable Stock', 'Green Lentils', 'Butter', 'Cheese']
+
+[1.0, 1.0, 2.0, 2.0, 200.0, 1.0, 2.0, 1.0, 25.0, 85.0]
+
+['kg', 'onions', 'carrots', 'tbsp', 'ml', 'tin', 'cubes', 'tin', 'gg', 'g']
+
+['Little Breads', 'Green Vegetables', 'Oil', 'Salt', 'Pepper']
+

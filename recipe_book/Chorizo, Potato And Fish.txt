@@ -1,0 +1,22 @@
+Chorizo, Potato And Fish
+
+One or two days
+
+Not faffy
+
+Not pie
+
+Potato
+
+Fish
+
+No meat
+
+['Chorizo', 'New Potato', 'White Wine', 'White Fish', 'Cherry Tomato', 'Parsley', 'Green Beans']
+
+[1.0, 900.0, 4.0, 4.0, 100.0, 20.0, 200.0]
+
+['sausage', 'g', 'tbsp', 'fillets', 'g', 'g', 'g']
+
+['Oil', 'Bread']
+

@@ -1,0 +1,22 @@
+Spaghetti Carbanara
+
+One day
+
+Not faffy
+
+Not pie
+
+Pasta
+
+Meat
+
+Pork
+
+['Pasta', 'Egg', 'Bacon', 'Parmasan ']
+
+[200.0, 2.0, 5.0, 75.0]
+
+['g', 'eggs', 'rashers', 'g']
+
+['Oil', 'Pepper']
+
