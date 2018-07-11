@@ -121,8 +121,11 @@ while True:
             clearCLI()
             break
         if optChoice == 6:
-            print(meallist())
-            time.sleep(3)
+            meal_list_check = meallist()
+            clearCLI()
+            for i in meal_list_check:
+                print(i)
+            input('\nPress enter to continue\n')
         if optChoice == 7:
             print(mealselector())
             time.sleep(3)
